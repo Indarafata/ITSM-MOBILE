@@ -17,6 +17,7 @@ class Login extends StatelessWidget {
       body: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
+            physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.all(10),

@@ -17,7 +17,7 @@ class EventController extends GetxController {
 
   @override
   void onInit() {
-    getAllEvent();
+    getAllComputer();
     super.onInit();
   }
 
@@ -26,7 +26,7 @@ class EventController extends GetxController {
     super.onClose();
   }
 
-  Future<void> getAllEvent() async {
+  Future<void> getAllComputer() async {
     isLoading.value = true;
     try {
       final dataComputer = await computer.getAllComputer();
