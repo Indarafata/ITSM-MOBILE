@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
     return ResponsiveSizer(
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
-          title: 'Marriage Story',
+          // title: '',
           theme: ThemeData(
             fontFamily: 'Nunito',
             primarySwatch: Colors.blue,

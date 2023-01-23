@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import '../controllers/splash_controller.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-// import 'package:marriage_story_mobile/constants/theme.dart';
 
 class SplashScreen extends StatelessWidget {
   SplashScreen({Key? key}) : super(key: key);
