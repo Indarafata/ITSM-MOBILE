@@ -6,12 +6,11 @@ import 'package:itsm_mobile/model/computer_model.dart';
 import 'package:itsm_mobile/service/computer_service.dart';
 import '../../../routes/app_pages.dart';
 
-class EventController extends GetxController {
+class ComputerController extends GetxController {
   var computers = <ComputerModel>[].obs;
   // final computer = Get.put(ComputerService());
   var computer = ComputerService();
   final isChekTime = false.obs;
-  int? idEvent;
   DateTime tanggal = DateTime.now();
   final isLoading = false.obs;
 
