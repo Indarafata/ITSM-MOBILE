@@ -5,4 +5,5 @@ abstract class RouteName {
   static const login = '/login';
   static const home = '/home';
   static const computer = '/computer';
+  static const monitor = '/monitor';
 }

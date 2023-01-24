@@ -32,5 +32,9 @@ class AppPages {
       page: () => Computer(),
       // binding: RegisterBinding(),
     ),
+    GetPage(
+      name: RouteName.monitor,
+      page: () => Computer(),
+    ),
   ];
 }

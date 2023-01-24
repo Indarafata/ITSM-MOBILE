@@ -66,7 +66,10 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => (Computer())));
+            },
             label: "Monitors",
             icon: Icons.monitor_sharp,
           ),
@@ -74,7 +77,10 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => (Computer())));
+            },
             label: "Software",
             icon: Icons.apps_sharp,
           ),
@@ -82,7 +88,10 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => (Computer())));
+            },
             label: "Network devices",
             icon: Icons.network_check_sharp,
           ),
@@ -90,7 +99,10 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => (Computer())));
+            },
             label: "Devices",
             icon: Icons.usb_sharp,
           ),
@@ -98,7 +110,10 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => (Computer())));
+            },
             label: "Printers",
             icon: Icons.network_check_sharp,
           ),
@@ -106,7 +121,10 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => (Computer())));
+            },
             label: "Cartridges",
             icon: Icons.network_check_sharp,
           ),
@@ -114,7 +132,10 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => (Computer())));
+            },
             label: "Consumables",
             icon: Icons.square_sharp,
           ),
@@ -122,7 +143,10 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => (Computer())));
+            },
             label: "Phones",
             icon: Icons.phone,
           ),
