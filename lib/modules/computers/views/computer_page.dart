@@ -1,20 +1,19 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
+import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.dart';
 import 'package:itsm_mobile/modules/computers/views/detail.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
 import 'package:itsm_mobile/service/computer_service.dart';
 
-class Computer extends StatefulWidget {
-  const Computer({Key? key}) : super(key: key);
+class Computer extends StatelessWidget {
+  Computer({Key? key}) : super(key: key);
 
-  @override
-  State<Computer> createState() => _Computer();
-}
+  final controller = Get.find<ComputerController>();
 
-class _Computer extends State<Computer> {
   Color colorPrimary = Color(0xFF79DAE8);
   FontWeight medium = FontWeight.w500;
   FontWeight semiBold = FontWeight.w600;
@@ -31,7 +30,8 @@ class _Computer extends State<Computer> {
   late Future<List<ComputerModel>> _computer;
   @override
   void initState() {
-    super.initState();
+    // super.initState();
+    _computer = computer.getAllComputer();
     try {
       _computer = computer.getAllComputer();
     } catch (e) {
@@ -60,58 +60,41 @@ class _Computer extends State<Computer> {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: Column(
+      body:
+          // Obx(
+          //   () =>
+          Column(
         children: <Widget>[
-          FutureBuilder(
-            future: _computer,
-            builder: (context, AsyncSnapshot<List<ComputerModel>> snapshot) {
-              var state = snapshot.connectionState;
-              if (state != ConnectionState.done) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else {
-                if (snapshot.hasData) {
-                  return Expanded(
-                    child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (context, index) {
-                        // var event = snapshot.data?.data.first;
-                        // var computer = snapshot.data!.toList();
-                        var computer = snapshot.data![index];
-                        angka++;
-                        // String ? ngok;
+          ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            physics: const BouncingScrollPhysics(),
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (context, index) {
+              // var event = snapshot.data?.data.first;
+              // var computer = snapshot.data!.toList();
+              // var computer = snapshot.data![index];
+              var computer = controller.computers[index];
+              angka++;
+              // String ? ngok;
 
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, DetailPage.url,
-                                arguments: computer!);
-                          },
-                          // child: Text(computer.name.toString())
-                          child: ListComputer(computer!),
-                        );
-                      },
-                      // itemCount: 3,
-                      itemCount: snapshot.data!.length,
-                    ),
-                  );
-                } else if (snapshot.hasError) {
-                  return Center(
-                    child: Text(
-                      snapshot.error.toString(),
-                    ),
-                  );
-                } else {
-                  return const Text('empty');
-                }
-              }
+              return GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, DetailPage.url,
+                      arguments: computer!);
+                },
+                // child: Text(computer.name.toString())
+                child: ListComputer(computer!),
+              );
+
+              // return Text(controller.computers[index].name);
             },
+            itemCount: controller.computers.length,
+            // itemCount: snapshot.data!.length,
           ),
         ],
       ),
+      // ),
     );
   }
 

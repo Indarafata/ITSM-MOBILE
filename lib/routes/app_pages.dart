@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:itsm_mobile/modules/computers/bindings/computer_binding.dart';
 import 'package:itsm_mobile/modules/computers/views/computer_page.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
 import 'package:itsm_mobile/modules/login/bindings/login_binding.dart';
@@ -30,7 +31,7 @@ class AppPages {
     GetPage(
       name: RouteName.computer,
       page: () => Computer(),
-      // binding: RegisterBinding(),
+      binding: ComputerBinding(),
     ),
   ];
 }
