@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => Get.offAllNamed(RouteName.monitor),
             label: "Monitors",
             icon: Icons.monitor_sharp,
           ),
@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => Get.offAllNamed(RouteName.software),
             label: "Software",
             icon: Icons.apps_sharp,
           ),

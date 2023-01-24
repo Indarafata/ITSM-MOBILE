@@ -15,7 +15,7 @@ class SplashController extends GetxController {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString("token");
     await Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 2),
       () {},
     );
     print(token);

@@ -3,19 +3,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
-import 'package:itsm_mobile/model/computer_model.dart';
-import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.dart';
-import 'package:itsm_mobile/modules/computers/views/detail.dart';
+import 'package:itsm_mobile/model/software_model.dart';
+import 'package:itsm_mobile/modules/software/controllers/software_controller.dart';
+// import 'package:itsm_mobile/modules/software/views/detail.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
-import 'package:itsm_mobile/service/computer_service.dart';
+import 'package:itsm_mobile/service/software_service.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class Computer extends StatelessWidget {
-  Computer({Key? key}) : super(key: key);
+class Software extends StatelessWidget {
+  Software({Key? key}) : super(key: key);
 
-  final controller = Get.find<ComputerController>();
+  final controller = Get.find<SoftwareController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
   FontWeight medium = FontWeight.w500;
@@ -26,9 +26,9 @@ class Computer extends StatelessWidget {
   // Font
   TextStyle fontNunito = const TextStyle(fontFamily: 'Nunito');
 
+  int angka = 0;
   @override
-  void initState() {
-  }
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class Computer extends StatelessWidget {
         // bottomOpacity: 0.0,
         elevation: 0.0,
         title: const Text(
-          "Computer",
+          "Software",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -58,25 +58,26 @@ class Computer extends StatelessWidget {
                   size: 7.h,
                 ),
               )
-            // : Column(
+            :
+            // Column(
             //     children: <Widget>[
-            : ListView.builder(
+            ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
-                  var computer = controller.computers[index];
+                  var software = controller.softwares[index];
 
                   return GestureDetector(
                     onTap: () {
                       // Navigator.pushNamed(context, DetailPage.url,
                       //     arguments: computer!);
                     },
-                    child: ListComputer(computer!),
+                    child: ListSoftware(software!),
                   );
                 },
-                itemCount: controller.computers.length,
+                itemCount: controller.softwares.length,
               ),
         //   ],
         // ),
@@ -84,7 +85,7 @@ class Computer extends StatelessWidget {
     );
   }
 
-  Widget ListComputer(ComputerModel view) {
+  Widget ListSoftware(SoftwareModel view) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -106,7 +107,7 @@ class Computer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      view.name,
+                      view.name!,
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: fontNunito.copyWith(
