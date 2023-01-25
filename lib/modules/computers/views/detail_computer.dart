@@ -7,12 +7,13 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
 import 'package:itsm_mobile/modules/computers/views/update_page.dart';
+import 'package:itsm_mobile/modules/home_page/controllers/home_controllers.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
 import 'computer_page.dart';
 
 class DetailComputer extends StatelessWidget {
-  static final url = "/detail-computer";
   DetailComputer({super.key});
+  final homeController = Get.find<HomeController>();
   final ComputerModel computer = Get.arguments;
 
   @override
@@ -87,8 +88,9 @@ class DetailComputer extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, UpdateComputer.url,
-                          arguments: computer);
+                      // Navigator.pushNamed(context, UpdateComputer.url,
+                      //     arguments: computer);
+                      homeController.alertMessege(context);
                     },
                     child: Text(
                       'Update',
@@ -151,7 +153,14 @@ class DetailComputer extends StatelessWidget {
                                       onHorizontalDragDown: (DragDownDetails) {
                                         Navigator.pop(context);
                                       },
-                                      child: Icon(IconlyLight.arrow_down_2)),
+                                      child: Container(
+                                          color: Colors.white,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              1,
+                                          child:
+                                              Icon(IconlyLight.arrow_down_2))),
                                   Container(
                                     height: 50,
                                     child: ListView(

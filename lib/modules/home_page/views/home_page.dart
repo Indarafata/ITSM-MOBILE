@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/modules/computers/views/computer_page.dart';
+import 'package:itsm_mobile/modules/home_page/controllers/home_controllers.dart';
 import 'package:itsm_mobile/modules/login/views/login.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 import 'package:itsm_mobile/widget/menu_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatelessWidget {
+  final controller = Get.find<HomeController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +67,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => controller.alertMessege(context),
             label: "Network devices",
             icon: Icons.network_check_sharp,
           ),
@@ -72,7 +75,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => controller.alertMessege(context),
             label: "Devices",
             icon: Icons.usb_sharp,
           ),
@@ -80,7 +83,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => controller.alertMessege(context),
             label: "Printers",
             icon: Icons.network_check_sharp,
           ),
@@ -88,7 +91,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => controller.alertMessege(context),
             label: "Cartridges",
             icon: Icons.network_check_sharp,
           ),
@@ -96,7 +99,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => controller.alertMessege(context),
             label: "Consumables",
             icon: Icons.square_sharp,
           ),
@@ -114,28 +117,5 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  void alertMessege(BuildContext context) {
-    showDialog<String>(
-      context: context,
-      builder: (BuildContext context) => AlertDialog(
-        title: const Text('Coming Soon'),
-        // content: const Text('AlertDialog description'),
-        actions: <Widget>[
-          // TextButton(
-          //   onPressed: () => Navigator.pop(context, 'Cancel'),
-          //   child: const Text('Cancel'),
-          // ),
-          Center(
-            child: TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('OK'),
-            ),
-          ),
-        ],
-      ),
-    );
-    ;
   }
 }
