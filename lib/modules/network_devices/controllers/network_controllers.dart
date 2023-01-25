@@ -31,6 +31,7 @@ class NetworkController extends GetxController {
       }
       isLoading.value = false;
     } catch (e) {
+      print(e);
       isLoading.value = false;
       e.toString();
     }

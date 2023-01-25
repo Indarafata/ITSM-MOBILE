@@ -3,11 +3,13 @@ import 'package:itsm_mobile/modules/computers/bindings/computer_binding.dart';
 import 'package:itsm_mobile/modules/computers/views/computer_page.dart';
 import 'package:itsm_mobile/modules/computers/views/detail_computer.dart';
 import 'package:itsm_mobile/modules/computers/views/detail_computer.dart';
-import 'package:itsm_mobile/modules/home_page/bindings/home_binding.dart';
-import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
+import 'package:itsm_mobile/modules/home/bindings/home_binding.dart';
+import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:itsm_mobile/modules/login/bindings/login_binding.dart';
 import 'package:itsm_mobile/modules/monitors/bindings/monitor_binding.dart';
 import 'package:itsm_mobile/modules/monitors/views/monitor_page.dart';
+import 'package:itsm_mobile/modules/network_devices/bindings/network_binding.dart';
+import 'package:itsm_mobile/modules/network_devices/views/network_page.dart';
 import 'package:itsm_mobile/modules/phones/bindings/phone_binding.dart';
 import 'package:itsm_mobile/modules/phones/views/phone_view.dart';
 import 'package:itsm_mobile/modules/software/bindings/software_binding.dart';
@@ -56,6 +58,11 @@ class AppPages {
       name: RouteName.software,
       page: () => Software(),
       binding: SoftwareBinding(),
+    ),
+    GetPage(
+      name: RouteName.network,
+      page: () => Network(),
+      binding: NetworkBinding(),
     ),
     GetPage(
       name: RouteName.phone,

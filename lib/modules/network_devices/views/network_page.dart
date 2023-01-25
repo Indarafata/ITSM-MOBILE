@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
-import 'package:itsm_mobile/model/phone_model.dart';
-import 'package:itsm_mobile/modules/phones/controllers/phone_controllers.dart';
-// import 'package:itsm_mobile/modules/software/views/detail.dart';
+import 'package:itsm_mobile/model/network_model.dart';
+import 'package:itsm_mobile/modules/network_devices/controllers/network_controllers.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
+import 'package:itsm_mobile/service/network_service.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class Phone extends StatelessWidget {
-  Phone({Key? key}) : super(key: key);
+class Network extends StatelessWidget {
+  Network({Key? key}) : super(key: key);
 
-  final controller = Get.find<PhoneController>();
+  final controller = Get.find<NetworkController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
   FontWeight medium = FontWeight.w500;
@@ -23,7 +23,6 @@ class Phone extends StatelessWidget {
   // Font
   TextStyle fontNunito = const TextStyle(fontFamily: 'Nunito');
 
-  int angka = 0;
   @override
   void initState() {}
 
@@ -33,7 +32,7 @@ class Phone extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
-          'Phone',
+          'Network Devices',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
@@ -58,26 +57,25 @@ class Phone extends StatelessWidget {
                   size: 7.h,
                 ),
               )
-            :
-            // Column(
+            // : Column(
             //     children: <Widget>[
-            ListView.builder(
+            : ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
-                  var phone = controller.phones[index];
+                  var computer = controller.networks[index];
 
                   return GestureDetector(
                     onTap: () {
                       // Navigator.pushNamed(context, DetailPage.url,
                       //     arguments: computer!);
                     },
-                    child: ListPhone(phone),
+                    child: ListComputer(computer!),
                   );
                 },
-                itemCount: controller.phones.length,
+                itemCount: controller.networks.length,
               ),
         //   ],
         // ),
@@ -85,7 +83,7 @@ class Phone extends StatelessWidget {
     );
   }
 
-  Widget ListPhone(PhoneModel view) {
+  Widget ListComputer(NetworkModel view) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -117,7 +115,7 @@ class Phone extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      view.dateMod.toString(),
+                      view.comment!,
                       overflow: TextOverflow.ellipsis,
                       style: fontNunito.copyWith(
                         color: colorPrimary,

@@ -7,8 +7,9 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
 import 'package:itsm_mobile/modules/computers/views/update_page.dart';
-import 'package:itsm_mobile/modules/home_page/controllers/home_controllers.dart';
-import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
+import 'package:itsm_mobile/modules/home/controllers/home_controllers.dart';
+import 'package:itsm_mobile/modules/home/views/home_page.dart';
+import 'package:itsm_mobile/routes/app_pages.dart';
 import 'computer_page.dart';
 
 class DetailComputer extends StatelessWidget {
@@ -31,14 +32,11 @@ class DetailComputer extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
         actions: [
-          // Icon(Icons.home),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
-                },
+                onPressed: () => Get.offAllNamed(RouteName.home),
+                
                 icon: Icon(Icons.home)),
           ),
         ],
