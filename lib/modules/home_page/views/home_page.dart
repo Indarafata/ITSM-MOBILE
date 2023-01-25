@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => Get.toNamed(RouteName.phone),
             label: "Phones",
             icon: Icons.phone,
           ),
