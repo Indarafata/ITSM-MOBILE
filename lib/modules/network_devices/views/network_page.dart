@@ -1,12 +1,9 @@
-// import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/network_model.dart';
 import 'package:itsm_mobile/modules/network_devices/controllers/network_controllers.dart';
-//import 'package:itsm_mobile/modules/network/views/detail.dart';
-import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
+import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:itsm_mobile/service/network_service.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -33,27 +30,30 @@ class Network extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Get.toNamed(RouteName.home);
-            },
-            icon: Icon(
-              IconlyLight.arrow_left,
-              color: Colors.black,
-            )),
-        backgroundColor: Color.fromRGBO(246, 246, 246, 1),
-        // bottomOpacity: 0.0,
-        elevation: 0.0,
-        title: const Text(
-          "Network",
-          style: TextStyle(color: Colors.black),
+        backgroundColor: Color(0xFF79DAE8),
+        title: Text(
+          'Network Devices',
+          style: TextStyle(
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500,
+              color: Colors.black),
         ),
+        elevation: 0.0,
+        centerTitle: true,
+        actions: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: IconButton(
+                onPressed: () => Get.offAllNamed(RouteName.home),
+                icon: Icon(Icons.home)),
+          ),
+        ],
       ),
       body: Obx(
         () => controller.isLoading.value
             ? Center(
                 child: LoadingAnimationWidget.waveDots(
-                  color: Colors.red,
+                  color: Color(0xFF79DAE8),
                   size: 7.h,
                 ),
               )

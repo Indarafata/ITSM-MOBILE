@@ -8,5 +8,6 @@ abstract class RouteName {
   static const detail_computer = '/detail-computer';
   static const monitor = '/monitor';
   static const software = '/software';
+  static const network = '/network';
   static const phone = '/phone';
 }

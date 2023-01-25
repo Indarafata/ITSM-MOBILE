@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
 import 'package:itsm_mobile/modules/computers/views/update_page.dart';
-import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
+import 'package:itsm_mobile/modules/home/views/home_page.dart';
 
 class DetailComputer extends StatelessWidget {
   static final url = "/detail-computer";

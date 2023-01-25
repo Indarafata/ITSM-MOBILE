@@ -4,7 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/phone_model.dart';
 import 'package:itsm_mobile/modules/phones/controllers/phone_controllers.dart';
 // import 'package:itsm_mobile/modules/software/views/detail.dart';
-import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
+import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';

@@ -1,10 +1,11 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
-import 'package:itsm_mobile/modules/computers/views/detail.dart';
-import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
+import 'package:itsm_mobile/modules/home/views/home_page.dart';
+import 'package:itsm_mobile/routes/app_pages.dart';
 import 'package:itsm_mobile/service/computer_service.dart';
 
 class Computer extends StatefulWidget {
@@ -86,15 +87,11 @@ class _Computer extends State<Computer> {
                         // String ? ngok;
 
                         return GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, DetailPage.url,
-                                arguments: computer!);
-                          },
-                          // child: Text(computer.name.toString())
-                          child: ListComputer(computer!),
+                          onTap: () => Get.toNamed(RouteName.detail_computer,
+                              arguments: computer),
+                          child: ListComputer(computer),
                         );
                       },
-                      // itemCount: 3,
                       itemCount: snapshot.data!.length,
                     ),
                   );
