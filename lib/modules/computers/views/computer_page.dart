@@ -5,9 +5,6 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
 import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.dart';
-import 'package:itsm_mobile/modules/computers/views/detail.dart';
-import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
-import 'package:itsm_mobile/service/computer_service.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
@@ -27,39 +24,36 @@ class Computer extends StatelessWidget {
   TextStyle fontNunito = const TextStyle(fontFamily: 'Nunito');
 
   @override
-  void initState() {
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Get.toNamed(RouteName.home);
-            },
-            icon: Icon(
-              IconlyLight.arrow_left,
-              color: Colors.black,
-            )),
-        backgroundColor: Color.fromRGBO(246, 246, 246, 1),
-        // bottomOpacity: 0.0,
-        elevation: 0.0,
-        title: const Text(
-          "Computer",
-          style: TextStyle(color: Colors.black),
+        backgroundColor: Color(0xFF79DAE8),
+        title: Text(
+          'Computer',
+          style: TextStyle(
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500,
+              color: Colors.black),
         ),
+        elevation: 0.0,
+        centerTitle: true,
+        actions: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: IconButton(
+                onPressed: () => Get.offAllNamed(RouteName.home),
+                icon: Icon(Icons.home)),
+          ),
+        ],
       ),
       body: Obx(
         () => controller.isLoading.value
             ? Center(
                 child: LoadingAnimationWidget.waveDots(
-                  color: Colors.red,
+                  color: Color(0xFF79DAE8),
                   size: 7.h,
                 ),
               )
-            // : Column(
-            //     children: <Widget>[
             : ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 physics: const BouncingScrollPhysics(),
@@ -70,16 +64,14 @@ class Computer extends StatelessWidget {
 
                   return GestureDetector(
                     onTap: () {
-                      // Navigator.pushNamed(context, DetailPage.url,
-                      //     arguments: computer!);
+                      Get.toNamed(RouteName.detail_computer,
+                          arguments: computer);
                     },
-                    child: ListComputer(computer!),
+                    child: ListComputer(computer),
                   );
                 },
                 itemCount: controller.computers.length,
               ),
-        //   ],
-        // ),
       ),
     );
   }

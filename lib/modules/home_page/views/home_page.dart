@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/modules/computers/views/computer_page.dart';
+import 'package:itsm_mobile/modules/home_page/controllers/home_controllers.dart';
 import 'package:itsm_mobile/modules/login/views/login.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 import 'package:itsm_mobile/widget/menu_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatelessWidget {
+  final controller = Get.find<HomeController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xFF79DAE8),
         title: Text(
           'ITSM Mobile',
           style: TextStyle(
@@ -20,9 +23,11 @@ class HomePage extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: Colors.black),
         ),
+        elevation: 0.0,
+        centerTitle: true,
         actions: [
           IconButton(
-            color: Colors.black,
+            color: Colors.white,
             icon: Icon(Icons.logout_sharp),
             onPressed: (() async {
               final prefs = await SharedPreferences.getInstance();
@@ -31,43 +36,22 @@ class HomePage extends StatelessWidget {
             }),
           )
         ],
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        centerTitle: true,
       ),
       body: ListView(
-        padding: const EdgeInsets.all(52),
+        padding:
+            const EdgeInsets.only(top: 20, bottom: 52, right: 52, left: 52),
+        physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
-          GestureDetector(
-            onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => (Computer())));
-              Get.offAllNamed(RouteName.computer);
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: Colors.blue),
-              height: 52,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Icon(Icons.computer_sharp),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Text("Computers"),
-                ],
-              ),
-            ),
+          MenuCard(
+            onTap: () => Get.toNamed(RouteName.computer),
+            label: "Computers",
+            icon: Icons.monitor_sharp,
           ),
           SizedBox(
             height: 20,
           ),
           MenuCard(
-            onTap: () => Get.offAllNamed(RouteName.monitor),
+            onTap: () => Get.toNamed(RouteName.monitor),
             label: "Monitors",
             icon: Icons.monitor_sharp,
           ),
@@ -75,7 +59,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => Get.offAllNamed(RouteName.software),
+            onTap: () => Get.toNamed(RouteName.software),
             label: "Software",
             icon: Icons.apps_sharp,
           ),
@@ -83,9 +67,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () {
-              Get.toNamed(RouteName.network);
-            },
+            onTap: () => controller.alertMessege(context),
             label: "Network devices",
             icon: Icons.network_check_sharp,
           ),
@@ -93,10 +75,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
-            },
+            onTap: () => controller.alertMessege(context),
             label: "Devices",
             icon: Icons.usb_sharp,
           ),
@@ -104,10 +83,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
-            },
+            onTap: () => controller.alertMessege(context),
             label: "Printers",
             icon: Icons.network_check_sharp,
           ),
@@ -115,10 +91,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
-            },
+            onTap: () => controller.alertMessege(context),
             label: "Cartridges",
             icon: Icons.network_check_sharp,
           ),
@@ -126,10 +99,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
-            },
+            onTap: () => controller.alertMessege(context),
             label: "Consumables",
             icon: Icons.square_sharp,
           ),
@@ -137,10 +107,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
-            },
+            onTap: () => Get.toNamed(RouteName.phone),
             label: "Phones",
             icon: Icons.phone,
           ),
@@ -150,28 +117,5 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  void alertMessege(BuildContext context) {
-    showDialog<String>(
-      context: context,
-      builder: (BuildContext context) => AlertDialog(
-        title: const Text('Coming Soon'),
-        // content: const Text('AlertDialog description'),
-        actions: <Widget>[
-          // TextButton(
-          //   onPressed: () => Navigator.pop(context, 'Cancel'),
-          //   child: const Text('Cancel'),
-          // ),
-          Center(
-            child: TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('OK'),
-            ),
-          ),
-        ],
-      ),
-    );
-    ;
   }
 }

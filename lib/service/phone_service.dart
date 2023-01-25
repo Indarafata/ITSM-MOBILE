@@ -13,7 +13,7 @@ class PhoneService {
     return parsed.map<PhoneModel>((json) => PhoneModel.fromJson(json)).toList();
   }
 
-  Future<List<PhoneModel>> getAllComputer() async {
+  Future<List<PhoneModel>> getAllPhone() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString("token");
     var response =

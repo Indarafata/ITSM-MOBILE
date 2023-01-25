@@ -1,21 +1,18 @@
-// import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
-import 'package:itsm_mobile/model/software_model.dart';
-import 'package:itsm_mobile/modules/software/controllers/software_controller.dart';
+import 'package:itsm_mobile/model/phone_model.dart';
+import 'package:itsm_mobile/modules/phones/controllers/phone_controllers.dart';
 // import 'package:itsm_mobile/modules/software/views/detail.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
-import 'package:itsm_mobile/service/software_service.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class Software extends StatelessWidget {
-  Software({Key? key}) : super(key: key);
+class Phone extends StatelessWidget {
+  Phone({Key? key}) : super(key: key);
 
-  final controller = Get.find<SoftwareController>();
+  final controller = Get.find<PhoneController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
   FontWeight medium = FontWeight.w500;
@@ -36,7 +33,7 @@ class Software extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
-          'Software',
+          'Phone',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
@@ -70,17 +67,17 @@ class Software extends StatelessWidget {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
-                  var software = controller.softwares[index];
+                  var phone = controller.phones[index];
 
                   return GestureDetector(
                     onTap: () {
                       // Navigator.pushNamed(context, DetailPage.url,
                       //     arguments: computer!);
                     },
-                    child: ListSoftware(software!),
+                    child: ListPhone(phone),
                   );
                 },
-                itemCount: controller.softwares.length,
+                itemCount: controller.phones.length,
               ),
         //   ],
         // ),
@@ -88,7 +85,7 @@ class Software extends StatelessWidget {
     );
   }
 
-  Widget ListSoftware(SoftwareModel view) {
+  Widget ListPhone(PhoneModel view) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: Container(

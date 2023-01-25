@@ -1,13 +1,15 @@
 import 'package:get/get.dart';
 import 'package:itsm_mobile/modules/computers/bindings/computer_binding.dart';
 import 'package:itsm_mobile/modules/computers/views/computer_page.dart';
-import 'package:itsm_mobile/modules/computers/views/detail.dart';
+import 'package:itsm_mobile/modules/computers/views/detail_computer.dart';
+import 'package:itsm_mobile/modules/computers/views/detail_computer.dart';
+import 'package:itsm_mobile/modules/home_page/bindings/home_binding.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
 import 'package:itsm_mobile/modules/login/bindings/login_binding.dart';
 import 'package:itsm_mobile/modules/monitors/bindings/monitor_binding.dart';
 import 'package:itsm_mobile/modules/monitors/views/monitor_page.dart';
-import 'package:itsm_mobile/modules/network_devices/bindings/network_binding.dart';
-import 'package:itsm_mobile/modules/network_devices/views/network_page.dart';
+import 'package:itsm_mobile/modules/phones/bindings/phone_binding.dart';
+import 'package:itsm_mobile/modules/phones/views/phone_view.dart';
 import 'package:itsm_mobile/modules/software/bindings/software_binding.dart';
 import 'package:itsm_mobile/modules/software/views/software_page.dart';
 import 'package:itsm_mobile/modules/splash/splash.dart';
@@ -33,7 +35,7 @@ class AppPages {
     GetPage(
       name: RouteName.home,
       page: () => HomePage(),
-      // binding: RegisterBinding(),
+      binding: HomeBinding(),
     ),
     GetPage(
       name: RouteName.computer,
@@ -42,7 +44,7 @@ class AppPages {
     ),
     GetPage(
       name: RouteName.detail_computer,
-      page: () => DetailPage(),
+      page: () => DetailComputer(),
       binding: ComputerBinding(),
     ),
     GetPage(
@@ -56,9 +58,9 @@ class AppPages {
       binding: SoftwareBinding(),
     ),
     GetPage(
-      name: RouteName.network,
-      page: () => Network(),
-      binding: NetworkBinding(),
+      name: RouteName.phone,
+      page: () => Phone(),
+      binding: PhoneBinding(),
     ),
   ];
 }
