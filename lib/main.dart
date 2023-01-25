@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:itsm_mobile/modules/computers/views/detail.dart';
 import 'package:itsm_mobile/modules/computers/views/update_page.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 import 'package:itsm_mobile/security/http_overrides.dart';

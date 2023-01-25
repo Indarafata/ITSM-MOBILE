@@ -34,27 +34,30 @@ class Software extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Get.toNamed(RouteName.home);
-            },
-            icon: Icon(
-              IconlyLight.arrow_left,
-              color: Colors.black,
-            )),
-        backgroundColor: Color.fromRGBO(246, 246, 246, 1),
-        // bottomOpacity: 0.0,
-        elevation: 0.0,
-        title: const Text(
-          "Software",
-          style: TextStyle(color: Colors.black),
+        backgroundColor: Color(0xFF79DAE8),
+        title: Text(
+          'Software',
+          style: TextStyle(
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500,
+              color: Colors.black),
         ),
+        elevation: 0.0,
+        centerTitle: true,
+        actions: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: IconButton(
+                onPressed: () => Get.offAllNamed(RouteName.home),
+                icon: Icon(Icons.home)),
+          ),
+        ],
       ),
       body: Obx(
         () => controller.isLoading.value
             ? Center(
                 child: LoadingAnimationWidget.waveDots(
-                  color: Colors.red,
+                  color: Color(0xFF79DAE8),
                   size: 7.h,
                 ),
               )

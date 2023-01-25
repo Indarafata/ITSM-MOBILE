@@ -2,7 +2,6 @@
 //
 //     final softwareModel = softwareModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 // List<SoftwareModel> softwareModelFromJson(String str) =>
@@ -13,7 +12,7 @@ import 'dart:convert';
 //     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 String softwareModelToJson(List<SoftwareModel?>? data) => json.encode(
-    data == null ? [] : List<dynamic>.from(data!.map((x) => x!.toJson())));
+    data == null ? [] : List<dynamic>.from(data.map((x) => x!.toJson())));
 
 class SoftwareModel {
   SoftwareModel({

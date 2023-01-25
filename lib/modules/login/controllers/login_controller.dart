@@ -49,7 +49,7 @@ class LoginController extends GetxController {
       Get.snackbar(
         'Gagal Masuk !',
         e.toString(),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
         colorText: Colors.white,
         icon: const Icon(
           Icons.cancel,

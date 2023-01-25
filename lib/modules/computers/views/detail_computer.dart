@@ -3,31 +3,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
 import 'package:itsm_mobile/modules/computers/views/update_page.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
 import 'computer_page.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailComputer extends StatelessWidget {
   static final url = "/detail-computer";
-  const DetailPage({super.key});
+  DetailComputer({super.key});
+  final ComputerModel computer = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
-    final computer =
-        ModalRoute.of(context)!.settings.arguments as ComputerModel;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF79DAE8),
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
-            },
-            icon: Icon(IconlyLight.arrow_left)),
         title: Text(
           'ITSM Mobile',
           style: TextStyle(
@@ -72,7 +64,7 @@ class DetailPage extends StatelessWidget {
                 Expanded(
                   child: ListView(children: [
                     FieldDetail('Name                             :',
-                        computer!.links[0].href),
+                        computer.links[0].href),
                     FieldDetail(
                         'Status                            :', computer.name),
                     FieldDetail(
@@ -96,7 +88,7 @@ class DetailPage extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pushNamed(context, UpdateComputer.url,
-                          arguments: computer!);
+                          arguments: computer);
                     },
                     child: Text(
                       'Update',

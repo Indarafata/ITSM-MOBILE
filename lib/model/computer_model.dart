@@ -2,11 +2,10 @@
 //
 //     final ComputerModel = ComputerModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 String ComputerModelToJson(List<ComputerModel?>? data) => json.encode(
-    data == null ? [] : List<dynamic>.from(data!.map((x) => x!.toJson())));
+    data == null ? [] : List<dynamic>.from(data.map((x) => x!.toJson())));
 
 // ComputerModel eventsModelFromJson(String str) =>
 //     ComputerModel.fromJson(json.decode(str));
@@ -84,7 +83,7 @@ class ComputerModel {
         serial: json["serial"],
         otherserial: json["otherserial"],
         contact: json["contact"],
-        contactNum: contactNumValues!.map[json["contact_num"]],
+        contactNum: contactNumValues.map[json["contact_num"]],
         usersIdTech: json["users_id_tech"],
         groupsIdTech: json["groups_id_tech"],
         comment: json["comment"],
@@ -142,7 +141,9 @@ class ComputerModel {
         "date_creation": dateCreation,
         "is_recursive": isRecursive,
         "last_inventory_update": lastInventoryUpdate,
-        "links": links == null ? [] : List<dynamic>.from(links!.map((x) => x!.toJson())),
+        "links": links == null
+            ? []
+            : List<dynamic>.from(links.map((x) => x.toJson())),
     };
 }
 
@@ -164,7 +165,7 @@ class Link {
   String href;
 
     factory Link.fromJson(Map<String, dynamic> json) => Link(
-        rel: relValues!.map[json["rel"]],
+        rel: relValues.map[json["rel"]],
         href: json["href"],
     );
 

@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
             onTap: () {
               // Navigator.push(context,
               //     MaterialPageRoute(builder: (context) => (Computer())));
-              Get.offAllNamed(RouteName.computer);
+              Get.toNamed(RouteName.computer);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => Get.offAllNamed(RouteName.monitor),
+            onTap: () => Get.toNamed(RouteName.monitor),
             label: "Monitors",
             icon: Icons.monitor_sharp,
           ),
@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => Get.offAllNamed(RouteName.software),
+            onTap: () => Get.toNamed(RouteName.software),
             label: "Software",
             icon: Icons.apps_sharp,
           ),
