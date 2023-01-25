@@ -11,7 +11,6 @@ import 'modules/login/views/login.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:get/get.dart';
 
-// void main() => runApp(const MyApp());
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
