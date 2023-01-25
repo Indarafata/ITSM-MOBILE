@@ -1,20 +1,18 @@
 // To parse this JSON data, do
 //
-//     final monitorModel = monitorModelFromJson(jsonString);
+//     final phoneModel = phoneModelFromJson(jsonString);
 
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<MonitorModel> monitorModelFromJson(String str) => List<MonitorModel>.from(
-    json.decode(str).map((x) => MonitorModel.fromJson(x)));
+List<PhoneModel> phoneModelFromJson(String str) =>
+    List<PhoneModel>.from(json.decode(str).map((x) => PhoneModel.fromJson(x)));
 
-String monitorModelToJson(List<MonitorModel> data) =>
+String phoneModelToJson(List<PhoneModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-// String monitorModelToJson(List<MonitorModel> data) => json.encode(
-//     data == null ? [] : List<dynamic>.from(data.map((x) => x.toJson())));
 
-class MonitorModel {
-  MonitorModel({
+class PhoneModel {
+  PhoneModel({
     required this.id,
     required this.entitiesId,
     required this.name,
@@ -26,18 +24,14 @@ class MonitorModel {
     required this.comment,
     required this.serial,
     required this.otherserial,
-    required this.size,
-    required this.haveMicro,
-    required this.haveSpeaker,
-    required this.haveSubd,
-    required this.haveBnc,
-    required this.haveDvi,
-    required this.havePivot,
-    required this.haveHdmi,
-    required this.haveDisplayport,
     required this.locationsId,
-    required this.monitortypesId,
-    required this.monitormodelsId,
+    required this.phonetypesId,
+    required this.phonemodelsId,
+    required this.brand,
+    required this.phonepowersuppliesId,
+    required this.numberLine,
+    required this.haveHeadset,
+    required this.haveHp,
     required this.manufacturersId,
     required this.isGlobal,
     required this.isDeleted,
@@ -52,13 +46,14 @@ class MonitorModel {
     required this.autoupdatesystemsId,
     required this.dateCreation,
     required this.isRecursive,
+    required this.lastInventoryUpdate,
     required this.links,
   });
 
   int? id;
   int? entitiesId;
   String? name;
-  DateTime? dateMod;
+  DateTime dateMod;
   String? contact;
   String? contactNum;
   int? usersIdTech;
@@ -66,18 +61,14 @@ class MonitorModel {
   String? comment;
   String? serial;
   String? otherserial;
-  String? size;
-  int? haveMicro;
-  int? haveSpeaker;
-  int? haveSubd;
-  int? haveBnc;
-  int? haveDvi;
-  int? havePivot;
-  int? haveHdmi;
-  int? haveDisplayport;
   int? locationsId;
-  int? monitortypesId;
-  int? monitormodelsId;
+  int? phonetypesId;
+  int? phonemodelsId;
+  String? brand;
+  int? phonepowersuppliesId;
+  String? numberLine;
+  int? haveHeadset;
+  int? haveHp;
   int? manufacturersId;
   int? isGlobal;
   int? isDeleted;
@@ -92,9 +83,10 @@ class MonitorModel {
   int? autoupdatesystemsId;
   dynamic dateCreation;
   int? isRecursive;
+  dynamic lastInventoryUpdate;
   List<Link> links;
 
-  factory MonitorModel.fromJson(Map<String, dynamic> json) => MonitorModel(
+  factory PhoneModel.fromJson(Map<String, dynamic> json) => PhoneModel(
         id: json["id"],
         entitiesId: json["entities_id"],
         name: json["name"],
@@ -106,18 +98,14 @@ class MonitorModel {
         comment: json["comment"],
         serial: json["serial"],
         otherserial: json["otherserial"],
-        size: json["size"],
-        haveMicro: json["have_micro"],
-        haveSpeaker: json["have_speaker"],
-        haveSubd: json["have_subd"],
-        haveBnc: json["have_bnc"],
-        haveDvi: json["have_dvi"],
-        havePivot: json["have_pivot"],
-        haveHdmi: json["have_hdmi"],
-        haveDisplayport: json["have_displayport"],
         locationsId: json["locations_id"],
-        monitortypesId: json["monitortypes_id"],
-        monitormodelsId: json["monitormodels_id"],
+        phonetypesId: json["phonetypes_id"],
+        phonemodelsId: json["phonemodels_id"],
+        brand: json["brand"],
+        phonepowersuppliesId: json["phonepowersupplies_id"],
+        numberLine: json["number_line"],
+        haveHeadset: json["have_headset"],
+        haveHp: json["have_hp"],
         manufacturersId: json["manufacturers_id"],
         isGlobal: json["is_global"],
         isDeleted: json["is_deleted"],
@@ -132,6 +120,7 @@ class MonitorModel {
         autoupdatesystemsId: json["autoupdatesystems_id"],
         dateCreation: json["date_creation"],
         isRecursive: json["is_recursive"],
+        lastInventoryUpdate: json["last_inventory_update"],
         links: List<Link>.from(json["links"].map((x) => Link.fromJson(x))),
       );
 
@@ -139,7 +128,7 @@ class MonitorModel {
         "id": id,
         "entities_id": entitiesId,
         "name": name,
-        "date_mod": dateMod,
+        "date_mod": dateMod.toIso8601String(),
         "contact": contact,
         "contact_num": contactNum,
         "users_id_tech": usersIdTech,
@@ -147,18 +136,14 @@ class MonitorModel {
         "comment": comment,
         "serial": serial,
         "otherserial": otherserial,
-        "size": size,
-        "have_micro": haveMicro,
-        "have_speaker": haveSpeaker,
-        "have_subd": haveSubd,
-        "have_bnc": haveBnc,
-        "have_dvi": haveDvi,
-        "have_pivot": havePivot,
-        "have_hdmi": haveHdmi,
-        "have_displayport": haveDisplayport,
         "locations_id": locationsId,
-        "monitortypes_id": monitortypesId,
-        "monitormodels_id": monitormodelsId,
+        "phonetypes_id": phonetypesId,
+        "phonemodels_id": phonemodelsId,
+        "brand": brand,
+        "phonepowersupplies_id": phonepowersuppliesId,
+        "number_line": numberLine,
+        "have_headset": haveHeadset,
+        "have_hp": haveHp,
         "manufacturers_id": manufacturersId,
         "is_global": isGlobal,
         "is_deleted": isDeleted,
@@ -173,6 +158,7 @@ class MonitorModel {
         "autoupdatesystems_id": autoupdatesystemsId,
         "date_creation": dateCreation,
         "is_recursive": isRecursive,
+        "last_inventory_update": lastInventoryUpdate,
         "links": List<dynamic>.from(links.map((x) => x.toJson())),
       };
 }
@@ -201,8 +187,8 @@ enum Rel {
   ENTITY,
   GROUP,
   LOCATION,
-  MONITOR_TYPE,
-  MONITOR_MODEL,
+  PHONE_TYPE,
+  PHONE_MODEL,
   MANUFACTURER,
   STATE,
   RESERVATION_ITEM,
@@ -212,6 +198,24 @@ enum Rel {
   ITEM_TICKET,
   ITEM_PROJECT,
   NETWORK_PORT,
+  ITEM_DEVICE_MOTHERBOARD,
+  ITEM_DEVICE_FIRMWARE,
+  ITEM_DEVICE_PROCESSOR,
+  ITEM_DEVICE_MEMORY,
+  ITEM_DEVICE_HARD_DRIVE,
+  ITEM_DEVICE_NETWORK_CARD,
+  ITEM_DEVICE_DRIVE,
+  ITEM_DEVICE_BATTERY,
+  ITEM_DEVICE_GRAPHIC_CARD,
+  ITEM_DEVICE_SOUND_CARD,
+  ITEM_DEVICE_CONTROL,
+  ITEM_DEVICE_PCI,
+  ITEM_DEVICE_CASE,
+  ITEM_DEVICE_POWER_SUPPLY,
+  ITEM_DEVICE_GENERIC,
+  ITEM_DEVICE_SIMCARD,
+  ITEM_DEVICE_SENSOR,
+  ITEM_DEVICE_CAMERA,
   USER
 }
 
@@ -221,25 +225,39 @@ final relValues = EnumValues({
   "Entity": Rel.ENTITY,
   "Group": Rel.GROUP,
   "Infocom": Rel.INFOCOM,
+  "Item_DeviceBattery": Rel.ITEM_DEVICE_BATTERY,
+  "Item_DeviceCamera": Rel.ITEM_DEVICE_CAMERA,
+  "Item_DeviceCase": Rel.ITEM_DEVICE_CASE,
+  "Item_DeviceControl": Rel.ITEM_DEVICE_CONTROL,
+  "Item_DeviceDrive": Rel.ITEM_DEVICE_DRIVE,
+  "Item_DeviceFirmware": Rel.ITEM_DEVICE_FIRMWARE,
+  "Item_DeviceGeneric": Rel.ITEM_DEVICE_GENERIC,
+  "Item_DeviceGraphicCard": Rel.ITEM_DEVICE_GRAPHIC_CARD,
+  "Item_DeviceHardDrive": Rel.ITEM_DEVICE_HARD_DRIVE,
+  "Item_DeviceMemory": Rel.ITEM_DEVICE_MEMORY,
+  "Item_DeviceMotherboard": Rel.ITEM_DEVICE_MOTHERBOARD,
+  "Item_DeviceNetworkCard": Rel.ITEM_DEVICE_NETWORK_CARD,
+  "Item_DevicePci": Rel.ITEM_DEVICE_PCI,
+  "Item_DevicePowerSupply": Rel.ITEM_DEVICE_POWER_SUPPLY,
+  "Item_DeviceProcessor": Rel.ITEM_DEVICE_PROCESSOR,
+  "Item_DeviceSensor": Rel.ITEM_DEVICE_SENSOR,
+  "Item_DeviceSimcard": Rel.ITEM_DEVICE_SIMCARD,
+  "Item_DeviceSoundCard": Rel.ITEM_DEVICE_SOUND_CARD,
   "Item_Project": Rel.ITEM_PROJECT,
   "Item_Ticket": Rel.ITEM_TICKET,
   "Location": Rel.LOCATION,
   "Manufacturer": Rel.MANUFACTURER,
-  "MonitorModel": Rel.MONITOR_MODEL,
-  "MonitorType": Rel.MONITOR_TYPE,
   "NetworkPort": Rel.NETWORK_PORT,
+  "PhoneModel": Rel.PHONE_MODEL,
+  "PhoneType": Rel.PHONE_TYPE,
   "ReservationItem": Rel.RESERVATION_ITEM,
   "State": Rel.STATE,
   "User": Rel.USER
 });
 
-enum TemplateName { MONITOR_HP_P221, MONITOR_HP_LV1911, HP_PAVILION_20_FI }
+enum TemplateName { IP_PBX }
 
-final templateNameValues = EnumValues({
-  "HP Pavilion 20fi": TemplateName.HP_PAVILION_20_FI,
-  "Monitor HP LV1911": TemplateName.MONITOR_HP_LV1911,
-  "Monitor HP P221": TemplateName.MONITOR_HP_P221
-});
+final templateNameValues = EnumValues({"IP PBX": TemplateName.IP_PBX});
 
 class EnumValues<T> {
   Map<String, T> map;

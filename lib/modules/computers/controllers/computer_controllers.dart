@@ -28,9 +28,13 @@ class ComputerController extends GetxController {
   Future<void> getAllComputer() async {
     isLoading.value = true;
     try {
+      print("satu");
       final dataComputer = await computer.getAllComputer();
+      print("dua");
       if (dataComputer != null) {
+        print("tiga");
         computers.assignAll(dataComputer);
+        print("empat");
       }
       isLoading.value = false;
     } catch (e) {

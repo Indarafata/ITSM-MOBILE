@@ -1,7 +1,15 @@
 import 'package:get/get.dart';
+import 'package:itsm_mobile/modules/computers/bindings/computer_binding.dart';
 import 'package:itsm_mobile/modules/computers/views/computer_page.dart';
+import 'package:itsm_mobile/modules/computers/views/detail.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
 import 'package:itsm_mobile/modules/login/bindings/login_binding.dart';
+import 'package:itsm_mobile/modules/monitors/bindings/monitor_binding.dart';
+import 'package:itsm_mobile/modules/monitors/views/monitor_page.dart';
+import 'package:itsm_mobile/modules/network_devices/bindings/network_binding.dart';
+import 'package:itsm_mobile/modules/network_devices/views/network_page.dart';
+import 'package:itsm_mobile/modules/software/bindings/software_binding.dart';
+import 'package:itsm_mobile/modules/software/views/software_page.dart';
 import 'package:itsm_mobile/modules/splash/splash.dart';
 import '../modules/login/views/login.dart';
 
@@ -30,11 +38,27 @@ class AppPages {
     GetPage(
       name: RouteName.computer,
       page: () => Computer(),
-      // binding: RegisterBinding(),
+      binding: ComputerBinding(),
+    ),
+    GetPage(
+      name: RouteName.detail_computer,
+      page: () => DetailPage(),
+      binding: ComputerBinding(),
     ),
     GetPage(
       name: RouteName.monitor,
-      page: () => Computer(),
+      page: () => Monitor(),
+      binding: MonitorBinding(),
+    ),
+    GetPage(
+      name: RouteName.software,
+      page: () => Software(),
+      binding: SoftwareBinding(),
+    ),
+    GetPage(
+      name: RouteName.network,
+      page: () => Network(),
+      binding: NetworkBinding(),
     ),
   ];
 }

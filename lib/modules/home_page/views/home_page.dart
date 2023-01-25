@@ -40,8 +40,9 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => (Computer())));
+              Get.offAllNamed(RouteName.computer);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -66,10 +67,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
-            },
+            onTap: () => Get.offAllNamed(RouteName.monitor),
             label: "Monitors",
             icon: Icons.monitor_sharp,
           ),
@@ -77,10 +75,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
-            },
+            onTap: () => Get.offAllNamed(RouteName.software),
             label: "Software",
             icon: Icons.apps_sharp,
           ),
@@ -89,8 +84,7 @@ class HomePage extends StatelessWidget {
           ),
           MenuCard(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (Computer())));
+              Get.toNamed(RouteName.network);
             },
             label: "Network devices",
             icon: Icons.network_check_sharp,

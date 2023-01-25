@@ -3,19 +3,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
-import 'package:itsm_mobile/model/computer_model.dart';
-import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.dart';
-import 'package:itsm_mobile/modules/computers/views/detail.dart';
+import 'package:itsm_mobile/model/network_model.dart';
+import 'package:itsm_mobile/modules/network_devices/controllers/network_controllers.dart';
+//import 'package:itsm_mobile/modules/network/views/detail.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
-import 'package:itsm_mobile/service/computer_service.dart';
+import 'package:itsm_mobile/service/network_service.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class Computer extends StatelessWidget {
-  Computer({Key? key}) : super(key: key);
+class Network extends StatelessWidget {
+  Network({Key? key}) : super(key: key);
 
-  final controller = Get.find<ComputerController>();
+  final controller = Get.find<NetworkController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
   FontWeight medium = FontWeight.w500;
@@ -27,8 +27,7 @@ class Computer extends StatelessWidget {
   TextStyle fontNunito = const TextStyle(fontFamily: 'Nunito');
 
   @override
-  void initState() {
-  }
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +45,7 @@ class Computer extends StatelessWidget {
         // bottomOpacity: 0.0,
         elevation: 0.0,
         title: const Text(
-          "Computer",
+          "Network",
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -66,7 +65,7 @@ class Computer extends StatelessWidget {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
-                  var computer = controller.computers[index];
+                  var computer = controller.networks[index];
 
                   return GestureDetector(
                     onTap: () {
@@ -76,7 +75,7 @@ class Computer extends StatelessWidget {
                     child: ListComputer(computer!),
                   );
                 },
-                itemCount: controller.computers.length,
+                itemCount: controller.networks.length,
               ),
         //   ],
         // ),
@@ -84,7 +83,7 @@ class Computer extends StatelessWidget {
     );
   }
 
-  Widget ListComputer(ComputerModel view) {
+  Widget ListComputer(NetworkModel view) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -106,7 +105,7 @@ class Computer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      view.name,
+                      view.name!,
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: fontNunito.copyWith(
@@ -116,7 +115,7 @@ class Computer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      view.dateMod.toString(),
+                      view.comment!,
                       overflow: TextOverflow.ellipsis,
                       style: fontNunito.copyWith(
                         color: colorPrimary,
