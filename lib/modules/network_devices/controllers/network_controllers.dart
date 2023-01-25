@@ -25,8 +25,11 @@ class NetworkController extends GetxController {
   Future<void> getAllNetwork() async {
     isLoading.value = true;
     try {
+      print("1");
       final dataNetwork = await network.getAllNetwork();
+      print("2");
       if (dataNetwork != null) {
+        print("3");
         networks.assignAll(dataNetwork);
       }
       isLoading.value = false;
