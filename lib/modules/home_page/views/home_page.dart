@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xFF79DAE8),
         title: Text(
           'ITSM Mobile',
           style: TextStyle(
@@ -20,9 +20,11 @@ class HomePage extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: Colors.black),
         ),
+        elevation: 0.0,
+        centerTitle: true,
         actions: [
           IconButton(
-            color: Colors.black,
+            color: Colors.white,
             icon: Icon(Icons.logout_sharp),
             onPressed: (() async {
               final prefs = await SharedPreferences.getInstance();
@@ -31,37 +33,16 @@ class HomePage extends StatelessWidget {
             }),
           )
         ],
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        centerTitle: true,
       ),
       body: ListView(
-        padding: const EdgeInsets.all(52),
+        padding:
+            const EdgeInsets.only(top: 20, bottom: 52, right: 52, left: 52),
+        physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
-          GestureDetector(
-            onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => (Computer())));
-              Get.toNamed(RouteName.computer);
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20), color: Colors.blue),
-              height: 52,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Icon(Icons.computer_sharp),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Text("Computers"),
-                ],
-              ),
-            ),
+          MenuCard(
+            onTap: () => Get.toNamed(RouteName.computer),
+            label: "Computers",
+            icon: Icons.monitor_sharp,
           ),
           SizedBox(
             height: 20,
@@ -123,7 +104,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => alertMessege(context),
+            onTap: () => Get.toNamed(RouteName.phone),
             label: "Phones",
             icon: Icons.phone,
           ),
