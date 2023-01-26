@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
+import 'package:intl/intl.dart';
 import 'package:itsm_mobile/model/monitor_model.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:itsm_mobile/modules/monitors/controllers/monitor_controllers.dart';
@@ -38,7 +39,7 @@ class Monitor extends StatelessWidget {
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.black),
+              color: Colors.white),
         ),
         elevation: 0.0,
         centerTitle: true,
@@ -71,7 +72,8 @@ class Monitor extends StatelessWidget {
                   var monitor = controller.monitors[index];
 
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () => Get.toNamed(RouteName.monitor_detail,
+                        arguments: monitor),
                     child: ListMonitor(monitor!),
                   );
                 },
@@ -109,16 +111,16 @@ class Monitor extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: semiBold,
                         fontSize: 18,
                       ),
                     ),
                     Text(
-                      view.dateMod.toString(),
+                      DateFormat('dd MMM yyyy - HH:mm').format(view.dateMod!),
                       overflow: TextOverflow.ellipsis,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: medium,
                         fontSize: 16,
                       ),

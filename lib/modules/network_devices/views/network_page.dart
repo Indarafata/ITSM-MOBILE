@@ -36,7 +36,7 @@ class Network extends StatelessWidget {
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.black),
+              color: Colors.white),
         ),
         elevation: 0.0,
         centerTitle: true,
@@ -57,33 +57,27 @@ class Network extends StatelessWidget {
                   size: 7.h,
                 ),
               )
-            // : Column(
-            //     children: <Widget>[
             : ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
-                  var computer = controller.networks[index];
+                  var network = controller.networks[index];
 
                   return GestureDetector(
-                    onTap: () {
-                      // Navigator.pushNamed(context, DetailPage.url,
-                      //     arguments: computer!);
-                    },
-                    child: ListComputer(computer!),
+                    onTap: () => Get.toNamed(RouteName.network_detail,
+                        arguments: network),
+                    child: ListNetwork(network),
                   );
                 },
                 itemCount: controller.networks.length,
               ),
-        //   ],
-        // ),
       ),
     );
   }
 
-  Widget ListComputer(NetworkModel view) {
+  Widget ListNetwork(NetworkModel view) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -109,7 +103,7 @@ class Network extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: semiBold,
                         fontSize: 18,
                       ),
@@ -118,7 +112,7 @@ class Network extends StatelessWidget {
                       view.comment!,
                       overflow: TextOverflow.ellipsis,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: medium,
                         fontSize: 16,
                       ),

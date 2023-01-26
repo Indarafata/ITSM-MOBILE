@@ -5,15 +5,15 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
-import 'package:itsm_mobile/model/monitor_model.dart';
+import 'package:itsm_mobile/model/network_model.dart';
 import 'package:itsm_mobile/modules/home/controllers/home_controllers.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class MonitorDetail extends StatelessWidget {
-  MonitorDetail({super.key});
+class NetworkDetail extends StatelessWidget {
+  NetworkDetail({super.key});
   final homeController = Get.find<HomeController>();
-  final MonitorModel monitor = Get.arguments;
+  final NetworkModel network = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MonitorDetail extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
-          'Monitor Detail',
+          'Network Detail',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
@@ -59,22 +59,22 @@ class MonitorDetail extends StatelessWidget {
                 ),
                 Expanded(
                   child: ListView(children: [
-                    FieldDetail('Name                             :',
-                        monitor.links[0].href),
                     FieldDetail(
-                        'Status                            :', monitor.name!),
+                        'Name                             :', network.comment!),
                     FieldDetail(
-                        'Model                            :', monitor.name!),
-                    FieldDetail('Last inventory              :', monitor.name!),
-                    FieldDetail('Networking - IP            :', monitor.name!),
-                    FieldDetail('Serial Number              :', monitor.name!),
-                    FieldDetail('Alternative Username! :', monitor.name!),
+                        'Status                            :', network.name!),
                     FieldDetail(
-                        'Type                               :', monitor.name!),
+                        'Model                            :', network.name!),
+                    FieldDetail('Last inventory              :', network.name!),
+                    FieldDetail('Networking - IP            :', network.name!),
+                    FieldDetail('Serial Number              :', network.name!),
+                    FieldDetail('Alternative Username :', network.name!),
                     FieldDetail(
-                        'OS - name!                      :', monitor.name!),
+                        'Type                               :', network.name!),
                     FieldDetail(
-                        'OS - version                   :', monitor.name!),
+                        'OS - name                      :', network.name!),
+                    FieldDetail(
+                        'OS - version                   :', network.name!),
                   ]),
                 ),
                 Container(
@@ -230,15 +230,15 @@ class MonitorDetail extends StatelessWidget {
                                                   0.5), // Allows to add a border decoration around your table
                                           children: [
                                             TableRow(children: [
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
+                                              Text(network.name!),
+                                              Text(network.name!),
+                                              Text(network.name!),
+                                              Text(network.name!),
+                                              Text(network.name!),
                                             ]),
                                           ]);
                                     },
-                                    itemCount: monitor.links.length,
+                                    itemCount: 10,
                                   )
                                       // ),
                                       ),
@@ -345,15 +345,15 @@ class MonitorDetail extends StatelessWidget {
                                   0.5), // Allows to add a border decoration around your table
                           children: [
                             TableRow(children: [
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
+                              Text(network.name!),
+                              Text(network.name!),
+                              Text(network.name!),
+                              Text(network.name!),
+                              Text(network.name!),
                             ]),
                           ]);
                     },
-                    itemCount: monitor.links.length,
+                    itemCount: 10,
                   ),
                 )
               ],

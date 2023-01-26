@@ -6,6 +6,7 @@ import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.d
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
+import 'package:intl/intl.dart';
 
 class Computer extends StatelessWidget {
   Computer({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class Computer extends StatelessWidget {
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.black),
+              color: Colors.white),
         ),
         elevation: 0.0,
         centerTitle: true,
@@ -62,7 +63,7 @@ class Computer extends StatelessWidget {
 
                   return GestureDetector(
                     onTap: () {
-                      Get.toNamed(RouteName.detail_computer,
+                      Get.toNamed(RouteName.computer_detail,
                           arguments: computer);
                     },
                     child: ListComputer(computer),
@@ -100,16 +101,17 @@ class Computer extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: semiBold,
                         fontSize: 18,
                       ),
                     ),
                     Text(
-                      view.dateMod.toString(),
+                      DateFormat('dd MMM yyyy - HH:mm').format(view.dateMod!),
                       overflow: TextOverflow.ellipsis,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        // color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: medium,
                         fontSize: 16,
                       ),
@@ -117,8 +119,6 @@ class Computer extends StatelessWidget {
                   ],
                 ),
               ),
-              // Flexible(
-              // child:
               Container(
                 decoration: BoxDecoration(
                   color: Color(0xFF79DAE8),
@@ -138,8 +138,6 @@ class Computer extends StatelessWidget {
                   ),
                 ),
               ),
-
-              // )
             ],
           ),
         ),

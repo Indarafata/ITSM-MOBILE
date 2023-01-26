@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
+import 'package:intl/intl.dart';
 import 'package:itsm_mobile/model/phone_model.dart';
 import 'package:itsm_mobile/modules/phones/controllers/phone_controllers.dart';
 // import 'package:itsm_mobile/modules/software/views/detail.dart';
@@ -37,7 +38,7 @@ class Phone extends StatelessWidget {
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.black),
+              color: Colors.white),
         ),
         elevation: 0.0,
         centerTitle: true,
@@ -59,8 +60,6 @@ class Phone extends StatelessWidget {
                 ),
               )
             :
-            // Column(
-            //     children: <Widget>[
             ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 physics: const BouncingScrollPhysics(),
@@ -70,17 +69,13 @@ class Phone extends StatelessWidget {
                   var phone = controller.phones[index];
 
                   return GestureDetector(
-                    onTap: () {
-                      // Navigator.pushNamed(context, DetailPage.url,
-                      //     arguments: computer!);
-                    },
+                    onTap: () =>
+                        Get.toNamed(RouteName.phone_detail, arguments: phone),
                     child: ListPhone(phone),
                   );
                 },
                 itemCount: controller.phones.length,
               ),
-        //   ],
-        // ),
       ),
     );
   }
@@ -111,16 +106,16 @@ class Phone extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: semiBold,
                         fontSize: 18,
                       ),
                     ),
                     Text(
-                      view.dateMod.toString(),
+                      DateFormat('dd MMM yyyy - HH:mm').format(view.dateMod!),
                       overflow: TextOverflow.ellipsis,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: medium,
                         fontSize: 16,
                       ),

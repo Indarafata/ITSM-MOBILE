@@ -23,11 +23,11 @@ class DetailComputer extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
-          'ITSM Mobile',
+          'Computer Detail',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.black),
+              color: Colors.white),
         ),
         elevation: 0.0,
         centerTitle: true,
@@ -36,7 +36,6 @@ class DetailComputer extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
                 onPressed: () => Get.offAllNamed(RouteName.home),
-                
                 icon: Icon(Icons.home)),
           ),
         ],
@@ -86,8 +85,6 @@ class DetailComputer extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigator.pushNamed(context, UpdateComputer.url,
-                      //     arguments: computer);
                       homeController.alertMessege(context);
                     },
                     child: Text(

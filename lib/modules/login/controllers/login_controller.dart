@@ -20,8 +20,10 @@ class LoginController extends GetxController {
 
   Future<void> login() async {
     try {
-      String name = nameTextController.text;
-      String password = passwordTextController.text;
+      // String name = nameTextController.text;
+      // String password = passwordTextController.text;
+      String name = "nur.muhsinin";
+      String password = "sebelas";
 
       final str = "$name:$password";
       final bytes = utf8.encode(str);

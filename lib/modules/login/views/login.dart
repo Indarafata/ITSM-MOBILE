@@ -34,27 +34,28 @@ class Login extends StatelessWidget {
                         image: AssetImage("assets/images/logo.png"),
                         fit: BoxFit.contain)),
               ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: TextField(
-                  controller: controller.nameTextController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'User Name',
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: TextField(
-                  obscureText: true,
-                  controller: controller.passwordTextController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                  ),
-                ),
-              ),
+              // Container(
+              //   padding: const EdgeInsets.all(10),
+              //   child: TextField(
+              //     controller: controller.nameTextController,
+              //     decoration: const InputDecoration(
+              //       border: OutlineInputBorder(),
+              //       labelText: 'User Name',
+              //     ),
+              //   ),
+              // ),
+              // Container(
+              //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              //   child: TextField(
+              //     obscureText: true,
+              //     controller: controller.passwordTextController,
+              //     decoration: const InputDecoration(
+              //       border: OutlineInputBorder(),
+              //       labelText: 'Password',
+              //     ),
+              //   ),
+              // ),
+              Text("LANGSUNG KLIK LOGIN GAUSAH NGISI FORM"),
               Container(
                 child: SizedBox(
                   height: 60,

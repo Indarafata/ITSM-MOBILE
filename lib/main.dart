@@ -23,28 +23,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(
-    //   title: _title,
-    //   routes: {
-    //     '/detail-computer': (context) => DetailPage(),
-    //     '/update-computer': (context) => UpdateComputer(),
-    //   },
-    //   // home: List(),
-    //   home: Scaffold(
-    //     appBar: AppBar(title: const Text(_title)),
-    //     body: Login(),
-    //   ),
-    // );
     return ResponsiveSizer(
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
-          // title: '',
           theme: ThemeData(
             fontFamily: 'Nunito',
             primarySwatch: Colors.blue,
           ),
           debugShowCheckedModeBanner: false,
-          // initialRoute: AppPages.initial,
           getPages: AppPages.pages,
           initialRoute: AppPages.initial,
         );
