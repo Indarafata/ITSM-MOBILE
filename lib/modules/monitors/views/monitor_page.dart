@@ -71,11 +71,14 @@ class Monitor extends StatelessWidget {
                   var monitor = controller.monitors[index];
 
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(RouteName.detail_monitor,
+                          arguments: monitor!);
+                    },
                     child: ListMonitor(monitor!),
                   );
                 },
-                itemCount: controller.monitors!.length,
+                itemCount: controller.monitors?.length,
               ),
         //   ],
         // ),
