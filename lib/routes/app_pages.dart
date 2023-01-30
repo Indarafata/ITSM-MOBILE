@@ -3,6 +3,7 @@ import 'package:itsm_mobile/modules/computers/bindings/computer_binding.dart';
 import 'package:itsm_mobile/modules/computers/views/computer_page.dart';
 import 'package:itsm_mobile/modules/computers/views/detail.dart';
 import 'package:itsm_mobile/modules/home_page/views/home_page.dart';
+import 'package:itsm_mobile/modules/devices/bindings/device_binding.dart';
 import 'package:itsm_mobile/modules/login/bindings/login_binding.dart';
 import 'package:itsm_mobile/modules/monitors/bindings/monitor_binding.dart';
 import 'package:itsm_mobile/modules/monitors/views/monitor_page.dart';
@@ -59,6 +60,11 @@ class AppPages {
       name: RouteName.phone,
       page: () => Phone(),
       binding: PhoneBinding(),
+    ),
+    GetPage(
+      name: RouteName.device,
+      page: () => Phone(),
+      binding: DeviceBinding(),
     ),
   ];
 }

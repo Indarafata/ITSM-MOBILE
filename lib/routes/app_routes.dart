@@ -9,4 +9,5 @@ abstract class RouteName {
   static const monitor = '/monitor';
   static const software = '/software';
   static const phone = '/phone';
+  static const device = '/device';
 }
