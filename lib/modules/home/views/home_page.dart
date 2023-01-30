@@ -75,7 +75,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => controller.alertMessege(context),
+            onTap: () => Get.toNamed(RouteName.device),
             label: "Devices",
             icon: Icons.usb_sharp,
           ),
@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => controller.alertMessege(context),
+            onTap: () => Get.toNamed(RouteName.printer),
             label: "Printers",
             icon: Icons.network_check_sharp,
           ),
@@ -91,16 +91,16 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           MenuCard(
-            onTap: () => controller.alertMessege(context),
-            label: "Cartridges",
+            onTap: () => Get.toNamed(RouteName.rack),
+            label: "Rack",
             icon: Icons.network_check_sharp,
           ),
           SizedBox(
             height: 20,
           ),
           MenuCard(
-            onTap: () => controller.alertMessege(context),
-            label: "Consumables",
+            onTap: () => Get.toNamed(RouteName.pdu),
+            label: "Pdu",
             icon: Icons.square_sharp,
           ),
           SizedBox(

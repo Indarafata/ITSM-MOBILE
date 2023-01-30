@@ -14,4 +14,12 @@ abstract class RouteName {
   static const network_detail = '/network-detail';
   static const phone = '/phone';
   static const phone_detail = '/phone-detail';
+  static const printer = '/printer';
+  static const printer_detail = '/printer-detail';
+  static const rack = '/rack';
+  static const rack_detail = '/rack-detail';
+  static const pdu = '/pdu';
+  static const pdu_detail = '/pdu-detail';
+  static const device = '/device';
+  static const device_detail = '/device-detail';
 }
