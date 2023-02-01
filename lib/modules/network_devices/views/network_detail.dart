@@ -83,7 +83,7 @@ class NetworkDetail extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      homeController.alertMessege(context);
+                      Get.toNamed(RouteName.network_update);
                     },
                     child: Text(
                       'Update',

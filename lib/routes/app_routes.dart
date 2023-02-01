@@ -22,4 +22,14 @@ abstract class RouteName {
   static const pdu_detail = '/pdu-detail';
   static const device = '/device';
   static const device_detail = '/device-detail';
+  static const computer_update = '/computer-update';
+  static const monitor_update = '/monitor-update';
+  static const network_update = '/network-update';
+  static const pdus_update = '/pdus-update';
+  static const phone_update = '/phone-update';
+  static const software_update = '/software-update';
+  static const printers_update = '/printers-update';
+  static const racks_update = '/racks-update';
+  static const printer_update = '/printer-update';
+  static const device_update = '/device-update';
 }

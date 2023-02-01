@@ -10,8 +10,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class Rack extends StatelessWidget {
-  Rack({Key? key}) : super(key: key);
+class UpdateRack extends StatelessWidget {
+  UpdateRack({Key? key}) : super(key: key);
 
   final controller = Get.find<RackController>();
 

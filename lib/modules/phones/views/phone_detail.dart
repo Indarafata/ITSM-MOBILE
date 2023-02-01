@@ -83,7 +83,7 @@ class PhoneDetail extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      homeController.alertMessege(context);
+                      Get.toNamed(RouteName.phone_update);
                     },
                     child: Text(
                       'Update',

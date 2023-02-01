@@ -85,7 +85,7 @@ class DetailComputer extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      homeController.alertMessege(context);
+                      Get.toNamed(RouteName.computer_update);
                     },
                     child: Text(
                       'Update',

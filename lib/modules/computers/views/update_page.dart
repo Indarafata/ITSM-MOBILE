@@ -20,13 +20,6 @@ class UpdateComputer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final computer =
-        ModalRoute.of(context)!.settings.arguments as ComputerModel;
-
-    if (computer != null && inisialisasi == false) {
-      name.text = computer.name;
-      inisialisasi = true;
-    }
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(

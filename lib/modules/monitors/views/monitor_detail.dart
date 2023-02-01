@@ -83,7 +83,7 @@ class MonitorDetail extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      homeController.alertMessege(context);
+                      Get.toNamed(RouteName.monitor_update);
                     },
                     child: Text(
                       'Update',

@@ -85,7 +85,7 @@ class SoftwareDetail extends StatelessWidget {
                   margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                   child: ElevatedButton(
                     onPressed: () {
-                      homeController.alertMessege(context);
+                      Get.toNamed(RouteName.software_update);
                     },
                     child: Text(
                       'Update',
