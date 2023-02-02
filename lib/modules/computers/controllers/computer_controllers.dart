@@ -10,6 +10,8 @@ class ComputerController extends GetxController {
   var computers = <ComputerModel>[].obs;
   // final computer = Get.put(ComputerService());
   var computer = ComputerService();
+  var name = TextEditingController();
+  var locationId = TextEditingController();
   final isChekTime = false.obs;
   DateTime tanggal = DateTime.now();
   final isLoading = false.obs;
@@ -28,18 +30,45 @@ class ComputerController extends GetxController {
   Future<void> getAllComputer() async {
     isLoading.value = true;
     try {
-      print("satu");
       final dataComputer = await computer.getAllComputer();
-      print("dua");
-      if (dataComputer != null) {
-        print("tiga");
-        computers.assignAll(dataComputer);
-        print("empat");
-      }
+      computers.assignAll(dataComputer);
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
       e.toString();
+    }
+  }
+
+  Future<void> updateTask(int id) async {
+    try {
+      var input = <String, dynamic>{
+        'locations_id': locationId.text,
+      };
+
+      await ComputerService.updateComputer(id, input);
+
+      Get.snackbar(
+        'Sukses !!',
+        'Berhasil Mengubah Data',
+        backgroundColor: Colors.green,
+        colorText: Colors.white,
+        icon: const Icon(
+          Icons.check,
+          color: Colors.white,
+        ),
+      );
+      Get.offAllNamed(RouteName.home);
+    } catch (e) {
+      Get.snackbar(
+        'Gagal Mengubah Data!',
+        '$e',
+        backgroundColor: Color.fromARGB(255, 34, 28, 28),
+        colorText: Colors.white,
+        icon: const Icon(
+          Icons.cancel,
+          color: Colors.white,
+        ),
+      );
     }
   }
 }
