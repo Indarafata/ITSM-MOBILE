@@ -21,7 +21,7 @@ class UpdateComputer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller.name.text = computer.name;
-    controller.locationId.text = computer.locationsId.toString();
+    controller.locationId.text = controller.dataLocation!.name;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF79DAE8),
@@ -311,7 +311,7 @@ class UpdateComputer extends StatelessWidget {
                 height: 10,
               ),
               GestureDetector(
-                onTap: () => controller.updateTask(computer.id!),
+                onTap: () => controller.updateComputer(computer.id!),
                 child: Container(
                   margin: EdgeInsets.only(left: 255),
                   decoration: BoxDecoration(

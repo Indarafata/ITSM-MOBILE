@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ComputerService {
-  List<ComputerModel> parseComputer(String responseBody) {
+  static List<ComputerModel> parseComputer(String responseBody) {
     final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
 
     return parsed
@@ -15,7 +15,7 @@ class ComputerService {
         .toList();
   }
 
-  Future<List<ComputerModel>> getAllComputer() async {
+  static Future<List<ComputerModel>> getAllComputer() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString("token");
     var response =

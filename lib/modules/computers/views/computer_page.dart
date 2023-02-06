@@ -63,6 +63,7 @@ class Computer extends StatelessWidget {
 
                   return GestureDetector(
                     onTap: () {
+                      controller.getLocation(computer.links[2].href.toString());
                       Get.toNamed(RouteName.computer_detail,
                           arguments: computer);
                     },

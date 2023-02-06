@@ -82,9 +82,8 @@ class DeviceDetail extends StatelessWidget {
                   height: MediaQuery.of(context).size.width * 0.1,
                   margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                   child: ElevatedButton(
-                    onPressed: () {
-                      Get.toNamed(RouteName.device_update);
-                    },
+                    onPressed: () =>
+                        Get.toNamed(RouteName.device_update, arguments: device),
                     child: Text(
                       'Update',
                       style: TextStyle(
