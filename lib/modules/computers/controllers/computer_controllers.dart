@@ -20,7 +20,6 @@ class ComputerController extends GetxController {
   @override
   void onInit() {
     getAllComputer();
-    // getLocation();
     super.onInit();
   }
 

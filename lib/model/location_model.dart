@@ -12,19 +12,19 @@ import 'dart:convert';
 // String locationModelToJson(List<LocationModel> data) =>
 //     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-SchedulesModel schedulesModelFromJson(String str) =>
-    SchedulesModel.fromJson(json.decode(str));
+LocationsModel LocationsModelFromJson(String str) =>
+    LocationsModel.fromJson(json.decode(str));
 
-String schedulesModelToJson(SchedulesModel data) => json.encode(data.toJson());
+String LocationsModelToJson(LocationsModel data) => json.encode(data.toJson());
 
-class SchedulesModel {
-  SchedulesModel({
+class LocationsModel {
+  LocationsModel({
     required this.data,
   });
 
   List<LocationModel> data;
 
-  factory SchedulesModel.fromJson(Map<String, dynamic> json) => SchedulesModel(
+  factory LocationsModel.fromJson(Map<String, dynamic> json) => LocationsModel(
         data: List<LocationModel>.from(
             json["data"].map((x) => LocationModel.fromJson(x))),
       );
