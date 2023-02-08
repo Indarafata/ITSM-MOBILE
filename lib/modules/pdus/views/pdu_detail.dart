@@ -217,30 +217,30 @@ class PduDetail extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  Expanded(
-                                      child: ListView.builder(
-                                    physics: const BouncingScrollPhysics(),
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(pdu.links[index].href),
-                                              Text(pdu.links[index].href),
-                                              Text(pdu.links[index].href),
-                                              Text(pdu.links[index].href),
-                                              Text(pdu.links[index].href),
-                                            ]),
-                                          ]);
-                                    },
-                                    itemCount: pdu.links.length,
-                                  )
-                                      // ),
-                                      ),
+                                  // Expanded(
+                                  //     child: ListView.builder(
+                                  //   physics: const BouncingScrollPhysics(),
+                                  //   shrinkWrap: true,
+                                  //   scrollDirection: Axis.vertical,
+                                  //   itemBuilder: (context, index) {
+                                  //     // return Table(
+                                  //     //     border: TableBorder.all(
+                                  //     //         width:
+                                  //     //             0.5), // Allows to add a border decoration around your table
+                                  //     //     children: [
+                                  //     //       TableRow(children: [
+                                  //     //         Text(pdu.links[index].href),
+                                  //     //         Text(pdu.links[index].href),
+                                  //     //         Text(pdu.links[index].href),
+                                  //     //         Text(pdu.links[index].href),
+                                  //     //         Text(pdu.links[index].href),
+                                  //     //       ]),
+                                  //     //     ]);
+                                  //   },
+                                  //   // itemCount: pdu.links.length,
+                                  // )
+                                  //     // ),
+                                  //     ),
                                 ],
                               ),
                               // ),
@@ -332,29 +332,29 @@ class PduDetail extends StatelessWidget {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(pdu.links[index].href),
-                              Text(pdu.links[index].href),
-                              Text(pdu.links[index].href),
-                              Text(pdu.links[index].href),
-                              Text(pdu.links[index].href),
-                            ]),
-                          ]);
-                    },
-                    itemCount: pdu.links.length,
-                  ),
-                )
+                // Expanded(
+                //   child: ListView.builder(
+                //     physics: const BouncingScrollPhysics(),
+                //     shrinkWrap: true,
+                //     scrollDirection: Axis.vertical,
+                //     itemBuilder: (context, index) {
+                //       // return Table(
+                //       //     border: TableBorder.all(
+                //       //         width:
+                //       //             0.5), // Allows to add a border decoration around your table
+                //       //     children: [
+                //       //       TableRow(children: [
+                //       //         Text(pdu.links[index].href),
+                //       //         Text(pdu.links[index].href),
+                //       //         Text(pdu.links[index].href),
+                //       //         Text(pdu.links[index].href),
+                //       //         Text(pdu.links[index].href),
+                //       //       ]),
+                //       //     ]);
+                //     },
+                //     // itemCount: pdu.links.length,
+                //   ),
+                // )
               ],
             ),
           ),

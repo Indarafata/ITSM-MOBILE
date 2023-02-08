@@ -218,30 +218,30 @@ class MonitorDetail extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  Expanded(
-                                      child: ListView.builder(
-                                    physics: const BouncingScrollPhysics(),
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                            ]),
-                                          ]);
-                                    },
-                                    itemCount: monitor.links.length,
-                                  )
-                                      // ),
-                                      ),
+                                  // Expanded(
+                                  //     child: ListView.builder(
+                                  //   physics: const BouncingScrollPhysics(),
+                                  //   shrinkWrap: true,
+                                  //   scrollDirection: Axis.vertical,
+                                  //   itemBuilder: (context, index) {
+                                  //     // return Table(
+                                  //     //     border: TableBorder.all(
+                                  //     //         width:
+                                  //     //             0.5), // Allows to add a border decoration around your table
+                                  //     //     children: [
+                                  //     //       TableRow(children: [
+                                  //     //         Text(monitor.links[index].href),
+                                  //     //         Text(monitor.links[index].href),
+                                  //     //         Text(monitor.links[index].href),
+                                  //     //         Text(monitor.links[index].href),
+                                  //     //         Text(monitor.links[index].href),
+                                  //     //       ]),
+                                  //     //     ]);
+                                  //   },
+                                  //   // itemCount: monitor.links.length,
+                                  // )
+                                  //     // ),
+                                  //     ),
                                 ],
                               ),
                               // ),
@@ -333,29 +333,29 @@ class MonitorDetail extends StatelessWidget {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                            ]),
-                          ]);
-                    },
-                    itemCount: monitor.links.length,
-                  ),
-                )
+                // Expanded(
+                //   child: ListView.builder(
+                //     physics: const BouncingScrollPhysics(),
+                //     shrinkWrap: true,
+                //     scrollDirection: Axis.vertical,
+                //     itemBuilder: (context, index) {
+                //       // return Table(
+                //       //     border: TableBorder.all(
+                //       //         width:
+                //       //             0.5), // Allows to add a border decoration around your table
+                //       //     children: [
+                //       //       TableRow(children: [
+                //       //         Text(monitor.links[index].href),
+                //       //         Text(monitor.links[index].href),
+                //       //         Text(monitor.links[index].href),
+                //       //         Text(monitor.links[index].href),
+                //       //         Text(monitor.links[index].href),
+                //       //       ]),
+                //       //     ]);
+                //     },
+                //     // itemCount: monitor.links.length,
+                //   ),
+                // )
               ],
             ),
           ),

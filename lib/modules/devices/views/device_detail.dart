@@ -217,30 +217,30 @@ class DeviceDetail extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  Expanded(
-                                      child: ListView.builder(
-                                    physics: const BouncingScrollPhysics(),
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(device.links[index].href),
-                                              Text(device.links[index].href),
-                                              Text(device.links[index].href),
-                                              Text(device.links[index].href),
-                                              Text(device.links[index].href),
-                                            ]),
-                                          ]);
-                                    },
-                                    itemCount: device.links.length,
-                                  )
-                                      // ),
-                                      ),
+                                  // Expanded(
+                                  //     child: ListView.builder(
+                                  //   physics: const BouncingScrollPhysics(),
+                                  //   shrinkWrap: true,
+                                  //   scrollDirection: Axis.vertical,
+                                  //   itemBuilder: (context, index) {
+                                  //     // return Table(
+                                  //     //     border: TableBorder.all(
+                                  //     //         width:
+                                  //     //             0.5), // Allows to add a border decoration around your table
+                                  //     //     children: [
+                                  //     //       TableRow(children: [
+                                  //     //         Text(device.links[index].href),
+                                  //     //         Text(device.links[index].href),
+                                  //     //         Text(device.links[index].href),
+                                  //     //         Text(device.links[index].href),
+                                  //     //         Text(device.links[index].href),
+                                  //     //       ]),
+                                  //     //     ]);
+                                  //   },
+                                  //   // itemCount: device.links.length,
+                                  // )
+                                  //     // ),
+                                  //     ),
                                 ],
                               ),
                               // ),
@@ -332,29 +332,29 @@ class DeviceDetail extends StatelessWidget {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(device.links[index].href),
-                              Text(device.links[index].href),
-                              Text(device.links[index].href),
-                              Text(device.links[index].href),
-                              Text(device.links[index].href),
-                            ]),
-                          ]);
-                    },
-                    itemCount: device.links.length,
-                  ),
-                )
+                // Expanded(
+                //   child: ListView.builder(
+                //     physics: const BouncingScrollPhysics(),
+                //     shrinkWrap: true,
+                //     scrollDirection: Axis.vertical,
+                //     itemBuilder: (context, index) {
+                //       // return Table(
+                //       //     border: TableBorder.all(
+                //       //         width:
+                //       //             0.5), // Allows to add a border decoration around your table
+                //       //     children: [
+                //       //       TableRow(children: [
+                //       //         Text(device.links[index].href),
+                //       //         Text(device.links[index].href),
+                //       //         Text(device.links[index].href),
+                //       //         Text(device.links[index].href),
+                //       //         Text(device.links[index].href),
+                //       //       ]),
+                //       //     ]);
+                //     },
+                //     // itemCount: device.links.length,
+                //   ),
+                // )
               ],
             ),
           ),
