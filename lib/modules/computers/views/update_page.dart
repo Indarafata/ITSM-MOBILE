@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
-import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.dart';
+import 'package:itsm_mobile/controller/computer_controller.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class UpdateComputer extends StatelessWidget {
+class UpdateComputer extends StatefulWidget {
+  @override
+  State<UpdateComputer> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<UpdateComputer> {
   final controller = Get.find<ComputerController>();
+  final controllerLocation = Get.find<LocationController>();
   // AddTaskView({super.key});
 // Colors
   Color colorPrimary = Color(0xFF79DAE8);
@@ -21,7 +28,7 @@ class UpdateComputer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller.name.text = computer.name;
-    controller.locationId.text = controller.dataLocation!.name;
+    // controller.locationId.text = controller.dataLocation!.name;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF79DAE8),
@@ -71,16 +78,32 @@ class UpdateComputer extends StatelessWidget {
                 controller: controller.name,
               ),
               Text(
-                "Location id",
+                "Location",
                 style: TextStyle(fontSize: 15, color: Colors.black54),
               ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Location id",
-                  border: OutlineInputBorder(),
-                ),
-                controller: controller.locationId,
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Location id",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: controller.locationId,
+              // ),
+              DropdownButtonHideUnderline(
+                child: DropdownButton(
+                    iconSize: 30,
+                    borderRadius: BorderRadius.circular(20)
+                        .copyWith(topLeft: Radius.circular(0)),
+                    isExpanded: true,
+                    hint: Text(controllerLocation.dataLocation!.name,
+                        style: TextStyle(fontSize: 15)),
+                    value: controller.selectedLocation,
+                    items: controllerLocation.list,
+                    onChanged: (val) {
+                      setState(() {
+                        controller.selectedLocation = val.toString();
+                      });
+                    }),
               ),
               // SizedBox(
               //   height: 10,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
-import 'package:itsm_mobile/modules/login/controllers/login_controller.dart';
+import 'package:itsm_mobile/controller/login_controller.dart';
 import 'package:itsm_mobile/service/auth_service.dart';
 
 import 'dart:convert';

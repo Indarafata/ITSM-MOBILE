@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.dart';
+import 'package:itsm_mobile/controller/computer_controller.dart';
 
 class ComputerBinding extends Bindings {
   @override

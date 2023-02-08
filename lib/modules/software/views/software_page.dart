@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
 import 'package:itsm_mobile/model/software_model.dart';
-import 'package:itsm_mobile/modules/software/controllers/software_controller.dart';
+import 'package:itsm_mobile/controller/software_controller.dart';
 // import 'package:itsm_mobile/modules/software/views/detail.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:itsm_mobile/service/software_service.dart';

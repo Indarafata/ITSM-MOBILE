@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itsm_mobile/model/rack_model.dart';
 import 'package:itsm_mobile/service/rack_service.dart';
-import '../../../routes/app_pages.dart';
+import '../routes/app_pages.dart';
 
 class RackController extends GetxController {
   var racks = <RackModel>[].obs;

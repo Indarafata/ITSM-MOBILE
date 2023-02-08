@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:itsm_mobile/modules/monitors/controllers/monitor_controllers.dart';
+import 'package:itsm_mobile/controller/monitor_controller.dart';
 
 class MonitorBinding extends Bindings {
   @override

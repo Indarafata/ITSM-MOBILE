@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itsm_mobile/model/device_model.dart';
 import 'package:itsm_mobile/service/device_service.dart';
-import '../../../routes/app_pages.dart';
+import '../routes/app_pages.dart';
 
 class DeviceController extends GetxController {
   var devices = <DeviceModel>[].obs;

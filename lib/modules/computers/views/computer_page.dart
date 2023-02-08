@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
-import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.dart';
+import 'package:itsm_mobile/controller/computer_controller.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
@@ -12,6 +13,7 @@ class Computer extends StatelessWidget {
   Computer({Key? key}) : super(key: key);
 
   final controller = Get.find<ComputerController>();
+  final controllerLocation = Get.find<LocationController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
   FontWeight medium = FontWeight.w500;
@@ -63,7 +65,12 @@ class Computer extends StatelessWidget {
 
                   return GestureDetector(
                     onTap: () {
-                      controller.getLocation(computer.links[2].href.toString());
+                      // LocationController.getLocation(
+                      //     computer.links[2].href.toString());
+                      // LocationController.getLocation(
+                      //     computer.locationsId.toString());
+                      controllerLocation
+                          .getLocation(computer.locationsId.toString());
                       Get.toNamed(RouteName.computer_detail,
                           arguments: computer);
                     },
@@ -72,6 +79,12 @@ class Computer extends StatelessWidget {
                 },
                 itemCount: controller.computers.length,
               ),
+        // DropdownButton(
+        //     dropdownColor: Colors.amber,
+        //     items: controllerLocation.list,
+        //     onChanged: (value) {
+        //       print(value);
+        //     })
       ),
     );
   }

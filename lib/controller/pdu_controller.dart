@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itsm_mobile/model/pdu_model.dart';
 import 'package:itsm_mobile/service/pdu_service.dart';
-import '../../../routes/app_pages.dart';
+import '../routes/app_pages.dart';
 
 class PduController extends GetxController {
   var pdus = <PduModel>[].obs;

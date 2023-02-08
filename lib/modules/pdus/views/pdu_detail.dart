@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/model/device_model.dart';
 import 'package:itsm_mobile/model/pdu_model.dart';
-import 'package:itsm_mobile/modules/home/controllers/home_controllers.dart';
+import 'package:itsm_mobile/controller/home_controller.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 

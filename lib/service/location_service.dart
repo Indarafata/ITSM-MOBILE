@@ -14,15 +14,29 @@ class LocationService {
         .toList();
   }
 
-  static Future<LocationModel> getLocation(String location) async {
+  static Future<LocationModel> getLocation(String locationId) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString("token");
-    var response = await http.get(Uri.parse(location), headers: {
-      'Session-Token': "$token",
-    });
+    var response = await http.get(
+        Uri.parse(baseUrl + "apirest.php/Location/" + locationId),
+        headers: {
+          'Session-Token': "$token",
+        });
 
     // Use the compute function to run parseComputer in a separate isolate.
     // return parseLocation(response.body);
     return LocationModel.fromJson(jsonDecode(response.body));
+  }
+
+  static Future<List<LocationModel>> getAllLocation() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString("token");
+    var response =
+        await http.get(Uri.parse(baseUrl + "apirest.php/Location"), headers: {
+      'Session-Token': "$token",
+    });
+
+    // Use the compute function to run parseComputer in a separate isolate.
+    return parseLocation(response.body);
   }
 }

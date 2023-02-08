@@ -1,3 +1,3 @@
 export 'bindings/splash_binding.dart';
-export 'controllers/splash_controller.dart';
+export '../../controller/splash_controller.dart';
 export 'views/splash_screen.dart';

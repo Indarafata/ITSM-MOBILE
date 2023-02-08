@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itsm_mobile/model/software_model.dart';
 import 'package:itsm_mobile/service/software_service.dart';
-import '../../../routes/app_pages.dart';
+import '../routes/app_pages.dart';
 
 class SoftwareController extends GetxController {
   var softwares = <SoftwareModel>[].obs;

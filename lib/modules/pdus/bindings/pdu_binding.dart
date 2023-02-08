@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:itsm_mobile/modules/pdus/controllers/pdu_controller.dart';
+import 'package:itsm_mobile/controller/pdu_controller.dart';
 
 class PduBinding extends Bindings {
   @override

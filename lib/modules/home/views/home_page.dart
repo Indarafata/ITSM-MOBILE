@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:itsm_mobile/modules/computers/views/computer_page.dart';
-import 'package:itsm_mobile/modules/home/controllers/home_controllers.dart';
+import 'package:itsm_mobile/controller/home_controller.dart';
 import 'package:itsm_mobile/modules/login/views/login.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 import 'package:itsm_mobile/widget/menu_card.dart';

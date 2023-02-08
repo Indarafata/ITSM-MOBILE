@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itsm_mobile/model/device_model.dart';
-import 'package:itsm_mobile/modules/devices/controllers/device_controller.dart';
+import 'package:itsm_mobile/controller/device_controller.dart';
 import 'package:itsm_mobile/modules/devices/views/device_view.dart';
 
 class UpdateDevice extends StatelessWidget {

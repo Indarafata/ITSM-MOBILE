@@ -5,10 +5,11 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
-import 'package:itsm_mobile/modules/computers/controllers/computer_controllers.dart';
+import 'package:itsm_mobile/controller/computer_controller.dart';
 import 'package:itsm_mobile/modules/computers/views/update_page.dart';
-import 'package:itsm_mobile/modules/home/controllers/home_controllers.dart';
+import 'package:itsm_mobile/controller/home_controller.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -19,7 +20,9 @@ class DetailComputer extends StatelessWidget {
   DetailComputer({super.key});
   final homeController = Get.find<HomeController>();
   final ComputerModel computer = Get.arguments;
+  final controllerLocation = Get.find<LocationController>();
   final controller = Get.find<ComputerController>();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class DetailComputer extends StatelessWidget {
       ),
       backgroundColor: Color(0xFF79DAE8),
       body: Obx(
-        () => controller.isLoading.value
+        () => controllerLocation.isLoading.value
             ? Center(
                 child: LoadingAnimationWidget.waveDots(
                   // color: Color(0xFF79DAE8),
@@ -80,7 +83,7 @@ class DetailComputer extends StatelessWidget {
                                 computer.name),
                             FieldDetail(
                           'Location                            :',
-                                controller.dataLocation!.name),
+                                controllerLocation.dataLocation!.name),
                             FieldDetail(
                                 'Last inventory              :', computer.name),
                             FieldDetail(

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:itsm_mobile/modules/printers/controllers/printer_controller.dart';
+import 'package:itsm_mobile/controller/printer_controller.dart';
 
 class PrinterBinding extends Bindings {
   @override

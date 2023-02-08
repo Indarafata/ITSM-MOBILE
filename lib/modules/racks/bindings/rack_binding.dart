@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:itsm_mobile/modules/racks/controllers/rack_controller.dart';
+import 'package:itsm_mobile/controller/rack_controller.dart';
 
 class RackBinding extends Bindings {
   @override

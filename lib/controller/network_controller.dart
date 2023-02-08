@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itsm_mobile/model/network_model.dart';
 import 'package:itsm_mobile/service/network_service.dart';
-import '../../../routes/app_pages.dart';
+import '../routes/app_pages.dart';
 
 class NetworkController extends GetxController {
   var networks = <NetworkModel>[].obs;

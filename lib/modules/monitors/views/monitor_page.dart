@@ -6,7 +6,7 @@ import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
 import 'package:itsm_mobile/model/monitor_model.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
-import 'package:itsm_mobile/modules/monitors/controllers/monitor_controllers.dart';
+import 'package:itsm_mobile/controller/monitor_controller.dart';
 import 'package:itsm_mobile/service/monitor_service.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
