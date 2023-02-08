@@ -224,21 +224,21 @@ class NetworkDetail extends StatelessWidget {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(network.name!),
-                                              Text(network.name!),
-                                              Text(network.name!),
-                                              Text(network.name!),
-                                              Text(network.name!),
-                                            ]),
-                                          ]);
+                                      // return Table(
+                                      //     border: TableBorder.all(
+                                      //         width:
+                                      //             0.5), // Allows to add a border decoration around your table
+                                      //     children: [
+                                      //       TableRow(children: [
+                                      //         Text(network.name!),
+                                      //         Text(network.name!),
+                                      //         Text(network.name!),
+                                      //         Text(network.name!),
+                                      //         Text(network.name!),
+                                      //       ]),
+                                      //     ]);
                                     },
-                                    itemCount: 10,
+                                    // itemCount: 10,
                                   )
                                       // ),
                                       ),
@@ -339,21 +339,21 @@ class NetworkDetail extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(network.name!),
-                              Text(network.name!),
-                              Text(network.name!),
-                              Text(network.name!),
-                              Text(network.name!),
-                            ]),
-                          ]);
+                      // return Table(
+                      //     border: TableBorder.all(
+                      //         width:
+                      //             0.5), // Allows to add a border decoration around your table
+                      //     children: [
+                      //       TableRow(children: [
+                      //         Text(network.name!),
+                      //         Text(network.name!),
+                      //         Text(network.name!),
+                      //         Text(network.name!),
+                      //         Text(network.name!),
+                      //       ]),
+                      //     ]);
                     },
-                    itemCount: 10,
+                    // itemCount: 10,
                   ),
                 )
               ],

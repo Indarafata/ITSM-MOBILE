@@ -226,21 +226,21 @@ class PrinterDetail extends StatelessWidget {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(printer.links[index]!.href),
-                                              Text(printer.links[index]!.href),
-                                              Text(printer.links[index]!.href),
-                                              Text(printer.links[index]!.href),
-                                              Text(printer.links[index]!.href),
-                                            ]),
-                                          ]);
+                                      // return Table(
+                                      //     border: TableBorder.all(
+                                      //         width:
+                                      //             0.5), // Allows to add a border decoration around your table
+                                      //     children: [
+                                      //       TableRow(children: [
+                                      //         Text(printer.links[index]!.href),
+                                      //         Text(printer.links[index]!.href),
+                                      //         Text(printer.links[index]!.href),
+                                      //         Text(printer.links[index]!.href),
+                                      //         Text(printer.links[index]!.href),
+                                      //       ]),
+                                      //     ]);
                                     },
-                                    itemCount: printer.links.length,
+                                    // itemCount: printer.links.length,
                                   )
                                       // ),
                                       ),
@@ -341,21 +341,21 @@ class PrinterDetail extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(printer.links[index]!.href),
-                              Text(printer.links[index]!.href),
-                              Text(printer.links[index]!.href),
-                              Text(printer.links[index]!.href),
-                              Text(printer.links[index]!.href),
-                            ]),
-                          ]);
+                      // return Table(
+                      //     border: TableBorder.all(
+                      //         width:
+                      //             0.5), // Allows to add a border decoration around your table
+                      //     children: [
+                      //       TableRow(children: [
+                      //         Text(printer.links[index]!.href),
+                      //         Text(printer.links[index]!.href),
+                      //         Text(printer.links[index]!.href),
+                      //         Text(printer.links[index]!.href),
+                      //         Text(printer.links[index]!.href),
+                      //       ]),
+                      //     ]);
                     },
-                    itemCount: printer.links.length,
+                    // itemCount: printer.links.length,
                   ),
                 )
               ],

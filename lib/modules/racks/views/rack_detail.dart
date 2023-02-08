@@ -223,21 +223,21 @@ class RackDetail extends StatelessWidget {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(rack.links[index].href),
-                                              Text(rack.links[index].href),
-                                              Text(rack.links[index].href),
-                                              Text(rack.links[index].href),
-                                              Text(rack.links[index].href),
-                                            ]),
-                                          ]);
+                                      // return Table(
+                                      //     border: TableBorder.all(
+                                      //         width:
+                                      //             0.5), // Allows to add a border decoration around your table
+                                      //     children: [
+                                      //       TableRow(children: [
+                                      //         Text(rack.links[index].href),
+                                      //         Text(rack.links[index].href),
+                                      //         Text(rack.links[index].href),
+                                      //         Text(rack.links[index].href),
+                                      //         Text(rack.links[index].href),
+                                      //       ]),
+                                      //     ]);
                                     },
-                                    itemCount: rack.links.length,
+                                    // itemCount: rack.links.length,
                                   )
                                       // ),
                                       ),
@@ -338,21 +338,21 @@ class RackDetail extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(rack.links[index].href),
-                              Text(rack.links[index].href),
-                              Text(rack.links[index].href),
-                              Text(rack.links[index].href),
-                              Text(rack.links[index].href),
-                            ]),
-                          ]);
+                      // return Table(
+                      //     border: TableBorder.all(
+                      //         width:
+                      //             0.5), // Allows to add a border decoration around your table
+                      //     children: [
+                      //       TableRow(children: [
+                      //         Text(rack.links[index].href),
+                      //         Text(rack.links[index].href),
+                      //         Text(rack.links[index].href),
+                      //         Text(rack.links[index].href),
+                      //         Text(rack.links[index].href),
+                      //       ]),
+                      //     ]);
                     },
-                    itemCount: rack.links.length,
+                    // itemCount: rack.links.length,
                   ),
                 )
               ],

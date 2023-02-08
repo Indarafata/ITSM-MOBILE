@@ -223,21 +223,21 @@ class PhoneDetail extends StatelessWidget {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(phone.links[index].href),
-                                              Text(phone.links[index].href),
-                                              Text(phone.links[index].href),
-                                              Text(phone.links[index].href),
-                                              Text(phone.links[index].href),
-                                            ]),
-                                          ]);
+                                      // return Table(
+                                      //     border: TableBorder.all(
+                                      //         width:
+                                      //             0.5), // Allows to add a border decoration around your table
+                                      //     children: [
+                                      //       TableRow(children: [
+                                      //         Text(phone.links[index].href),
+                                      //         Text(phone.links[index].href),
+                                      //         Text(phone.links[index].href),
+                                      //         Text(phone.links[index].href),
+                                      //         Text(phone.links[index].href),
+                                      //       ]),
+                                      //     ]);
                                     },
-                                    itemCount: phone.links.length,
+                                    // itemCount: phone.links.length,
                                   )
                                       // ),
                                       ),
@@ -338,19 +338,19 @@ class PhoneDetail extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(phone.links[index].href),
-                              Text(phone.links[index].href),
-                              Text(phone.links[index].href),
-                              Text(phone.links[index].href),
-                              Text(phone.links[index].href),
-                            ]),
-                          ]);
+                      // return Table(
+                      //     border: TableBorder.all(
+                      //         width:
+                      //             0.5), // Allows to add a border decoration around your table
+                      //     children: [
+                      //       TableRow(children: [
+                      //         Text(phone.links[index].href),
+                      //         Text(phone.links[index].href),
+                      //         Text(phone.links[index].href),
+                      //         Text(phone.links[index].href),
+                      //         Text(phone.links[index].href),
+                      //       ]),
+                      //     ]);
                     },
                     itemCount: phone.links.length,
                   ),

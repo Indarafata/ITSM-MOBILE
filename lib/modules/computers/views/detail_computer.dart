@@ -78,8 +78,7 @@ class DetailComputer extends StatelessWidget {
                                 computer.links[0].href),
                             FieldDetail('Status                            :',
                                 computer.name),
-                            FieldDetail(
-                          'Location                            :',
+                            FieldDetail('Location                            :',
                                 controller.dataLocation!.name),
                             FieldDetail(
                                 'Last inventory              :', computer.name),
@@ -256,26 +255,26 @@ class DetailComputer extends StatelessWidget {
                                             shrinkWrap: true,
                                             scrollDirection: Axis.vertical,
                                             itemBuilder: (context, index) {
-                                              return Table(
-                                                  border: TableBorder.all(
-                                                      width:
-                                                          0.5), // Allows to add a border decoration around your table
-                                                  children: [
-                                                    TableRow(children: [
-                                                      Text(computer
-                                                          .links[index].href),
-                                                      Text(computer
-                                                          .links[index].href),
-                                                      Text(computer
-                                                          .links[index].href),
-                                                      Text(computer
-                                                          .links[index].href),
-                                                      Text(computer
-                                                          .links[index].href),
-                                                    ]),
-                                                  ]);
+                                              // return Table(
+                                              //     border: TableBorder.all(
+                                              //         width:
+                                              //             0.5), // Allows to add a border decoration around your table
+                                              //     children: [
+                                              //       TableRow(children: [
+                                              //         Text(computer
+                                              //             .links[index].href),
+                                              //         Text(computer
+                                              //             .links[index].href),
+                                              //         Text(computer
+                                              //             .links[index].href),
+                                              //         Text(computer
+                                              //             .links[index].href),
+                                              //         Text(computer
+                                              //             .links[index].href),
+                                              //       ]),
+                                              //     ]);
                                             },
-                                            itemCount: computer.links.length,
+                                            // itemCount: computer.links.length,
                                           )
                                               // ),
                                               ),
@@ -376,21 +375,21 @@ class DetailComputer extends StatelessWidget {
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             itemBuilder: (context, index) {
-                              return Table(
-                                  border: TableBorder.all(
-                                      width:
-                                          0.5), // Allows to add a border decoration around your table
-                                  children: [
-                                    TableRow(children: [
-                                      Text(computer.links[index].href),
-                                      Text(computer.links[index].href),
-                                      Text(computer.links[index].href),
-                                      Text(computer.links[index].href),
-                                      Text(computer.links[index].href),
-                                    ]),
-                                  ]);
+                              // return Table(
+                              //     border: TableBorder.all(
+                              //         width:
+                              //             0.5), // Allows to add a border decoration around your table
+                              //     children: [
+                              //       TableRow(children: [
+                              //         Text(computer.links[index].href),
+                              //         Text(computer.links[index].href),
+                              //         Text(computer.links[index].href),
+                              //         Text(computer.links[index].href),
+                              //         Text(computer.links[index].href),
+                              //       ]),
+                              //     ]);
                             },
-                            itemCount: computer.links.length,
+                            // itemCount: computer.links.length,
                           ),
                         )
                       ],

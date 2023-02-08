@@ -223,21 +223,21 @@ class DeviceDetail extends StatelessWidget {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(device.links[index].href),
-                                              Text(device.links[index].href),
-                                              Text(device.links[index].href),
-                                              Text(device.links[index].href),
-                                              Text(device.links[index].href),
-                                            ]),
-                                          ]);
+                                      // return Table(
+                                      //     border: TableBorder.all(
+                                      //         width:
+                                      //             0.5), // Allows to add a border decoration around your table
+                                      //     children: [
+                                      //       TableRow(children: [
+                                      //         Text(device.links[index].href),
+                                      //         Text(device.links[index].href),
+                                      //         Text(device.links[index].href),
+                                      //         Text(device.links[index].href),
+                                      //         Text(device.links[index].href),
+                                      //       ]),
+                                      //     ]);
                                     },
-                                    itemCount: device.links.length,
+                                    // itemCount: device.links.length,
                                   )
                                       // ),
                                       ),
@@ -338,21 +338,21 @@ class DeviceDetail extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(device.links[index].href),
-                              Text(device.links[index].href),
-                              Text(device.links[index].href),
-                              Text(device.links[index].href),
-                              Text(device.links[index].href),
-                            ]),
-                          ]);
+                      // return Table(
+                      //     border: TableBorder.all(
+                      //         width:
+                      //             0.5), // Allows to add a border decoration around your table
+                      //     children: [
+                      //       TableRow(children: [
+                      //         Text(device.links[index].href),
+                      //         Text(device.links[index].href),
+                      //         Text(device.links[index].href),
+                      //         Text(device.links[index].href),
+                      //         Text(device.links[index].href),
+                      //       ]),
+                      //     ]);
                     },
-                    itemCount: device.links.length,
+                    // itemCount: device.links.length,
                   ),
                 )
               ],

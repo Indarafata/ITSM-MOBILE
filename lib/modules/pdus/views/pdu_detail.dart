@@ -223,21 +223,21 @@ class PduDetail extends StatelessWidget {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(pdu.links[index].href),
-                                              Text(pdu.links[index].href),
-                                              Text(pdu.links[index].href),
-                                              Text(pdu.links[index].href),
-                                              Text(pdu.links[index].href),
-                                            ]),
-                                          ]);
+                                      // return Table(
+                                      //     border: TableBorder.all(
+                                      //         width:
+                                      //             0.5), // Allows to add a border decoration around your table
+                                      //     children: [
+                                      //       TableRow(children: [
+                                      //         Text(pdu.links[index].href),
+                                      //         Text(pdu.links[index].href),
+                                      //         Text(pdu.links[index].href),
+                                      //         Text(pdu.links[index].href),
+                                      //         Text(pdu.links[index].href),
+                                      //       ]),
+                                      //     ]);
                                     },
-                                    itemCount: pdu.links.length,
+                                    // itemCount: pdu.links.length,
                                   )
                                       // ),
                                       ),
@@ -338,21 +338,21 @@ class PduDetail extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(pdu.links[index].href),
-                              Text(pdu.links[index].href),
-                              Text(pdu.links[index].href),
-                              Text(pdu.links[index].href),
-                              Text(pdu.links[index].href),
-                            ]),
-                          ]);
+                      // return Table(
+                      //     border: TableBorder.all(
+                      //         width:
+                      //             0.5), // Allows to add a border decoration around your table
+                      //     children: [
+                      //       TableRow(children: [
+                      //         Text(pdu.links[index].href),
+                      //         Text(pdu.links[index].href),
+                      //         Text(pdu.links[index].href),
+                      //         Text(pdu.links[index].href),
+                      //         Text(pdu.links[index].href),
+                      //       ]),
+                      //     ]);
                     },
-                    itemCount: pdu.links.length,
+                    // itemCount: pdu.links.length,
                   ),
                 )
               ],

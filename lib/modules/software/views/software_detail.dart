@@ -226,21 +226,21 @@ class SoftwareDetail extends StatelessWidget {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(software.links[index].href),
-                                              Text(software.links[index].href),
-                                              Text(software.links[index].href),
-                                              Text(software.links[index].href),
-                                              Text(software.links[index].href),
-                                            ]),
-                                          ]);
+                                      // return Table(
+                                      //     border: TableBorder.all(
+                                      //         width:
+                                      //             0.5), // Allows to add a border decoration around your table
+                                      //     children: [
+                                      //       TableRow(children: [
+                                      //         Text(software.links[index].href),
+                                      //         Text(software.links[index].href),
+                                      //         Text(software.links[index].href),
+                                      //         Text(software.links[index].href),
+                                      //         Text(software.links[index].href),
+                                      //       ]),
+                                      //     ]);
                                     },
-                                    itemCount: software.links.length,
+                                    // itemCount: software.links.length,
                                   )
                                       // ),
                                       ),
@@ -341,21 +341,21 @@ class SoftwareDetail extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(software.links[index].href),
-                              Text(software.links[index].href),
-                              Text(software.links[index].href),
-                              Text(software.links[index].href),
-                              Text(software.links[index].href),
-                            ]),
-                          ]);
+                      // return Table(
+                      //     border: TableBorder.all(
+                      //         width:
+                      //             0.5), // Allows to add a border decoration around your table
+                      //     children: [
+                      //       TableRow(children: [
+                      //         Text(software.links[index].href),
+                      //         Text(software.links[index].href),
+                      //         Text(software.links[index].href),
+                      //         Text(software.links[index].href),
+                      //         Text(software.links[index].href),
+                      //       ]),
+                      //     ]);
                     },
-                    itemCount: software.links.length,
+                    // itemCount: software.links.length,
                   ),
                 )
               ],

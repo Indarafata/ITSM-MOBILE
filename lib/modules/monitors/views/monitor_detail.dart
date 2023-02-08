@@ -224,21 +224,21 @@ class MonitorDetail extends StatelessWidget {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
-                                      return Table(
-                                          border: TableBorder.all(
-                                              width:
-                                                  0.5), // Allows to add a border decoration around your table
-                                          children: [
-                                            TableRow(children: [
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                              Text(monitor.links[index].href),
-                                            ]),
-                                          ]);
+                                      // return Table(
+                                      //     border: TableBorder.all(
+                                      //         width:
+                                      //             0.5), // Allows to add a border decoration around your table
+                                      //     children: [
+                                      //       TableRow(children: [
+                                      //         Text(monitor.links[index].href),
+                                      //         Text(monitor.links[index].href),
+                                      //         Text(monitor.links[index].href),
+                                      //         Text(monitor.links[index].href),
+                                      //         Text(monitor.links[index].href),
+                                      //       ]),
+                                      //     ]);
                                     },
-                                    itemCount: monitor.links.length,
+                                    // itemCount: monitor.links.length,
                                   )
                                       // ),
                                       ),
@@ -339,21 +339,21 @@ class MonitorDetail extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return Table(
-                          border: TableBorder.all(
-                              width:
-                                  0.5), // Allows to add a border decoration around your table
-                          children: [
-                            TableRow(children: [
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                              Text(monitor.links[index].href),
-                            ]),
-                          ]);
+                      // return Table(
+                      //     border: TableBorder.all(
+                      //         width:
+                      //             0.5), // Allows to add a border decoration around your table
+                      //     children: [
+                      //       TableRow(children: [
+                      //         Text(monitor.links[index].href),
+                      //         Text(monitor.links[index].href),
+                      //         Text(monitor.links[index].href),
+                      //         Text(monitor.links[index].href),
+                      //         Text(monitor.links[index].href),
+                      //       ]),
+                      //     ]);
                     },
-                    itemCount: monitor.links.length,
+                    // itemCount: monitor.links.length,
                   ),
                 )
               ],
