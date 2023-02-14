@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/device_model.dart';
 import 'package:itsm_mobile/controller/device_controller.dart';
 import 'package:itsm_mobile/modules/devices/views/device_view.dart';
 
-class UpdateDevice extends StatelessWidget {
+class UpdateDevice extends StatefulWidget {
+  @override
+  State<UpdateDevice> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<UpdateDevice> {
   var name = TextEditingController();
-  // AddTaskView({super.key});
-// Colors
   Color colorPrimary = Color(0xFF79DAE8);
   Color colorBlack = Color(0xFF4F4F4F);
 // Font
@@ -17,13 +21,12 @@ class UpdateDevice extends StatelessWidget {
   FontWeight bold = FontWeight.w700;
 // Padding
   double defaultPadding = 20.0;
-  DeviceModel device = Get.arguments;
   final controller = Get.find<DeviceController>();
+  final controllerLocation = Get.find<LocationController>();
+  DeviceModel device = Get.arguments;
 
-  @override
   Widget build(BuildContext context) {
     controller.name.text = device.name;
-    controller.locationId.text = device.locationsId.toString();
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -66,33 +69,53 @@ class UpdateDevice extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text(device.id.toString()),
               Text(
                 "Name",
                 style: TextStyle(fontSize: 15, color: Colors.black54),
               ),
               TextField(
                 // obscureText: true,
+                enabled: false,
                 decoration: InputDecoration(
-                  hintText: "Name",
-                  border: OutlineInputBorder(),
-                ),
+                    hintText: "Name",
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.lock)),
                 controller: controller.name,
               ),
               Text(
                 "Location",
                 style: TextStyle(fontSize: 15, color: Colors.black54),
               ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Location",
-                  border: OutlineInputBorder(),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Location",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: controller.locationId,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  hint: Text(
+                    controllerLocation.dataLocation!.name,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).hintColor,
+                    ),
+                  ),
+                  items: controllerLocation.list,
+                  value: controller.selectedLocation,
+                  onChanged: (value) {
+                    // (() {
+
+                    controller.selectedLocation = value as String;
+                    print(controller.selectedLocation);
+                    // });
+                  },
                 ),
-                controller: controller.locationId,
-              ),
-              SizedBox(
-                height: 10,
               ),
               // Text(
               //   "Technician in charger of the hardware",
@@ -317,10 +340,10 @@ class UpdateDevice extends StatelessWidget {
               //   controller: name,
               // ),
               // SizedBox(
-              //   height: 10,
+              // height: 10,
               // ),
               GestureDetector(
-                onTap: () => controller.updateDevice(device.id),
+                onTap: () => controller.updateDevice(device.id!),
                 child: Container(
                   margin: EdgeInsets.only(left: 255),
                   decoration: BoxDecoration(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/phone_model.dart';
 import 'package:itsm_mobile/controller/phone_controller.dart';
 // import 'package:itsm_mobile/modules/software/views/detail.dart';
@@ -12,7 +13,7 @@ import 'package:itsm_mobile/routes/app_pages.dart';
 
 class Phone extends StatelessWidget {
   Phone({Key? key}) : super(key: key);
-
+  final controllerLocation = Get.find<LocationController>();
   final controller = Get.find<PhoneController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
@@ -59,8 +60,7 @@ class Phone extends StatelessWidget {
                   size: 7.h,
                 ),
               )
-            :
-            ListView.builder(
+            : ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
@@ -69,10 +69,12 @@ class Phone extends StatelessWidget {
                   var phone = controller.phones[index];
 
                   return GestureDetector(
-                    onTap: () =>
-                        Get.toNamed(RouteName.phone_detail, arguments: phone),
-                    child: ListPhone(phone),
-                  );
+                      onTap: () {
+                        controllerLocation
+                            .getLocation(phone.locationsId.toString());
+                        Get.toNamed(RouteName.phone_detail, arguments: phone);
+                      },
+                      child: ListPhone(phone));
                 },
                 itemCount: controller.phones.length,
               ),

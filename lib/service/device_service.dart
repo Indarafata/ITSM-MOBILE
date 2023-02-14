@@ -30,7 +30,7 @@ class DeviceService {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString("token");
 
-    var computer = <String, dynamic>{
+    var device = <String, dynamic>{
       "input": [
         {
           "id": id,
@@ -41,7 +41,7 @@ class DeviceService {
 
     var response = await http.put(
         Uri.parse(baseUrl + "apirest.php/peripheral/" + id.toString()),
-        body: jsonEncode(computer),
+        body: jsonEncode(device),
         headers: {
           'Content-Type': 'application/json',
           'Session-Token': "$token",

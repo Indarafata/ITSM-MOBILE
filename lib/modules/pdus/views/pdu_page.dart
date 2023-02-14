@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/device_model.dart';
 import 'package:itsm_mobile/model/monitor_model.dart';
 import 'package:itsm_mobile/model/pdu_model.dart';
@@ -19,7 +20,7 @@ import 'package:itsm_mobile/routes/app_pages.dart';
 
 class Pdu extends StatelessWidget {
   Pdu({Key? key}) : super(key: key);
-
+  final controllerLocation = Get.find<LocationController>();
   final controller = Get.find<PduController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
@@ -77,8 +78,11 @@ class Pdu extends StatelessWidget {
                   var pdu = controller.pdus[index];
 
                   return GestureDetector(
-                      onTap: () =>
-                          Get.toNamed(RouteName.pdu_detail, arguments: pdu),
+                      onTap: () {
+                        controllerLocation
+                            .getLocation(pdu.locationsId.toString());
+                        Get.toNamed(RouteName.pdu_detail, arguments: pdu);
+                      },
                       child: Listpdu(pdu));
                 },
                 itemCount: controller.pdus.length),

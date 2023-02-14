@@ -164,13 +164,13 @@ class AppPages {
     ),
     GetPage(
       name: RouteName.network_update,
-      page: () => UpdateDevice(),
+      page: () => UpdateNetwork(),
       //binding: PduBinding(),
     ),
     GetPage(
       name: RouteName.pdus_update,
       page: () => UpdatePdu(),
-      //binding: PduBinding(),
+      binding: PduBinding(),
     ),
     GetPage(
       name: RouteName.phone_update,

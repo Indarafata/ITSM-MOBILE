@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/device_model.dart';
 import 'package:itsm_mobile/model/monitor_model.dart';
 import 'package:itsm_mobile/model/printer_model.dart';
@@ -17,7 +18,7 @@ import 'package:itsm_mobile/routes/app_pages.dart';
 
 class Printer extends StatelessWidget {
   Printer({Key? key}) : super(key: key);
-
+  final controllerLocation = Get.find<LocationController>();
   final controller = Get.find<PrinterController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
@@ -75,8 +76,12 @@ class Printer extends StatelessWidget {
                   var printer = controller.printers[index];
 
                   return GestureDetector(
-                      onTap: () => Get.toNamed(RouteName.printer_detail,
-                          arguments: printer),
+                      onTap: () {
+                        controllerLocation
+                            .getLocation(printer.locationsId.toString());
+                        Get.toNamed(RouteName.printer_detail,
+                            arguments: printer);
+                      },
                       child: ListPrinter(printer));
                 },
                 itemCount: controller.printers.length),

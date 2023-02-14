@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/network_model.dart';
 import 'package:itsm_mobile/controller/network_controller.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
@@ -11,7 +12,7 @@ import 'package:itsm_mobile/routes/app_pages.dart';
 
 class Network extends StatelessWidget {
   Network({Key? key}) : super(key: key);
-
+  final controllerLocation = Get.find<LocationController>();
   final controller = Get.find<NetworkController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
@@ -66,10 +67,13 @@ class Network extends StatelessWidget {
                   var network = controller.networks[index];
 
                   return GestureDetector(
-                    onTap: () => Get.toNamed(RouteName.network_detail,
-                        arguments: network),
-                    child: ListNetwork(network),
-                  );
+                      onTap: () {
+                        // controllerLocation
+                        //     .getLocation(network.);
+                        Get.toNamed(RouteName.network_detail,
+                            arguments: network);
+                      },
+                      child: ListNetwork(network));
                 },
                 itemCount: controller.networks.length,
               ),

@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:itsm_mobile/controller/monitor_controller.dart';
 import 'package:itsm_mobile/model/monitor_model.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:itsm_mobile/modules/monitors/views/monitor_page.dart';
 
-class UpdateMonitor extends StatelessWidget {
+import '../../../controller/location_controller.dart';
+
+class UpdateMonitor extends StatefulWidget {
+  @override
+  State<UpdateMonitor> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<UpdateMonitor> {
   var name = TextEditingController();
+  final controllerLocation = Get.find<LocationController>();
+  final controller = Get.find<MonitorController>();
+  MonitorModel monitor = Get.arguments;
   // AddTaskView({super.key});
 // Colors
   Color colorPrimary = Color(0xFF79DAE8);
@@ -19,6 +33,7 @@ class UpdateMonitor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    controller.name.text = monitor.name!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -46,7 +61,7 @@ class UpdateMonitor extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Update PDU",
+                    "Update Monitor",
                     style: fontNunito.copyWith(
                       color: colorBlack,
                       fontWeight: semiBold,
@@ -67,254 +82,274 @@ class UpdateMonitor extends StatelessWidget {
               ),
               TextField(
                 // obscureText: true,
+                enabled: false,
                 decoration: InputDecoration(
-                  hintText: "Name",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
+                    hintText: "Name",
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.lock)),
+                controller: controller.name,
               ),
               Text(
                 "Location",
                 style: TextStyle(fontSize: 15, color: Colors.black54),
               ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Location",
-                  border: OutlineInputBorder(),
+              // TextField(
+              // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Location",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              DropdownButtonHideUnderline(
+                child: DropdownButtonFormField(
+                  hint: Text(
+                    controllerLocation.dataLocation!.name,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).hintColor,
+                    ),
+                  ),
+                  items: controllerLocation.list,
+                  value: controller.selectedLocation,
+                  onChanged: (value) {
+                    // (() {
+                    controller.selectedLocation = value as String;
+                    print(controller.selectedLocation);
+                    // });
+                  },
                 ),
-                controller: name,
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Technician in charger of the hardware",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Technician in charger of the hardware",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Group in charge of the hardware",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Group in charge of the hardware",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Alternate Username",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Alternate Username",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "User",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "User",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Group",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Group",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Comments",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Comments",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Status",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Status",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Type",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Type",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Manufacturer",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Manufacturer",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Model",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Model",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Serrial number",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Serrial number",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Inventory number",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Inventory number",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Network",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Network",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "UUID",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "UUID",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Update Source",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
-              TextField(
-                // obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Update Source",
-                  border: OutlineInputBorder(),
-                ),
-                controller: name,
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              // Text(
+              //   "Technician in charger of the hardware",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Technician in charger of the hardware",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Group in charge of the hardware",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Group in charge of the hardware",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Alternate Username",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Alternate Username",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "User",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "User",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Group",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Group",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Comments",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Comments",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Status",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Status",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Type",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Type",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Manufacturer",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Manufacturer",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Model",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Model",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Serrial number",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Serrial number",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Inventory number",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Inventory number",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Network",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Network",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "UUID",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "UUID",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   "Update Source",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
+              // TextField(
+              //   // obscureText: true,
+              //   decoration: InputDecoration(
+              //     hintText: "Update Source",
+              //     border: OutlineInputBorder(),
+              //   ),
+              //   controller: name,
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
               GestureDetector(
-                onTap: () {},
+                onTap: () => controller.updateMonitor(monitor.id!),
                 child: Container(
                   margin: EdgeInsets.only(left: 255),
                   decoration: BoxDecoration(

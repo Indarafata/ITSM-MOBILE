@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itsm_mobile/model/device_model.dart';
+import 'package:itsm_mobile/model/location_model.dart';
 import 'package:itsm_mobile/service/device_service.dart';
 import '../routes/app_pages.dart';
 
@@ -11,6 +12,11 @@ class DeviceController extends GetxController {
   final isLoading = false.obs;
   var name = TextEditingController();
   var locationId = TextEditingController();
+  var locations = <LocationModel>[].obs;
+  List<DropdownMenuItem<String>>? list;
+  String? selectedLocation;
+
+  LocationModel? dataLocation;
 
   @override
   void onInit() {
@@ -41,7 +47,7 @@ class DeviceController extends GetxController {
   Future<void> updateDevice(int id) async {
     try {
       var input = <String, dynamic>{
-        'locations_id': locationId.text,
+        'locations_id': selectedLocation,
       };
 
       await DeviceService.updateDevice(id, input);

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
+import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/model/monitor_model.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
 import 'package:itsm_mobile/controller/monitor_controller.dart';
@@ -14,7 +15,7 @@ import 'package:itsm_mobile/routes/app_pages.dart';
 
 class Monitor extends StatelessWidget {
   Monitor({Key? key}) : super(key: key);
-
+  final controllerLocation = Get.find<LocationController>();
   final controller = Get.find<MonitorController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
@@ -72,10 +73,13 @@ class Monitor extends StatelessWidget {
                   var monitor = controller.monitors[index];
 
                   return GestureDetector(
-                    onTap: () => Get.toNamed(RouteName.monitor_detail,
-                        arguments: monitor),
-                    child: ListMonitor(monitor!),
-                  );
+                      onTap: () {
+                        controllerLocation
+                            .getLocation(monitor.locationsId.toString());
+                        Get.toNamed(RouteName.monitor_detail,
+                            arguments: monitor);
+                      },
+                      child: ListMonitor(monitor));
                 },
                 itemCount: controller.monitors!.length,
               ),
