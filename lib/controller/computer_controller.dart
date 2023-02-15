@@ -14,6 +14,7 @@ class ComputerController extends GetxController {
   var locations = <LocationModel>[].obs;
   var name = TextEditingController();
   var locationId = TextEditingController();
+  var comment = TextEditingController();
   String? selectedLocation;
   final isLoading = false.obs;
   List<DropdownMenuItem<String>>? list;
@@ -45,6 +46,7 @@ class ComputerController extends GetxController {
     try {
       var input = <String, dynamic>{
         'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await ComputerService.updateComputer(id, input);

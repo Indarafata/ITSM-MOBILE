@@ -11,7 +11,7 @@ class PrinterController extends GetxController {
   var printers = <PrinterModel>[].obs;
   var printer = PrinterService();
   var name = TextEditingController();
-  var locationId = TextEditingController();
+  var comment = TextEditingController();
   var locations = <LocationModel>[].obs;
   List<DropdownMenuItem<String>>? list;
   String? selectedLocation;
@@ -54,7 +54,9 @@ class PrinterController extends GetxController {
   Future<void> updatePrinter(int id) async {
     try {
       var input = <String, dynamic>{
+        'id': id,
         'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await PrinterService.updatePrinter(id, input);

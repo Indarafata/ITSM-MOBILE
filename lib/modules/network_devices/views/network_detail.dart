@@ -1,4 +1,4 @@
-// import 'dart:html';
+// import '//';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -46,350 +46,327 @@ class NetworkDetail extends StatelessWidget {
         ],
       ),
       backgroundColor: Color(0xFF79DAE8),
-      body: Obx(
-        () => controllerLocation.isLoading.value
-            ? Center(
-                child: LoadingAnimationWidget.waveDots(
-                  color: Color(0xFF79DAE8),
-                  size: 7.h,
+      body: ListView(
+        physics: NeverScrollableScrollPhysics(),
+        children: [
+          Container(
+            width: 310,
+            height: 333,
+            padding: EdgeInsets.all(10),
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.lightBlueAccent,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 5,
                 ),
-              )
-            : ListView(
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  Container(
-                    width: 310,
-                    height: 333,
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.lightBlueAccent,
+                Expanded(
+                  child: ListView(children: [
+                    FieldDetail(
+                        'Name                             :', network.comment!),
+                    FieldDetail(
+                        'Status                            :', network.name!),
+                    FieldDetail(
+                        'Location                            :', network.name!),
+                    FieldDetail('Comment              :', network.comment!),
+                    FieldDetail('Networking - IP            :', network.name!),
+                    FieldDetail('Serial Number              :', network.name!),
+                    FieldDetail('Alternative Username :', network.name!),
+                    FieldDetail(
+                        'Type                               :', network.name!),
+                    FieldDetail(
+                        'OS - name                      :', network.name!),
+                    FieldDetail(
+                        'OS - version                   :', network.name!),
+                  ]),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 1,
+                  height: MediaQuery.of(context).size.width * 0.1,
+                  margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Get.toNamed(RouteName.network_update, arguments: network);
+                    },
+                    child: Text(
+                      'Update',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 11,
+                      ),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Expanded(
-                          child: ListView(children: [
-                            FieldDetail('Name                             :',
-                                network.comment!),
-                            FieldDetail('Status                            :',
-                                network.name!),
-                            FieldDetail('Location                            :',
-                                controllerLocation.dataLocation!.name),
-                            FieldDetail(
-                                'Last inventory              :', network.name!),
-                            FieldDetail(
-                                'Networking - IP            :', network.name!),
-                            FieldDetail(
-                                'Serial Number              :', network.name!),
-                            FieldDetail(
-                                'Alternative Username :', network.name!),
-                            FieldDetail('Type                               :',
-                                network.name!),
-                            FieldDetail('OS - name                      :',
-                                network.name!),
-                            FieldDetail('OS - version                   :',
-                                network.name!),
-                          ]),
-                        ),
-                        Container(
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            // color: Colors.green,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  // padding: const EdgeInsets.only(left: 20, top: 10),
+                  alignment: Alignment.topCenter,
+                  child: GestureDetector(
+                      onHorizontalDragDown: (DragDownDetails) {
+                        showModalBottomSheet<void>(
+                          isScrollControlled: true,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return SizedBox(
+                              height: MediaQuery.of(context).size.width * 3,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    alignment: Alignment.bottomCenter,
+                                    height: MediaQuery.of(context).size.width *
+                                        0.25,
+                                    width:
+                                        MediaQuery.of(context).size.width * 1,
+                                    decoration: BoxDecoration(
+                                        color: Color(0xFF79DAE8),
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(30),
+                                            bottomRight: Radius.circular(30))),
+                                    child: Text(
+                                      'History',
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 20),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                      onHorizontalDragDown: (DragDownDetails) {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Container(
+                                          color: Colors.white,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              1,
+                                          child:
+                                              Icon(IconlyLight.arrow_down_2))),
+                                  Container(
+                                    height: 50,
+                                    child: ListView(
+                                      scrollDirection: Axis.horizontal,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      children: <Widget>[
+                                        Container(
+                                          width: 55,
+                                          child: const Center(
+                                              child: Text(
+                                            'ID',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                color: Colors.blue),
+                                          )),
+                                        ),
+                                        Container(
+                                          width: 75,
+                                          child: const Center(
+                                              child: Text(
+                                            'Date',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                color: Colors.blue),
+                                          )),
+                                        ),
+                                        Container(
+                                          width: 75,
+                                          child: const Center(
+                                              child: Text(
+                                            'User',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                color: Colors.blue),
+                                          )),
+                                        ),
+                                        Container(
+                                          width: 75,
+                                          child: const Center(
+                                              child: Text(
+                                            'Field',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                color: Colors.blue),
+                                          )),
+                                        ),
+                                        Container(
+                                          width: 75,
+                                          child: const Center(
+                                              child: Text(
+                                            'Update',
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 15,
+                                                color: Colors.blue),
+                                          )),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Expanded(
+                                  //     child: ListView.builder(
+                                  //   physics: const BouncingScrollPhysics(),
+                                  //   shrinkWrap: true,
+                                  //   scrollDirection: Axis.vertical,
+                                  //   itemBuilder: (context, index) {
+                                  //     // return Table(
+                                  //     //     border: TableBorder.all(
+                                  //     //         width:
+                                  //     //             0.5), // Allows to add a border decoration around your table
+                                  //     //     children: [
+                                  //     //       TableRow(children: [
+                                  //     //         Text(network.name!),
+                                  //     //         Text(network.name!),
+                                  //     //         Text(network.name!),
+                                  //     //         Text(network.name!),
+                                  //     //         Text(network.name!),
+                                  //     //       ]),
+                                  //     //     ]);
+                                  //   },
+                                  //   // itemCount: 10,
+                                  // )
+                                  //     // ),
+                                  //     ),
+                                ],
+                              ),
+                              // ),
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                          color: Colors.white,
                           width: MediaQuery.of(context).size.width * 1,
-                          height: MediaQuery.of(context).size.width * 0.1,
-                          margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Get.toNamed(RouteName.network_update);
-                            },
+                          child: Icon(IconlyLight.arrow_up_2))),
+                ),
+                Container(
+                  // alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.only(left: 20, top: 10),
+                  child: Row(
+                    children: [
+                      Text(
+                        'History',
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    physics: NeverScrollableScrollPhysics(),
+                    children: <Widget>[
+                      Container(
+                        width: 55,
+                        child: const Center(
                             child: Text(
-                              'Update',
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 11,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                          'ID',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 15,
+                              color: Colors.blue),
+                        )),
+                      ),
+                      Container(
+                        width: 75,
+                        child: const Center(
+                            child: Text(
+                          'Date',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 15,
+                              color: Colors.blue),
+                        )),
+                      ),
+                      Container(
+                        width: 75,
+                        child: const Center(
+                            child: Text(
+                          'User',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 15,
+                              color: Colors.blue),
+                        )),
+                      ),
+                      Container(
+                        width: 75,
+                        child: const Center(
+                            child: Text(
+                          'Field',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 15,
+                              color: Colors.blue),
+                        )),
+                      ),
+                      Container(
+                        width: 75,
+                        child: const Center(
+                            child: Text(
+                          'Update',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 15,
+                              color: Colors.blue),
+                        )),
+                      ),
+                    ],
                   ),
-                  Container(
-                    // color: Colors.green,
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // padding: const EdgeInsets.only(left: 20, top: 10),
-                          alignment: Alignment.topCenter,
-                          child: GestureDetector(
-                              onHorizontalDragDown: (DragDownDetails) {
-                                showModalBottomSheet<void>(
-                                  isScrollControlled: true,
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.width * 3,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Container(
-                                            alignment: Alignment.bottomCenter,
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.25,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                1,
-                                            decoration: BoxDecoration(
-                                                color: Color(0xFF79DAE8),
-                                                borderRadius: BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(30),
-                                                    bottomRight:
-                                                        Radius.circular(30))),
-                                            child: Text(
-                                              'History',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 20),
-                                            ),
-                                          ),
-                                          GestureDetector(
-                                              onHorizontalDragDown:
-                                                  (DragDownDetails) {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Container(
-                                                  color: Colors.white,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      1,
-                                                  child: Icon(IconlyLight
-                                                      .arrow_down_2))),
-                                          Container(
-                                            height: 50,
-                                            child: ListView(
-                                              scrollDirection: Axis.horizontal,
-                                              physics:
-                                                  NeverScrollableScrollPhysics(),
-                                              children: <Widget>[
-                                                Container(
-                                                  width: 55,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'ID',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Date',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'User',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Field',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Update',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          // Expanded(
-                                          //     child: ListView.builder(
-                                          //   physics: const BouncingScrollPhysics(),
-                                          //   shrinkWrap: true,
-                                          //   scrollDirection: Axis.vertical,
-                                          //   itemBuilder: (context, index) {
-                                          //     // return Table(
-                                          //     //     border: TableBorder.all(
-                                          //     //         width:
-                                          //     //             0.5), // Allows to add a border decoration around your table
-                                          //     //     children: [
-                                          //     //       TableRow(children: [
-                                          //     //         Text(network.name!),
-                                          //     //         Text(network.name!),
-                                          //     //         Text(network.name!),
-                                          //     //         Text(network.name!),
-                                          //     //         Text(network.name!),
-                                          //     //       ]),
-                                          //     //     ]);
-                                          //   },
-                                          //   // itemCount: 10,
-                                          // )
-                                          //     // ),
-                                          //     ),
-                                        ],
-                                      ),
-                                      // ),
-                                    );
-                                  },
-                                );
-                              },
-                              child: Container(
-                                  color: Colors.white,
-                                  width: MediaQuery.of(context).size.width * 1,
-                                  child: Icon(IconlyLight.arrow_up_2))),
-                        ),
-                        Container(
-                          // alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.only(left: 20, top: 10),
-                          child: Row(
-                            children: [
-                              Text(
-                                'History',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            physics: NeverScrollableScrollPhysics(),
-                            children: <Widget>[
-                              Container(
-                                width: 55,
-                                child: const Center(
-                                    child: Text(
-                                  'ID',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Date',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'User',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Field',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Update',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                            ],
-                          ),
-                        ),
-                        // Expanded(
-                        //   child: ListView.builder(
-                        //     physics: const BouncingScrollPhysics(),
-                        //     shrinkWrap: true,
-                        //     scrollDirection: Axis.vertical,
-                        //     itemBuilder: (context, index) {
-                        //       // return Table(
-                        //       //     border: TableBorder.all(
-                        //       //         width:
-                        //       //             0.5), // Allows to add a border decoration around your table
-                        //       //     children: [
-                        //       //       TableRow(children: [
-                        //       //         Text(network.name!),
-                        //       //         Text(network.name!),
-                        //       //         Text(network.name!),
-                        //       //         Text(network.name!),
-                        //       //         Text(network.name!),
-                        //       //       ]),
-                        //       //     ]);
-                        //     },
-                        //     // itemCount: 10,
-                        //   ),
-                        // )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                // Expanded(
+                //   child: ListView.builder(
+                //     physics: const BouncingScrollPhysics(),
+                //     shrinkWrap: true,
+                //     scrollDirection: Axis.vertical,
+                //     itemBuilder: (context, index) {
+                //       // return Table(
+                //       //     border: TableBorder.all(
+                //       //         width:
+                //       //             0.5), // Allows to add a border decoration around your table
+                //       //     children: [
+                //       //       TableRow(children: [
+                //       //         Text(network.name!),
+                //       //         Text(network.name!),
+                //       //         Text(network.name!),
+                //       //         Text(network.name!),
+                //       //         Text(network.name!),
+                //       //       ]),
+                //       //     ]);
+                //     },
+                //     // itemCount: 10,
+                //   ),
+                // )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

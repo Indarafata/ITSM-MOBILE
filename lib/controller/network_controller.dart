@@ -13,6 +13,7 @@ class NetworkController extends GetxController {
   var locationId = TextEditingController();
   var locations = <LocationModel>[].obs;
   var name = TextEditingController();
+  var comment = TextEditingController();
   final isLoading = false.obs;
   List<DropdownMenuItem<String>>? list;
   String? selectedLocation;
@@ -47,6 +48,7 @@ class NetworkController extends GetxController {
     try {
       var input = <String, dynamic>{
         'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await NetworkService.updateNetwork(id, input);

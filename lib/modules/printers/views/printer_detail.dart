@@ -1,4 +1,4 @@
-// import 'dart:html';
+// import '//';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -19,9 +19,11 @@ class PrinterDetail extends StatelessWidget {
   final controllerLocation = Get.find<LocationController>();
   final controller = Get.find<PrinterController>();
   final PrinterModel printer = Get.arguments;
+  String comm = "l";
 
   @override
   Widget build(BuildContext context) {
+    comm = "-";
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF79DAE8),
@@ -78,8 +80,10 @@ class PrinterDetail extends StatelessWidget {
                                 printer.name!),
                             FieldDetail('Location                            :',
                                 controllerLocation.dataLocation!.name),
-                            FieldDetail(
-                                'Last inventory              :', printer.name!),
+                            printer.comment != null
+                                ? FieldDetail(
+                                    'Comment              :', printer.comment!)
+                                : FieldDetail('Comment              :', ""),
                             FieldDetail(
                                 'Networking - IP            :', printer.name!),
                             FieldDetail(
@@ -100,8 +104,10 @@ class PrinterDetail extends StatelessWidget {
                           margin: EdgeInsets.fromLTRB(250, 0, 0, 0),
                           child: ElevatedButton(
                             onPressed: () {
-                              Get.toNamed(RouteName.printer_update,
-                                  arguments: printer);
+                              print(printer.id);
+                              print(printer.comment);
+                              // Get.toNamed(RouteName.printer_update,
+                              //     arguments: printer);
                             },
                             child: Text(
                               'Update',

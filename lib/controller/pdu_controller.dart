@@ -11,7 +11,7 @@ class PduController extends GetxController {
   var pdus = <PduModel>[].obs;
   var pdu = PduService();
   var name = TextEditingController();
-  var locationId = TextEditingController();
+  var comment = TextEditingController();
   var locations = <LocationModel>[].obs;
   List<DropdownMenuItem<String>>? list;
   String? selectedLocation;
@@ -45,9 +45,10 @@ class PduController extends GetxController {
 
   Future<void> updatePdu(int id) async {
     try {
-      print("cooo");
       var input = <String, dynamic>{
+        'id': id,
         'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await PduService.updatePdu(id, input);

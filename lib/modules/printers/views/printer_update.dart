@@ -31,6 +31,12 @@ class _HomepageState extends State<UpdatePrinter> {
   @override
   Widget build(BuildContext context) {
     controller.name.text = printer.name!;
+    controller.selectedLocation = printer.locationsId.toString();
+    if (printer.comment == null) {
+      controller.comment.text = "";
+    } else {
+      controller.comment.text = printer.comment!;
+    }
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -119,6 +125,21 @@ class _HomepageState extends State<UpdatePrinter> {
                     // });
                   },
                 ),
+              ),
+              Text(
+                "Comment",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+              TextField(
+                // obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Comment",
+                  border: OutlineInputBorder(),
+                ),
+                controller: controller.comment,
+              ),
+              SizedBox(
+                height: 10,
               ),
               // Text(
               //   "Technician in charger of the hardware",

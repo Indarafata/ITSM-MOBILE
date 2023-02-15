@@ -26,9 +26,13 @@ class _HomepageState extends State<UpdateSoftware> {
   double defaultPadding = 20.0;
 
   bool inisialisasi = false;
+  SoftwareModel software = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
+    controller.name.text = software.name!;
+    controller.selectedLocation = software.locationsId.toString();
+    controller.comment.text = software.comment!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -81,7 +85,7 @@ class _HomepageState extends State<UpdateSoftware> {
                   hintText: "Name",
                   border: OutlineInputBorder(),
                 ),
-                controller: name,
+                controller: controller.name,
               ),
               Text(
                 "Location",
@@ -116,6 +120,21 @@ class _HomepageState extends State<UpdateSoftware> {
                     // });
                   },
                 ),
+              ),
+              Text(
+                "Comment",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+              TextField(
+                // obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Comment",
+                  border: OutlineInputBorder(),
+                ),
+                controller: controller.comment,
+              ),
+              SizedBox(
+                height: 10,
               ),
               // Text(
               //   "Technician in charger of the hardware",

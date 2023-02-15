@@ -26,9 +26,12 @@ class LocationController extends GetxController {
   Future<void> getAllLocation() async {
     isLoading.value = true;
     try {
+      print("cek");
       dataAllLocations = await LocationService.getAllLocation();
+      print("cek 2");
       addItemLocation();
     } catch (e) {
+      print("cek 3");
       print(e);
     }
   }
@@ -36,9 +39,12 @@ class LocationController extends GetxController {
   Future<void> getLocation(String locationId) async {
     isLoading.value = true;
     try {
+      print("cek1");
       dataLocation = await LocationService.getLocation(locationId);
+      print("cek2");
       isLoading.value = false;
     } catch (e) {
+      print("cek3");
       print(e);
       isLoading.value = false;
     }

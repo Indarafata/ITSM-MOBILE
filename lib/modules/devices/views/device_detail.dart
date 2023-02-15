@@ -1,4 +1,4 @@
-// import 'dart:html';
+// import '//';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -80,7 +80,7 @@ class DeviceDetail extends StatelessWidget {
                             FieldDetail('Location                            :',
                                 controllerLocation.dataLocation!.name),
                             FieldDetail(
-                                'Last inventory              :', device.name),
+                                'Comment              :', device.comment!),
                             FieldDetail(
                                 'Networking - IP            :', device.name),
                             FieldDetail(

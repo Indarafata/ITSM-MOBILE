@@ -11,6 +11,7 @@ class MonitorController extends GetxController {
   var monitors = <MonitorModel>[].obs;
   var locations = <LocationModel>[].obs;
   var name = TextEditingController();
+  var comment = TextEditingController();
   var locationId = TextEditingController();
   var monitor = MonitorService();
   final isLoading = false.obs;
@@ -49,6 +50,7 @@ class MonitorController extends GetxController {
     try {
       var input = <String, dynamic>{
         'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await MonitorService.updateMonitor(id, input);

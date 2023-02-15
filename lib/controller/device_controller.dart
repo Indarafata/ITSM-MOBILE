@@ -11,6 +11,7 @@ class DeviceController extends GetxController {
   var device = DeviceService();
   final isLoading = false.obs;
   var name = TextEditingController();
+  var comment = TextEditingController();
   var locationId = TextEditingController();
   var locations = <LocationModel>[].obs;
   List<DropdownMenuItem<String>>? list;
@@ -48,6 +49,7 @@ class DeviceController extends GetxController {
     try {
       var input = <String, dynamic>{
         'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await DeviceService.updateDevice(id, input);

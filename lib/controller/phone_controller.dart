@@ -11,7 +11,7 @@ class PhoneController extends GetxController {
   var phones = <PhoneModel>[].obs;
   var phone = PhoneService();
   var locations = <LocationModel>[].obs;
-  var locationId = TextEditingController();
+  var comment = TextEditingController();
   var name = TextEditingController();
   List<DropdownMenuItem<String>>? list;
   String? selectedLocation;
@@ -45,7 +45,9 @@ class PhoneController extends GetxController {
   Future<void> updatePhone(int id) async {
     try {
       var input = <String, dynamic>{
+        'id': id,
         'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await PhoneService.updatePhone(id, input);

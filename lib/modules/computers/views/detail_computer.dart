@@ -1,4 +1,4 @@
-// import 'dart:html';
+// import '//';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -22,7 +22,6 @@ class DetailComputer extends StatelessWidget {
   final ComputerModel computer = Get.arguments;
   final controllerLocation = Get.find<LocationController>();
   final controller = Get.find<ComputerController>();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -81,11 +80,10 @@ class DetailComputer extends StatelessWidget {
                                 computer.links[0].href),
                             FieldDetail('Status                            :',
                                 computer.name),
-                            FieldDetail(
-                          'Location                            :',
+                            FieldDetail('Location                            :',
                                 controllerLocation.dataLocation!.name),
                             FieldDetail(
-                                'Last inventory              :', computer.name),
+                                'Comment              :', computer.comment!),
                             FieldDetail(
                                 'Networking - IP            :', computer.name),
                             FieldDetail(

@@ -1,4 +1,4 @@
-// import 'dart:html';
+// import '//';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,15 +8,19 @@ import 'package:itsm_mobile/model/software_model.dart';
 import 'package:itsm_mobile/controller/software_controller.dart';
 // import 'package:itsm_mobile/modules/software/views/detail.dart';
 import 'package:itsm_mobile/modules/home/views/home_page.dart';
+import 'package:itsm_mobile/service/location_service.dart';
 import 'package:itsm_mobile/service/software_service.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
+import '../../../controller/location_controller.dart';
+
 class Software extends StatelessWidget {
   Software({Key? key}) : super(key: key);
 
   final controller = Get.find<SoftwareController>();
+  final controllerLocation = Get.find<LocationController>();
 
   Color colorPrimary = Color(0xFF79DAE8);
   FontWeight medium = FontWeight.w500;
@@ -74,8 +78,12 @@ class Software extends StatelessWidget {
                   var software = controller.softwares[index];
 
                   return GestureDetector(
-                    onTap: () => Get.toNamed(RouteName.sofware_detail,
-                        arguments: software),
+                    onTap: () {
+                      controllerLocation
+                          .getLocation(software.locationsId.toString());
+                      Get.toNamed(RouteName.sofware_detail,
+                          arguments: software);
+                    },
                     child: ListSoftware(software!),
                   );
                 },

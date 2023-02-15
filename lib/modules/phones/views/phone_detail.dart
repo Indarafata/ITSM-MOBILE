@@ -1,4 +1,4 @@
-// import 'dart:html';
+// import '//';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -80,7 +80,7 @@ class PhoneDetail extends StatelessWidget {
                             FieldDetail('Location                            :',
                                 controllerLocation.dataLocation!.name),
                             FieldDetail(
-                                'Last inventory              :', phone.name!),
+                                'Comment              :', phone.comment!),
                             FieldDetail(
                                 'Networking - IP            :', phone.name!),
                             FieldDetail(

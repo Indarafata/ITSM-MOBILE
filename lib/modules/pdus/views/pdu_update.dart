@@ -29,6 +29,8 @@ class _HomepageState extends State<UpdatePdu> {
   @override
   Widget build(BuildContext context) {
     controller.name.text = pdu.name;
+    controller.selectedLocation = pdu.locationsId.toString();
+    controller.comment.text = pdu.comment;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -117,6 +119,21 @@ class _HomepageState extends State<UpdatePdu> {
                     // });
                   },
                 ),
+              ),
+              Text(
+                "Comment",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+              TextField(
+                // obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Comment",
+                  border: OutlineInputBorder(),
+                ),
+                controller: controller.comment,
+              ),
+              SizedBox(
+                height: 10,
               ),
               // Text(
               //   "Technician in charger of the hardware",

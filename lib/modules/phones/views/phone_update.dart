@@ -32,6 +32,8 @@ class _HomepageState extends State<UpdatePhone> {
   @override
   Widget build(BuildContext context) {
     controller.name.text = phone.name!;
+    controller.selectedLocation = phone.locationsId.toString();
+    controller.comment.text = phone.comment!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -120,6 +122,21 @@ class _HomepageState extends State<UpdatePhone> {
                     // });
                   },
                 ),
+              ),
+              Text(
+                "Comment",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+              TextField(
+                // obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Comment",
+                  border: OutlineInputBorder(),
+                ),
+                controller: controller.comment,
+              ),
+              SizedBox(
+                height: 10,
               ),
               // Text(
               //   "Technician in charger of the hardware",

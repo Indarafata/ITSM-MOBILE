@@ -1,4 +1,4 @@
-// import 'dart:html';
+// import '//';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -73,14 +73,13 @@ class PduDetail extends StatelessWidget {
                         ),
                         Expanded(
                           child: ListView(children: [
-                            FieldDetail('Name                             :',
-                                pdu.links[0].href),
+                            FieldDetail(
+                                'Name                             :', pdu.name),
                             FieldDetail('Status                            :',
-                                pdu.name!),
+                                pdu.name),
                             FieldDetail('Location                            :',
                                 controllerLocation.dataLocation!.name),
-                            FieldDetail(
-                                'Last inventory              :', pdu.name!),
+                            FieldDetail('comment              :', pdu.comment!),
                             FieldDetail(
                                 'Networking - IP            :', pdu.name!),
                             FieldDetail(

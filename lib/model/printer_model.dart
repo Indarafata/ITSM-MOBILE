@@ -24,7 +24,7 @@ class PrinterModel {
     required this.haveUsb,
     required this.haveWifi,
     required this.haveEthernet,
-    // this.comment,
+    this.comment,
     // this.memorySize,
     required this.locationsId,
     required this.networksId,
@@ -67,7 +67,7 @@ class PrinterModel {
   int? haveUsb;
   int? haveWifi;
   int? haveEthernet;
-  // String? comment;
+  String? comment;
   // String? memorySize;
   int? locationsId;
   int? networksId;
@@ -110,7 +110,7 @@ class PrinterModel {
         haveUsb: json["have_usb"],
         haveWifi: json["have_wifi"],
         haveEthernet: json["have_ethernet"],
-        // // comment: json["comment"],
+        // comment: json["comment"],
         // memorySize: json["memory_size"],
         locationsId: json["locations_id"],
         networksId: json["networks_id"],
@@ -156,7 +156,7 @@ class PrinterModel {
         "have_usb": haveUsb,
         "have_wifi": haveWifi,
         "have_ethernet": haveEthernet,
-        // "comment": comment,
+        "comment": comment,
         // "memory_size": memorySize,
         "locations_id": locationsId,
         "networks_id": networksId,

@@ -100,40 +100,40 @@ class _HomepageState extends State<UpdateNetwork> {
               // SizedBox(
               //   height: 10,
               // ),
-              DropdownButtonHideUnderline(
-                child: DropdownButtonFormField(
-                  hint: Text(
-                    controllerLocation.dataLocation!.name,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Theme.of(context).hintColor,
-                    ),
-                  ),
-                  items: controllerLocation.list,
-                  value: controller.selectedLocation,
-                  onChanged: (value) {
-                    // (() {
-                    controller.selectedLocation = value as String;
-                    print(controller.selectedLocation);
-                    // });
-                  },
-                ),
-              ),
-              // Text(
-              //   "Technician in charger of the hardware",
-              //   style: TextStyle(fontSize: 15, color: Colors.black54),
-              // ),
-              // TextField(
-              //   // obscureText: true,
-              //   decoration: InputDecoration(
-              //     hintText: "Technician in charger of the hardware",
-              //     border: OutlineInputBorder(),
+              // DropdownButtonHideUnderline(
+              //   child: DropdownButtonFormField(
+              //     hint: Text(
+              //       controllerLocation.dataLocation!.name,
+              //       style: TextStyle(
+              //         fontSize: 14,
+              //         color: Theme.of(context).hintColor,
+              //       ),
+              //     ),
+              //     items: controllerLocation.list,
+              //     value: controller.selectedLocation,
+              //     onChanged: (value) {
+              //       // (() {
+              //       controller.selectedLocation = value as String;
+              //       print(controller.selectedLocation);
+              //       // });
+              //     },
               //   ),
-              //   controller: name,
               // ),
-              // SizedBox(
-              //   height: 10,
-              // ),
+              Text(
+                "Comment",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+              TextField(
+                // obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Comment",
+                  border: OutlineInputBorder(),
+                ),
+                controller: controller.comment,
+              ),
+              SizedBox(
+                height: 10,
+              ),
               // Text(
               //   "Group in charge of the hardware",
               //   style: TextStyle(fontSize: 15, color: Colors.black54),

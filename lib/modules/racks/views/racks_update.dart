@@ -39,6 +39,8 @@ class _HomepageState extends State<UpdateRack> {
   @override
   Widget build(BuildContext context) {
     controller.name.text = rack.name;
+    controller.selectedLocation = rack.locationsId.toString();
+    controller.comment.text = rack.comment;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -127,6 +129,21 @@ class _HomepageState extends State<UpdateRack> {
                     // });
                   },
                 ),
+              ),
+              Text(
+                "Comment",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+              TextField(
+                // obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Comment",
+                  border: OutlineInputBorder(),
+                ),
+                controller: controller.comment,
+              ),
+              SizedBox(
+                height: 10,
               ),
               // Text(
               //   "Technician in charger of the hardware",

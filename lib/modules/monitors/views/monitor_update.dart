@@ -34,6 +34,8 @@ class _HomepageState extends State<UpdateMonitor> {
   @override
   Widget build(BuildContext context) {
     controller.name.text = monitor.name!;
+    controller.selectedLocation = monitor.locationsId.toString();
+    controller.comment.text = monitor.comment!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -123,21 +125,21 @@ class _HomepageState extends State<UpdateMonitor> {
                   },
                 ),
               ),
-              // Text(
-              //   "Technician in charger of the hardware",
-              //   style: TextStyle(fontSize: 15, color: Colors.black54),
-              // ),
-              // TextField(
-              //   // obscureText: true,
-              //   decoration: InputDecoration(
-              //     hintText: "Technician in charger of the hardware",
-              //     border: OutlineInputBorder(),
-              //   ),
-              //   controller: name,
-              // ),
-              // SizedBox(
-              //   height: 10,
-              // ),
+              Text(
+                "Comment",
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+              TextField(
+                // obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Comment",
+                  border: OutlineInputBorder(),
+                ),
+                controller: controller.comment,
+              ),
+              SizedBox(
+                height: 10,
+              ),
               // Text(
               //   "Group in charge of the hardware",
               //   style: TextStyle(fontSize: 15, color: Colors.black54),

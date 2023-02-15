@@ -11,7 +11,7 @@ class SoftwareController extends GetxController {
   var softwares = <SoftwareModel>[].obs;
   var software = SoftwareService();
   var name = TextEditingController();
-  var locationId = TextEditingController();
+  var comment = TextEditingController();
   var locations = <LocationModel>[].obs;
   List<DropdownMenuItem<String>>? list;
   String? selectedLocation;
@@ -45,7 +45,9 @@ class SoftwareController extends GetxController {
   Future<void> updateSoftware(int id) async {
     try {
       var input = <String, dynamic>{
-        'locations_id': locationId.text,
+        'id': id,
+        'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await SoftwareService.updateSoftware(id, input);

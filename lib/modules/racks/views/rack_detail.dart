@@ -1,4 +1,4 @@
-// import 'dart:html';
+// import '//';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -80,7 +80,7 @@ class RackDetail extends StatelessWidget {
                             FieldDetail('Location                            :',
                                 controllerLocation.dataLocation!.name),
                             FieldDetail(
-                                'Last inventory              :', rack.name!),
+                                'Comment              :', rack.comment!),
                             FieldDetail(
                                 'Networking - IP            :', rack.name!),
                             FieldDetail(

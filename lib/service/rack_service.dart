@@ -32,6 +32,7 @@ class RackService {
         {
           "id": id,
           "locations_id": data["locations_id"],
+          "comment": data["comment"],
         }
       ]
     };

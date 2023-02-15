@@ -11,7 +11,7 @@ class RackController extends GetxController {
   var racks = <RackModel>[].obs;
   var rack = RackService();
   var name = TextEditingController();
-  var locationId = TextEditingController();
+  var comment = TextEditingController();
   var locations = <LocationModel>[].obs;
   List<DropdownMenuItem<String>>? list;
   String? selectedLocation;
@@ -45,7 +45,9 @@ class RackController extends GetxController {
   Future<void> updateRack(int id) async {
     try {
       var input = <String, dynamic>{
+        'id': id,
         'locations_id': selectedLocation,
+        'comment': comment.text,
       };
 
       await RackService.updateRack(id, input);
