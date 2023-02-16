@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:itsm_mobile/controller/location_controller.dart';
 import 'package:itsm_mobile/controller/network_controller.dart';
 import 'package:itsm_mobile/model/network_model.dart';
+import 'package:itsm_mobile/routes/app_pages.dart';
 
 class UpdateNetwork extends StatefulWidget {
   @override
@@ -30,7 +31,30 @@ class _HomepageState extends State<UpdateNetwork> {
 
   @override
   Widget build(BuildContext context) {
+    controller.name.text = network.name!;
+    controller.comment.text = network.comment!;
     return Scaffold(
+      appBar: AppBar(
+        //
+        backgroundColor: Color(0xFF79DAE8),
+        title: Text(
+          'Update Network',
+          style: TextStyle(
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500,
+              color: Colors.white),
+        ),
+        elevation: 0.0,
+        centerTitle: true,
+        actions: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: IconButton(
+                onPressed: () => Get.offAllNamed(RouteName.home),
+                icon: Icon(Icons.home)),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
@@ -42,33 +66,33 @@ class _HomepageState extends State<UpdateNetwork> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      // controller.clearInput();
-                      // Get.back();
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios_rounded,
-                      color: colorBlack,
-                    ),
-                  ),
-                  Text(
-                    "Update Network",
-                    style: fontNunito.copyWith(
-                      color: colorBlack,
-                      fontWeight: semiBold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 4,
-                  )
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   children: [
+              //     IconButton(
+              //       onPressed: () {
+              //         // controller.clearInput();
+              //         // Get.back();
+              //       },
+              //       icon: Icon(
+              //         Icons.arrow_back_ios_rounded,
+              //         color: colorBlack,
+              //       ),
+              //     ),
+              //     Text(
+              //       "Update Network",
+              //       style: fontNunito.copyWith(
+              //         color: colorBlack,
+              //         fontWeight: semiBold,
+              //         fontSize: 20,
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 4,
+              //     )
+              //   ],
+              // ),
               SizedBox(
                 height: 10,
               ),
@@ -85,10 +109,10 @@ class _HomepageState extends State<UpdateNetwork> {
                     prefixIcon: Icon(Icons.lock)),
                 controller: controller.name,
               ),
-              Text(
-                "Location",
-                style: TextStyle(fontSize: 15, color: Colors.black54),
-              ),
+              // Text(
+              //   "Location",
+              //   style: TextStyle(fontSize: 15, color: Colors.black54),
+              // ),
               // TextField(
               //   // obscureText: true,
               //   decoration: InputDecoration(

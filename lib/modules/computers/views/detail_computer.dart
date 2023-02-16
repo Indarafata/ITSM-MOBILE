@@ -69,35 +69,96 @@ class DetailComputer extends StatelessWidget {
                       color: Colors.lightBlueAccent,
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
                           height: 5,
                         ),
                         Expanded(
                           child: ListView(children: [
-                            FieldDetail('Name                             :',
-                                computer.links[0].href),
-                            FieldDetail('Status                            :',
-                                computer.name),
-                            FieldDetail('Location                            :',
+                            FieldDetail('Name', computer.links[0].href),
+                            FieldDetail('Status', computer.name),
+                            FieldDetail('Location',
                                 controllerLocation.dataLocation!.name),
-                            FieldDetail(
-                                'Comment              :', computer.comment!),
-                            FieldDetail(
-                                'Networking - IP            :', computer.name),
-                            FieldDetail(
-                                'Serial Number              :', computer.name),
-                            FieldDetail(
-                                'Alternative Username :', computer.name),
-                            FieldDetail('Type                               :',
-                                computer.name),
-                            FieldDetail('OS - name                      :',
-                                computer.name),
-                            FieldDetail('OS - version                   :',
-                                computer.name),
+                            FieldDetail('Comment', computer.comment!),
+                            FieldDetail('Networking - IP', computer.name),
+                            FieldDetail('Serial Number', computer.name),
+                            FieldDetail('Alternative Username', computer.name),
+                            FieldDetail('Type', computer.name),
+                            FieldDetail('OS - name', computer.name),
+                            FieldDetail('OS - version', computer.name),
                           ]),
                         ),
+                        // Row(
+                        //   children: [
+                        //     Expanded(
+                        //         // flex: 3,
+                        //         child: Container(
+                        //       width: 15,
+                        //       // height: 1,
+                        //       child: Column(
+                        //           crossAxisAlignment: CrossAxisAlignment.start,
+                        //           children: [
+                        //             Text("Name  "),
+                        //             Text("Status  "),
+                        //             Text("Location "),
+                        //             Text("Comment "),
+                        //             Text("Networking - IP "),
+                        //             Text("Serial Number "),
+                        //             Text("Alternative Username "),
+                        //             Text("Type "),
+                        //             Text("OS - name "),
+                        //             Text("OS - version "),
+                        //           ]),
+                        //     )),
+                        //     Expanded(
+                        //       flex: 2, // 20%
+                        //       child: Container(
+                        //         // color: Colors.green[100],
+                        //         child: Column(
+                        //           crossAxisAlignment: CrossAxisAlignment.start,
+                        //           children: [
+                        //             Text(": ${computer.links[0].href}"),
+                        //             Text(": "),
+                        //             Text(":"),
+                        //             Text(":"),
+                        //             Text(":"),
+                        //             Text(":"),
+                        //             Text(":"),
+                        //             Text(":"),
+                        //             Text(":"),
+                        //             Text(":"),
+                        //             Text(":"),
+                        //             // Text(":"),
+                        //             // Text(":"),
+                        //           ],
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     Expanded(
+                        //       flex: 5, // 20%
+                        //       child: Container(
+                        //         // color: Colors.red[100],
+                        //         child: Column(
+                        //           crossAxisAlignment: CrossAxisAlignment.start,
+                        //           children: [
+                        //             Text(computer.links[0].href),
+                        //             Text(computer.name),
+                        //             Text(controllerLocation.dataLocation!.name),
+                        //             Text(computer.comment!),
+                        //             Text(computer.name),
+                        //             Text(computer.name),
+                        //             Text(computer.name),
+                        //             Text(computer.name),
+                        //             Text(computer.name),
+                        //             Text(computer.name),
+                        //             Text(computer.name),
+                        //           ],
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                         Container(
                           width: MediaQuery.of(context).size.width * 1,
                           height: MediaQuery.of(context).size.width * 0.1,
@@ -119,284 +180,285 @@ class DetailComputer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
-                    // color: Colors.green,
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // padding: const EdgeInsets.only(left: 20, top: 10),
-                          alignment: Alignment.topCenter,
-                          child: GestureDetector(
-                              onHorizontalDragDown: (DragDownDetails) {
-                                showModalBottomSheet<void>(
-                                  isScrollControlled: true,
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.width * 3,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Container(
-                                            alignment: Alignment.bottomCenter,
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.25,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                1,
-                                            decoration: BoxDecoration(
-                                                color: Color(0xFF79DAE8),
-                                                borderRadius: BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(30),
-                                                    bottomRight:
-                                                        Radius.circular(30))),
-                                            child: Text(
-                                              'History',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 20),
-                                            ),
-                                          ),
-                                          GestureDetector(
-                                              onHorizontalDragDown:
-                                                  (DragDownDetails) {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Container(
-                                                  color: Colors.white,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      1,
-                                                  child: Icon(IconlyLight
-                                                      .arrow_down_2))),
-                                          Container(
-                                            height: 50,
-                                            child: ListView(
-                                              scrollDirection: Axis.horizontal,
-                                              physics:
-                                                  NeverScrollableScrollPhysics(),
-                                              children: <Widget>[
-                                                Container(
-                                                  width: 55,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'ID',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Date',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'User',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Field',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Update',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                              child: ListView.builder(
-                                            physics:
-                                                const BouncingScrollPhysics(),
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            itemBuilder: (context, index) {
-                                              return Table(
-                                                  border: TableBorder.all(
-                                                      width:
-                                                          0.5), // Allows to add a border decoration around your table
-                                                  children: [
-                                                    TableRow(children: [
-                                                      Text(computer
-                                                          .links[index].href),
-                                                      Text(computer
-                                                          .links[index].href),
-                                                      Text(computer
-                                                          .links[index].href),
-                                                      Text(computer
-                                                          .links[index].href),
-                                                      Text(computer
-                                                          .links[index].href),
-                                                    ]),
-                                                  ]);
-                                            },
-                                            itemCount: computer.links.length,
-                                          )
-                                              // ),
-                                              ),
-                                        ],
-                                      ),
-                                      // ),
-                                    );
-                                  },
-                                );
-                              },
-                              child: Container(
-                                  color: Colors.white,
-                                  width: MediaQuery.of(context).size.width * 1,
-                                  child: Icon(IconlyLight.arrow_up_2))),
-                        ),
-                        Container(
-                          // alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.only(left: 20, top: 10),
-                          child: Row(
-                            children: [
-                              Text(
-                                'History',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            physics: NeverScrollableScrollPhysics(),
-                            children: <Widget>[
-                              Container(
-                                width: 55,
-                                child: const Center(
-                                    child: Text(
-                                  'ID',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Date',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'User',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Field',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Update',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: ListView.builder(
-                            physics: const BouncingScrollPhysics(),
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemBuilder: (context, index) {
-                              return Table(
-                                  border: TableBorder.all(
-                                      width:
-                                          0.5), // Allows to add a border decoration around your table
-                                  children: [
-                                    TableRow(children: [
-                                      Text(computer.links[index].href),
-                                      Text(computer.links[index].href),
-                                      Text(computer.links[index].href),
-                                      Text(computer.links[index].href),
-                                      Text(computer.links[index].href),
-                                    ]),
-                                  ]);
-                            },
-                            itemCount: computer.links.length,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   // color: Colors.green,
+                  //   height: MediaQuery.of(context).size.height,
+                  //   width: MediaQuery.of(context).size.width,
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.white,
+                  //     borderRadius: BorderRadius.circular(20),
+                  //   ),
+                  //   child: Column(
+                  //     mainAxisAlignment: MainAxisAlignment.start,
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  // Container(
+                  //   // padding: const EdgeInsets.only(left: 20, top: 10),
+                  //   alignment: Alignment.topCenter,
+                  //   child: GestureDetector(
+                  //       onHorizontalDragDown: (DragDownDetails) {
+                  //         showModalBottomSheet<void>(
+                  //           isScrollControlled: true,
+                  //           context: context,
+                  //           builder: (BuildContext context) {
+                  //             return SizedBox(
+                  //               height:
+                  //                   MediaQuery.of(context).size.width * 3,
+                  //               child: Column(
+                  //                 mainAxisAlignment:
+                  //                     MainAxisAlignment.start,
+                  //                 children: <Widget>[
+                  //                   Container(
+                  //                     alignment: Alignment.bottomCenter,
+                  //                     height: MediaQuery.of(context)
+                  //                             .size
+                  //                             .width *
+                  //                         0.25,
+                  //                     width: MediaQuery.of(context)
+                  //                             .size
+                  //                             .width *
+                  //                         1,
+                  //                     decoration: BoxDecoration(
+                  //                         color: Color(0xFF79DAE8),
+                  //                         borderRadius: BorderRadius.only(
+                  //                             bottomLeft:
+                  //                                 Radius.circular(30),
+                  //                             bottomRight:
+                  //                                 Radius.circular(30))),
+                  //                     child: Text(
+                  //                       'History',
+                  //                       style: TextStyle(
+                  //                           fontFamily: 'Poppins',
+                  //                           fontWeight: FontWeight.w500,
+                  //                           fontSize: 20),
+                  //                     ),
+                  //                   ),
+                  //                   GestureDetector(
+                  //                       onHorizontalDragDown:
+                  //                           (DragDownDetails) {
+                  //                         Navigator.pop(context);
+                  //                       },
+                  //                       child: Container(
+                  //                           color: Colors.white,
+                  //                           width: MediaQuery.of(context)
+                  //                                   .size
+                  //                                   .width *
+                  //                               1,
+                  //                           child: Icon(IconlyLight
+                  //                               .arrow_down_2))),
+                  //                   Container(
+                  //                     height: 50,
+                  //                     child: ListView(
+                  //                       scrollDirection: Axis.horizontal,
+                  //                       physics:
+                  //                           NeverScrollableScrollPhysics(),
+                  //                       children: <Widget>[
+                  //                         Container(
+                  //                           width: 55,
+                  //                           child: const Center(
+                  //                               child: Text(
+                  //                             'ID',
+                  //                             style: TextStyle(
+                  //                                 fontFamily: 'Poppins',
+                  //                                 fontSize: 15,
+                  //                                 color: Colors.blue),
+                  //                           )),
+                  //                         ),
+                  //                         Container(
+                  //                           width: 75,
+                  //                           child: const Center(
+                  //                               child: Text(
+                  //                             'Date',
+                  //                             style: TextStyle(
+                  //                                 fontFamily: 'Poppins',
+                  //                                 fontSize: 15,
+                  //                                 color: Colors.blue),
+                  //                           )),
+                  //                         ),
+                  //                         Container(
+                  //                           width: 75,
+                  //                           child: const Center(
+                  //                               child: Text(
+                  //                             'User',
+                  //                             style: TextStyle(
+                  //                                 fontFamily: 'Poppins',
+                  //                                 fontSize: 15,
+                  //                                 color: Colors.blue),
+                  //                           )),
+                  //                         ),
+                  //                         Container(
+                  //                           width: 75,
+                  //                           child: const Center(
+                  //                               child: Text(
+                  //                             'Field',
+                  //                             style: TextStyle(
+                  //                                 fontFamily: 'Poppins',
+                  //                                 fontSize: 15,
+                  //                                 color: Colors.blue),
+                  //                           )),
+                  //                         ),
+                  //                         Container(
+                  //                           width: 75,
+                  //                           child: const Center(
+                  //                               child: Text(
+                  //                             'Update',
+                  //                             style: TextStyle(
+                  //                                 fontFamily: 'Poppins',
+                  //                                 fontSize: 15,
+                  //                                 color: Colors.blue),
+                  //                           )),
+                  //                         ),
+                  //                       ],
+                  //                     ),
+                  //                   ),
+                  //                   Expanded(
+                  //                       child: ListView.builder(
+                  //                     physics:
+                  //                         const BouncingScrollPhysics(),
+                  //                     shrinkWrap: true,
+                  //                     scrollDirection: Axis.vertical,
+                  //                     itemBuilder: (context, index) {
+                  //                       return Table(
+                  //                           border: TableBorder.all(
+                  //                               width:
+                  //                                   0.5), // Allows to add a border decoration around your table
+                  //                           children: [
+                  //                             TableRow(children: [
+                  //                               Text(computer
+                  //                                   .links[index].href),
+                  //                               Text(computer
+                  //                                   .links[index].href),
+                  //                               Text(computer
+                  //                                   .links[index].href),
+                  //                               Text(computer
+                  //                                   .links[index].href),
+                  //                               Text(computer
+                  //                                   .links[index].href),
+                  //                             ]),
+                  //                           ]);
+                  //                     },
+                  //                     itemCount: computer.links.length,
+                  //                   )
+                  //                       // ),
+                  //                       ),
+                  //                 ],
+                  //               ),
+                  //               // ),
+                  //             );
+                  //           },
+                  //         );
+                  //       },
+                  //       child: Container(
+                  //           color: Colors.white,
+                  //           width: MediaQuery.of(context).size.width * 1,
+                  //           child: Icon(IconlyLight.arrow_up_2))),
+                  // ),
+                  // Container(
+                  //   // alignment: Alignment.centerLeft,
+                  //   padding: const EdgeInsets.only(left: 20, top: 10),
+                  //   child: Row(
+                  //     children: [
+                  //       Text(
+                  //         'History',
+                  //         style: TextStyle(
+                  //             fontFamily: 'Poppins',
+                  //             fontWeight: FontWeight.w500,
+                  //             fontSize: 20),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  //
+                  // Container(
+                  //   height: 50,
+                  //   child: ListView(
+                  //     scrollDirection: Axis.horizontal,
+                  //     physics: NeverScrollableScrollPhysics(),
+                  //     children: <Widget>[
+                  //       Container(
+                  //         width: 55,
+                  //         child: const Center(
+                  //             child: Text(
+                  //           'ID',
+                  //           style: TextStyle(
+                  //               fontFamily: 'Poppins',
+                  //               fontSize: 15,
+                  //               color: Colors.blue),
+                  //         )),
+                  //       ),
+                  //       Container(
+                  //         width: 75,
+                  //         child: const Center(
+                  //             child: Text(
+                  //           'Date',
+                  //           style: TextStyle(
+                  //               fontFamily: 'Poppins',
+                  //               fontSize: 15,
+                  //               color: Colors.blue),
+                  //         )),
+                  //       ),
+                  //       Container(
+                  //         width: 75,
+                  //         child: const Center(
+                  //             child: Text(
+                  //           'User',
+                  //           style: TextStyle(
+                  //               fontFamily: 'Poppins',
+                  //               fontSize: 15,
+                  //               color: Colors.blue),
+                  //         )),
+                  //       ),
+                  //       Container(
+                  //         width: 75,
+                  //         child: const Center(
+                  //             child: Text(
+                  //           'Field',
+                  //           style: TextStyle(
+                  //               fontFamily: 'Poppins',
+                  //               fontSize: 15,
+                  //               color: Colors.blue),
+                  //         )),
+                  //       ),
+                  //       Container(
+                  //         width: 75,
+                  //         child: const Center(
+                  //             child: Text(
+                  //           'Update',
+                  //           style: TextStyle(
+                  //               fontFamily: 'Poppins',
+                  //               fontSize: 15,
+                  //               color: Colors.blue),
+                  //         )),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // Expanded(
+                  //   child: ListView.builder(
+                  //     physics: const BouncingScrollPhysics(),
+                  //     shrinkWrap: true,
+                  //     scrollDirection: Axis.vertical,
+                  //     itemBuilder: (context, index) {
+                  //       return Table(
+                  //           border: TableBorder.all(
+                  //               width:
+                  //                   0.5), // Allows to add a border decoration around your table
+                  //           children: [
+                  //             TableRow(children: [
+                  //               Text(computer.links[index].href),
+                  //               Text(computer.links[index].href),
+                  //               Text(computer.links[index].href),
+                  //               Text(computer.links[index].href),
+                  //               Text(computer.links[index].href),
+                  //             ]),
+                  //           ]);
+                  //     },
+                  //     itemCount: computer.links.length,
+                  //   ),
+                  // )
+                  //   ],
+                  // ),
+                  // ),
                 ],
               ),
       ),
@@ -409,19 +471,31 @@ class DetailComputer extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          //batas
+          // Container(
+          //   child: Text(label),
+          // ),
+          // SizedBox(
+          //   width: 5,
+          // ),
+          // Container(
+          //   child: Flexible(
+          //     child: Text(
+          //       value,
+          //       softWrap: true,
+          //     ),
+          //   ),
+          // ),
+          //batas
+
+          Expanded(
+            flex: 2,
             child: Text(label),
           ),
-          SizedBox(
-            width: 5,
-          ),
-          Container(
-            child: Flexible(
-              child: Text(
-                value,
-                softWrap: true,
-              ),
-            ),
+          Text(":\t\t"),
+          Expanded(
+            flex: 5, // 20%
+            child: Text(value),
           ),
         ],
       ),

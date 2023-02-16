@@ -4,6 +4,7 @@ import 'package:itsm_mobile/controller/monitor_controller.dart';
 import 'package:itsm_mobile/model/monitor_model.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:itsm_mobile/modules/monitors/views/monitor_page.dart';
+import 'package:itsm_mobile/routes/app_pages.dart';
 
 import '../../../controller/location_controller.dart';
 
@@ -37,6 +38,27 @@ class _HomepageState extends State<UpdateMonitor> {
     controller.selectedLocation = monitor.locationsId.toString();
     controller.comment.text = monitor.comment!;
     return Scaffold(
+      appBar: AppBar(
+        //
+        backgroundColor: Color(0xFF79DAE8),
+        title: Text(
+          'Update Monitor',
+          style: TextStyle(
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500,
+              color: Colors.white),
+        ),
+        elevation: 0.0,
+        centerTitle: true,
+        actions: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: IconButton(
+                onPressed: () => Get.offAllNamed(RouteName.home),
+                icon: Icon(Icons.home)),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
@@ -48,33 +70,33 @@ class _HomepageState extends State<UpdateMonitor> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      // controller.clearInput();
-                      // Get.back();
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios_rounded,
-                      color: colorBlack,
-                    ),
-                  ),
-                  Text(
-                    "Update Monitor",
-                    style: fontNunito.copyWith(
-                      color: colorBlack,
-                      fontWeight: semiBold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 4,
-                  )
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   children: [
+              //     IconButton(
+              //       onPressed: () {
+              //         // controller.clearInput();
+              //         // Get.back();
+              //       },
+              //       icon: Icon(
+              //         Icons.arrow_back_ios_rounded,
+              //         color: colorBlack,
+              //       ),
+              //     ),
+              //     Text(
+              //       "Update Monitor",
+              //       style: fontNunito.copyWith(
+              //         color: colorBlack,
+              //         fontWeight: semiBold,
+              //         fontSize: 20,
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 4,
+              //     )
+              //   ],
+              // ),
               SizedBox(
                 height: 10,
               ),

@@ -73,25 +73,24 @@ class RackDetail extends StatelessWidget {
                         ),
                         Expanded(
                           child: ListView(children: [
-                            FieldDetail('Name                             :',
+                            FieldDetail('Name                             ',
                                 rack.links[0].href),
-                            FieldDetail('Status                            :',
+                            FieldDetail('Status                            ',
                                 rack.name!),
-                            FieldDetail('Location                            :',
+                            FieldDetail('Location                            ',
                                 controllerLocation.dataLocation!.name),
+                            FieldDetail('Comment              ', rack.comment!),
                             FieldDetail(
-                                'Comment              :', rack.comment!),
+                                'Networking - IP            ', rack.name!),
                             FieldDetail(
-                                'Networking - IP            :', rack.name!),
-                            FieldDetail(
-                                'Serial Number              :', rack.name!),
-                            FieldDetail('Alternative Username! :', rack.name!),
-                            FieldDetail('Type                               :',
-                                rack.name!),
-                            FieldDetail('OS - name!                      :',
+                                'Serial Number              ', rack.name!),
+                            FieldDetail('Alternative Username! ', rack.name!),
+                            FieldDetail('Type                               ',
                                 rack.name!),
                             FieldDetail(
-                                'OS - version                   :', rack.name!),
+                                'OS - name!                      ', rack.name!),
+                            FieldDetail(
+                                'OS - version                   ', rack.name!),
                           ]),
                         ),
                         Container(
@@ -115,278 +114,278 @@ class RackDetail extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
-                    // color: Colors.green,
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          // padding: const EdgeInsets.only(left: 20, top: 10),
-                          alignment: Alignment.topCenter,
-                          child: GestureDetector(
-                              onHorizontalDragDown: (DragDownDetails) {
-                                showModalBottomSheet<void>(
-                                  isScrollControlled: true,
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.width * 3,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: <Widget>[
-                                          Container(
-                                            alignment: Alignment.bottomCenter,
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.25,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                1,
-                                            decoration: BoxDecoration(
-                                                color: Color(0xFF79DAE8),
-                                                borderRadius: BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(30),
-                                                    bottomRight:
-                                                        Radius.circular(30))),
-                                            child: Text(
-                                              'History',
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 20),
-                                            ),
-                                          ),
-                                          GestureDetector(
-                                              onHorizontalDragDown:
-                                                  (DragDownDetails) {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Container(
-                                                  color: Colors.white,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      1,
-                                                  child: Icon(IconlyLight
-                                                      .arrow_down_2))),
-                                          Container(
-                                            height: 50,
-                                            child: ListView(
-                                              scrollDirection: Axis.horizontal,
-                                              physics:
-                                                  NeverScrollableScrollPhysics(),
-                                              children: <Widget>[
-                                                Container(
-                                                  width: 55,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'ID',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Date',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'User',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Field',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                                Container(
-                                                  width: 75,
-                                                  child: const Center(
-                                                      child: Text(
-                                                    'Update',
-                                                    style: TextStyle(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 15,
-                                                        color: Colors.blue),
-                                                  )),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          // Expanded(
-                                          //     child: ListView.builder(
-                                          //   physics: const BouncingScrollPhysics(),
-                                          //   shrinkWrap: true,
-                                          //   scrollDirection: Axis.vertical,
-                                          //   itemBuilder: (context, index) {
-                                          //     // return Table(
-                                          //     //     border: TableBorder.all(
-                                          //     //         width:
-                                          //     //             0.5), // Allows to add a border decoration around your table
-                                          //     //     children: [
-                                          //     //       TableRow(children: [
-                                          //     //         Text(rack.links[index].href),
-                                          //     //         Text(rack.links[index].href),
-                                          //     //         Text(rack.links[index].href),
-                                          //     //         Text(rack.links[index].href),
-                                          //     //         Text(rack.links[index].href),
-                                          //     //       ]),
-                                          //     //     ]);
-                                          //   },
-                                          //   // itemCount: rack.links.length,
-                                          // )
-                                          //     // ),
-                                          //     ),
-                                        ],
-                                      ),
-                                      // ),
-                                    );
-                                  },
-                                );
-                              },
-                              child: Container(
-                                  color: Colors.white,
-                                  width: MediaQuery.of(context).size.width * 1,
-                                  child: Icon(IconlyLight.arrow_up_2))),
-                        ),
-                        Container(
-                          // alignment: Alignment.centerLeft,
-                          padding: const EdgeInsets.only(left: 20, top: 10),
-                          child: Row(
-                            children: [
-                              Text(
-                                'History',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 20),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            physics: NeverScrollableScrollPhysics(),
-                            children: <Widget>[
-                              Container(
-                                width: 55,
-                                child: const Center(
-                                    child: Text(
-                                  'ID',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Date',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'User',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Field',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                              Container(
-                                width: 75,
-                                child: const Center(
-                                    child: Text(
-                                  'Update',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 15,
-                                      color: Colors.blue),
-                                )),
-                              ),
-                            ],
-                          ),
-                        ),
-                        // Expanded(
-                        //   child: ListView.builder(
-                        //     physics: const BouncingScrollPhysics(),
-                        //     shrinkWrap: true,
-                        //     scrollDirection: Axis.vertical,
-                        //     itemBuilder: (context, index) {
-                        //       // return Table(
-                        //       //     border: TableBorder.all(
-                        //       //         width:
-                        //       //             0.5), // Allows to add a border decoration around your table
-                        //       //     children: [
-                        //       //       TableRow(children: [
-                        //       //         Text(rack.links[index].href),
-                        //       //         Text(rack.links[index].href),
-                        //       //         Text(rack.links[index].href),
-                        //       //         Text(rack.links[index].href),
-                        //       //         Text(rack.links[index].href),
-                        //       //       ]),
-                        //       //     ]);
-                        //     },
-                        //     // itemCount: rack.links.length,
-                        //   ),
-                        // )
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   // color: Colors.green,
+                  //   height: MediaQuery.of(context).size.height,
+                  //   width: MediaQuery.of(context).size.width,
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.white,
+                  //     borderRadius: BorderRadius.circular(20),
+                  //   ),
+                  //   child: Column(
+                  //     mainAxisAlignment: MainAxisAlignment.start,
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Container(
+                  //         // padding: const EdgeInsets.only(left: 20, top: 10),
+                  //         alignment: Alignment.topCenter,
+                  //         child: GestureDetector(
+                  //             onHorizontalDragDown: (DragDownDetails) {
+                  //               showModalBottomSheet<void>(
+                  //                 isScrollControlled: true,
+                  //                 context: context,
+                  //                 builder: (BuildContext context) {
+                  //                   return SizedBox(
+                  //                     height:
+                  //                         MediaQuery.of(context).size.width * 3,
+                  //                     child: Column(
+                  //                       mainAxisAlignment:
+                  //                           MainAxisAlignment.start,
+                  //                       children: <Widget>[
+                  //                         Container(
+                  //                           alignment: Alignment.bottomCenter,
+                  //                           height: MediaQuery.of(context)
+                  //                                   .size
+                  //                                   .width *
+                  //                               0.25,
+                  //                           width: MediaQuery.of(context)
+                  //                                   .size
+                  //                                   .width *
+                  //                               1,
+                  //                           decoration: BoxDecoration(
+                  //                               color: Color(0xFF79DAE8),
+                  //                               borderRadius: BorderRadius.only(
+                  //                                   bottomLeft:
+                  //                                       Radius.circular(30),
+                  //                                   bottomRight:
+                  //                                       Radius.circular(30))),
+                  //                           child: Text(
+                  //                             'History',
+                  //                             style: TextStyle(
+                  //                                 fontFamily: 'Poppins',
+                  //                                 fontWeight: FontWeight.w500,
+                  //                                 fontSize: 20),
+                  //                           ),
+                  //                         ),
+                  //                         GestureDetector(
+                  //                             onHorizontalDragDown:
+                  //                                 (DragDownDetails) {
+                  //                               Navigator.pop(context);
+                  //                             },
+                  //                             child: Container(
+                  //                                 color: Colors.white,
+                  //                                 width: MediaQuery.of(context)
+                  //                                         .size
+                  //                                         .width *
+                  //                                     1,
+                  //                                 child: Icon(IconlyLight
+                  //                                     .arrow_down_2))),
+                  //                         Container(
+                  //                           height: 50,
+                  //                           child: ListView(
+                  //                             scrollDirection: Axis.horizontal,
+                  //                             physics:
+                  //                                 NeverScrollableScrollPhysics(),
+                  //                             children: <Widget>[
+                  //                               Container(
+                  //                                 width: 55,
+                  //                                 child: const Center(
+                  //                                     child: Text(
+                  //                                   'ID',
+                  //                                   style: TextStyle(
+                  //                                       fontFamily: 'Poppins',
+                  //                                       fontSize: 15,
+                  //                                       color: Colors.blue),
+                  //                                 )),
+                  //                               ),
+                  //                               Container(
+                  //                                 width: 75,
+                  //                                 child: const Center(
+                  //                                     child: Text(
+                  //                                   'Date',
+                  //                                   style: TextStyle(
+                  //                                       fontFamily: 'Poppins',
+                  //                                       fontSize: 15,
+                  //                                       color: Colors.blue),
+                  //                                 )),
+                  //                               ),
+                  //                               Container(
+                  //                                 width: 75,
+                  //                                 child: const Center(
+                  //                                     child: Text(
+                  //                                   'User',
+                  //                                   style: TextStyle(
+                  //                                       fontFamily: 'Poppins',
+                  //                                       fontSize: 15,
+                  //                                       color: Colors.blue),
+                  //                                 )),
+                  //                               ),
+                  //                               Container(
+                  //                                 width: 75,
+                  //                                 child: const Center(
+                  //                                     child: Text(
+                  //                                   'Field',
+                  //                                   style: TextStyle(
+                  //                                       fontFamily: 'Poppins',
+                  //                                       fontSize: 15,
+                  //                                       color: Colors.blue),
+                  //                                 )),
+                  //                               ),
+                  //                               Container(
+                  //                                 width: 75,
+                  //                                 child: const Center(
+                  //                                     child: Text(
+                  //                                   'Update',
+                  //                                   style: TextStyle(
+                  //                                       fontFamily: 'Poppins',
+                  //                                       fontSize: 15,
+                  //                                       color: Colors.blue),
+                  //                                 )),
+                  //                               ),
+                  //                             ],
+                  //                           ),
+                  //                         ),
+                  //                         // Expanded(
+                  //                         //     child: ListView.builder(
+                  //                         //   physics: const BouncingScrollPhysics(),
+                  //                         //   shrinkWrap: true,
+                  //                         //   scrollDirection: Axis.vertical,
+                  //                         //   itemBuilder: (context, index) {
+                  //                         //     // return Table(
+                  //                         //     //     border: TableBorder.all(
+                  //                         //     //         width:
+                  //                         //     //             0.5), // Allows to add a border decoration around your table
+                  //                         //     //     children: [
+                  //                         //     //       TableRow(children: [
+                  //                         //     //         Text(rack.links[index].href),
+                  //                         //     //         Text(rack.links[index].href),
+                  //                         //     //         Text(rack.links[index].href),
+                  //                         //     //         Text(rack.links[index].href),
+                  //                         //     //         Text(rack.links[index].href),
+                  //                         //     //       ]),
+                  //                         //     //     ]);
+                  //                         //   },
+                  //                         //   // itemCount: rack.links.length,
+                  //                         // )
+                  //                         //     // ),
+                  //                         //     ),
+                  //                       ],
+                  //                     ),
+                  //                     // ),
+                  //                   );
+                  //                 },
+                  //               );
+                  //             },
+                  //             child: Container(
+                  //                 color: Colors.white,
+                  //                 width: MediaQuery.of(context).size.width * 1,
+                  //                 child: Icon(IconlyLight.arrow_up_2))),
+                  //       ),
+                  //       Container(
+                  //         // alignment: Alignment.centerLeft,
+                  //         padding: const EdgeInsets.only(left: 20, top: 10),
+                  //         child: Row(
+                  //           children: [
+                  //             Text(
+                  //               'History',
+                  //               style: TextStyle(
+                  //                   fontFamily: 'Poppins',
+                  //                   fontWeight: FontWeight.w500,
+                  //                   fontSize: 20),
+                  //             ),
+                  //           ],
+                  //         ),
+                  //       ),
+                  //       Container(
+                  //         height: 50,
+                  //         child: ListView(
+                  //           scrollDirection: Axis.horizontal,
+                  //           physics: NeverScrollableScrollPhysics(),
+                  //           children: <Widget>[
+                  //             Container(
+                  //               width: 55,
+                  //               child: const Center(
+                  //                   child: Text(
+                  //                 'ID',
+                  //                 style: TextStyle(
+                  //                     fontFamily: 'Poppins',
+                  //                     fontSize: 15,
+                  //                     color: Colors.blue),
+                  //               )),
+                  //             ),
+                  //             Container(
+                  //               width: 75,
+                  //               child: const Center(
+                  //                   child: Text(
+                  //                 'Date',
+                  //                 style: TextStyle(
+                  //                     fontFamily: 'Poppins',
+                  //                     fontSize: 15,
+                  //                     color: Colors.blue),
+                  //               )),
+                  //             ),
+                  //             Container(
+                  //               width: 75,
+                  //               child: const Center(
+                  //                   child: Text(
+                  //                 'User',
+                  //                 style: TextStyle(
+                  //                     fontFamily: 'Poppins',
+                  //                     fontSize: 15,
+                  //                     color: Colors.blue),
+                  //               )),
+                  //             ),
+                  //             Container(
+                  //               width: 75,
+                  //               child: const Center(
+                  //                   child: Text(
+                  //                 'Field',
+                  //                 style: TextStyle(
+                  //                     fontFamily: 'Poppins',
+                  //                     fontSize: 15,
+                  //                     color: Colors.blue),
+                  //               )),
+                  //             ),
+                  //             Container(
+                  //               width: 75,
+                  //               child: const Center(
+                  //                   child: Text(
+                  //                 'Update',
+                  //                 style: TextStyle(
+                  //                     fontFamily: 'Poppins',
+                  //                     fontSize: 15,
+                  //                     color: Colors.blue),
+                  //               )),
+                  //             ),
+                  //           ],
+                  //         ),
+                  //       ),
+                  //       // Expanded(
+                  //       //   child: ListView.builder(
+                  //       //     physics: const BouncingScrollPhysics(),
+                  //       //     shrinkWrap: true,
+                  //       //     scrollDirection: Axis.vertical,
+                  //       //     itemBuilder: (context, index) {
+                  //       //       // return Table(
+                  //       //       //     border: TableBorder.all(
+                  //       //       //         width:
+                  //       //       //             0.5), // Allows to add a border decoration around your table
+                  //       //       //     children: [
+                  //       //       //       TableRow(children: [
+                  //       //       //         Text(rack.links[index].href),
+                  //       //       //         Text(rack.links[index].href),
+                  //       //       //         Text(rack.links[index].href),
+                  //       //       //         Text(rack.links[index].href),
+                  //       //       //         Text(rack.links[index].href),
+                  //       //       //       ]),
+                  //       //       //     ]);
+                  //       //     },
+                  //       //     // itemCount: rack.links.length,
+                  //       //   ),
+                  //       // )
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
       ),
@@ -399,19 +398,14 @@ class RackDetail extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          Expanded(
+            flex: 2,
             child: Text(label),
           ),
-          SizedBox(
-            width: 5,
-          ),
-          Container(
-            child: Flexible(
-              child: Text(
-                value,
-                softWrap: true,
-              ),
-            ),
+          Text(":\t\t"),
+          Expanded(
+            flex: 5, // 20%
+            child: Text(value),
           ),
         ],
       ),

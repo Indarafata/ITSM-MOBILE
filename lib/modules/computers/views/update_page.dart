@@ -33,6 +33,7 @@ class _HomepageState extends State<UpdateComputer> {
     // controller.locationId.text = controller.dataLocation!.name;
     return Scaffold(
       appBar: AppBar(
+        //
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
           'Update Computer',
@@ -92,22 +93,23 @@ class _HomepageState extends State<UpdateComputer> {
               //   controller: controller.locationId,
               // ),
               DropdownButtonHideUnderline(
-                child: DropdownButton(
-                    iconSize: 30,
-                    borderRadius: BorderRadius.circular(20)
-                        .copyWith(topLeft: Radius.circular(0)),
-                    isExpanded: true,
-                    hint: Text(controllerLocation.dataLocation!.name,
-                        style: TextStyle(fontSize: 15)),
-                    value: controller.selectedLocation,
-                    items: controllerLocation.list,
-                    onChanged: (val) {
-                      // print("hj");
-                      // print(computer.comment!);
-                      setState(() {
-                        controller.selectedLocation = val.toString();
-                      });
-                    }),
+                child: DropdownButtonFormField(
+                  hint: Text(
+                    controllerLocation.dataLocation!.name,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).hintColor,
+                    ),
+                  ),
+                  items: controllerLocation.list,
+                  value: controller.selectedLocation,
+                  onChanged: (value) {
+                    // (() {
+                    controller.selectedLocation = value as String;
+                    print(controller.selectedLocation);
+                    // });
+                  },
+                ),
               ),
               // SizedBox(
               //   height: 10,

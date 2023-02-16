@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 
 // void main() => runApp(const MyApp());
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
 }

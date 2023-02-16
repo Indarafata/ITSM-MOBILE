@@ -74,11 +74,14 @@ class Printer extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   var printer = controller.printers[index];
+                  printer.comment =
+                      printer.comment != null ? printer.comment! : "";
 
                   return GestureDetector(
                       onTap: () {
                         controllerLocation
                             .getLocation(printer.locationsId.toString());
+                        print(printer.comment);
                         Get.toNamed(RouteName.printer_detail,
                             arguments: printer);
                       },
@@ -117,7 +120,7 @@ class Printer extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: semiBold,
                         fontSize: 18,
                       ),

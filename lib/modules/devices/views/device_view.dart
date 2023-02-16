@@ -115,7 +115,7 @@ class Device extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       style: fontNunito.copyWith(
-                        color: colorPrimary,
+                        color: Colors.black38,
                         fontWeight: semiBold,
                         fontSize: 18,
                       ),
