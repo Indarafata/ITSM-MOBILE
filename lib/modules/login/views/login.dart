@@ -44,14 +44,24 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: TextField(
-                  obscureText: true,
-                  controller: controller.passwordTextController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
+              Obx(
+                () => Container(
+                  padding: const EdgeInsets.all(10),
+                  child: TextField(
+                    obscureText: controller.isObsecured.value,
+                    controller: controller.passwordTextController,
+                    decoration: InputDecoration(
+                      suffixIcon: GestureDetector(
+                        onTap: () => controller.isObsecured.value =
+                            !controller.isObsecured.value,
+                        child: Icon(controller.isObsecured.value
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                      ),
+                      border: OutlineInputBorder(),
+                      // contentPadding: EdgeInsets.symmetric(vertical: 7),
+                      labelText: 'Password',
+                    ),
                   ),
                 ),
               ),

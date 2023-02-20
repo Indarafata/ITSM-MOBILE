@@ -5,12 +5,12 @@ import 'package:itsm_mobile/model/computer_model.dart';
 import 'package:itsm_mobile/controller/computer_controller.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class UpdateComputer extends StatefulWidget {
-  @override
-  State<UpdateComputer> createState() => _HomepageState();
-}
+class UpdateComputer extends StatelessWidget {
+//   @override
+//   State<UpdateComputer> createState() => _HomepageState();
+// }
 
-class _HomepageState extends State<UpdateComputer> {
+// class _HomepageState extends State<UpdateComputer> {
   final controller = Get.find<ComputerController>();
   final controllerLocation = Get.find<LocationController>();
   // AddTaskView({super.key});
@@ -36,7 +36,7 @@ class _HomepageState extends State<UpdateComputer> {
         //
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
-          'Update Computer',
+          'Update Computerrr',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,

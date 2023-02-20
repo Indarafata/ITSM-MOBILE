@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
           MenuCard(
             onTap: () => Get.toNamed(RouteName.computer),
             label: "Computers",
-            icon: Icons.monitor_sharp,
+            icon: Icons.computer_sharp,
           ),
           SizedBox(
             height: 20,
@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
           MenuCard(
             onTap: () => Get.toNamed(RouteName.printer),
             label: "Printers",
-            icon: Icons.network_check_sharp,
+            icon: Icons.print,
           ),
           SizedBox(
             height: 20,
@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
           MenuCard(
             onTap: () => Get.toNamed(RouteName.rack),
             label: "Rack",
-            icon: Icons.network_check_sharp,
+            icon: Icons.gif_box,
           ),
           SizedBox(
             height: 20,
