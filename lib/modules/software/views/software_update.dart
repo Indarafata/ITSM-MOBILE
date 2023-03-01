@@ -5,12 +5,12 @@ import 'package:itsm_mobile/controller/software_controller.dart';
 import 'package:itsm_mobile/model/software_model.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
-class UpdateSoftware extends StatefulWidget {
-  @override
-  State<UpdateSoftware> createState() => _HomepageState();
-}
+class UpdateSoftware extends StatelessWidget {
+//   @override
+//   State<UpdateSoftware> createState() => _HomepageState();
+// }
 
-class _HomepageState extends State<UpdateSoftware> {
+// class _HomepageState extends State<UpdateSoftware> {
   var name = TextEditingController();
   final controller = Get.find<SoftwareController>();
   final controllerLocation = Get.find<LocationController>();

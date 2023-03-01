@@ -26,12 +26,9 @@ class LocationController extends GetxController {
   Future<void> getAllLocation() async {
     isLoading.value = true;
     try {
-      print("cek");
       dataAllLocations = await LocationService.getAllLocation();
-      print("cek 2");
       addItemLocation();
     } catch (e) {
-      print("cek 3");
       print(e);
     }
   }
