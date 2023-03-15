@@ -50,7 +50,7 @@ class LoginController extends GetxController {
     } catch (e) {
       Get.snackbar(
         'Gagal Masuk !',
-        e.toString(),
+        'Email atau Password Salah',
         backgroundColor: Colors.blue,
         colorText: Colors.white,
         icon: const Icon(

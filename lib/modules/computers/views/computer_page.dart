@@ -28,13 +28,14 @@ class Computer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
           'Computer',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.white),
+              color: Colors.black),
         ),
         elevation: 0.0,
         centerTitle: true,

@@ -25,13 +25,14 @@ class PrinterDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
           'Printer Detail',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.white),
+              color: Color.fromARGB(255, 0, 0, 0)),
         ),
         elevation: 0.0,
         centerTitle: true,
@@ -39,12 +40,14 @@ class PrinterDetail extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
-                onPressed: () => Get.offAllNamed(RouteName.home),
-                icon: Icon(Icons.home)),
+              onPressed: () => Get.offAllNamed(RouteName.home),
+              icon: Icon(Icons.home),
+              color: Colors.black,
+            ),
           ),
         ],
       ),
-      backgroundColor: Color(0xFF79DAE8),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Obx(
         () => controllerLocation.isLoading.value
             ? Center(
@@ -63,7 +66,7 @@ class PrinterDetail extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.lightBlueAccent,
+                      color: Color(0xFFE0F3F7),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +78,7 @@ class PrinterDetail extends StatelessWidget {
                           child: ListView(children: [
                             // Text(printer.name!),
                             FieldDetail('Name                             ',
-                                printer.links[0]!.href),
+                                printer.name!),
                             FieldDetail('Status                           ',
                                 printer.comment!),
                             FieldDetail('Location                            ',

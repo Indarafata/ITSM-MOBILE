@@ -25,13 +25,14 @@ class MonitorDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
           'Monitor Detail',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.white),
+              color: Colors.black),
         ),
         elevation: 0.0,
         centerTitle: true,
@@ -39,12 +40,14 @@ class MonitorDetail extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
-                onPressed: () => Get.offAllNamed(RouteName.home),
-                icon: Icon(Icons.home)),
+              onPressed: () => Get.offAllNamed(RouteName.home),
+              icon: Icon(Icons.home),
+              color: Colors.black,
+            ),
           ),
         ],
       ),
-      backgroundColor: Color(0xFF79DAE8),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Obx(
         () => controllerLocation.isLoading.value
             ? Center(
@@ -63,7 +66,7 @@ class MonitorDetail extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.lightBlueAccent,
+                      color: Color(0xFFE0F3F7),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,25 +76,25 @@ class MonitorDetail extends StatelessWidget {
                         ),
                         Expanded(
                           child: ListView(children: [
-                            FieldDetail('Name                             :',
-                                monitor.links[0].href),
-                            FieldDetail('Status                            :',
+                            FieldDetail('Name                             ',
                                 monitor.name!),
-                            FieldDetail('Location                            :',
+                            FieldDetail('Status                            ',
+                                monitor.name!),
+                            FieldDetail('Location                            ',
                                 controllerLocation.dataLocation!.name),
                             FieldDetail(
-                                'Comment              :', monitor.comment!),
+                                'Comment              ', monitor.comment!),
                             FieldDetail(
-                                'Networking - IP            :', monitor.name!),
+                                'Networking - IP            ', monitor.name!),
                             FieldDetail(
-                                'Serial Number              :', monitor.name!),
+                                'Serial Number              ', monitor.name!),
                             FieldDetail(
-                                'Alternative Username! :', monitor.name!),
-                            FieldDetail('Type                               :',
+                                'Alternative Username! ', monitor.name!),
+                            FieldDetail('Type                               ',
                                 monitor.name!),
-                            FieldDetail('OS - name!                      :',
+                            FieldDetail('OS - name!                      ',
                                 monitor.name!),
-                            FieldDetail('OS - version                   :',
+                            FieldDetail('OS - version                   ',
                                 monitor.name!),
                           ]),
                         ),

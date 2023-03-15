@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
           'ITSM Mobile',
@@ -114,6 +115,34 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
+          // MenuCard(
+          //   onTap: () => Get.toNamed(RouteName.phone),
+          //   label: "Phones",
+          //   icon: Icons.phone,
+          // ),
+          // SizedBox(
+          //   height: 20,
+          // ),
+          // MenuCard(
+          //   onTap: () => Get.toNamed(RouteName.phone),
+          //   label: "Phones",
+          //   icon: Icons.phone,
+          // ),
+          // SizedBox(
+          //   height: 20,
+          // ),
+          // MenuCard(
+          //   onTap: () => Get.toNamed(RouteName.phone),
+          //   label: "Phones",
+          //   icon: Icons.phone,
+          // ),
+          // SizedBox(
+          //   height: 20,
+          // ),
+          // Container(
+          //   height: 10,
+          //   color: Colors.amber,
+          // )
         ],
       ),
     );

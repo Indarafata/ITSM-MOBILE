@@ -27,13 +27,14 @@ class DetailComputer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Color(0xFF79DAE8),
         title: Text(
           'Computer Detail',
           style: TextStyle(
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500,
-              color: Colors.white),
+              color: Color.fromARGB(255, 0, 0, 0)),
         ),
         elevation: 0.0,
         centerTitle: true,
@@ -41,12 +42,14 @@ class DetailComputer extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: IconButton(
-                onPressed: () => Get.offAllNamed(RouteName.home),
-                icon: Icon(Icons.home)),
+              onPressed: () => Get.offAllNamed(RouteName.home),
+              icon: Icon(Icons.home),
+              color: Colors.black,
+            ),
           ),
         ],
       ),
-      backgroundColor: Color(0xFF79DAE8),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Obx(
         () => controllerLocation.isLoading.value
             ? Center(
@@ -66,7 +69,7 @@ class DetailComputer extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.lightBlueAccent,
+                      color: Color(0xFFE0F3F7),
                     ),
                     child: Column(
                       // crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +79,7 @@ class DetailComputer extends StatelessWidget {
                         ),
                         Expanded(
                           child: ListView(children: [
-                            FieldDetail('Name', computer.links[0].href),
+                            FieldDetail('Name', computer.name),
                             FieldDetail('Status', computer.name),
                             FieldDetail('Location',
                                 controllerLocation.dataLocation!.name),
@@ -118,7 +121,7 @@ class DetailComputer extends StatelessWidget {
                         //         child: Column(
                         //           crossAxisAlignment: CrossAxisAlignment.start,
                         //           children: [
-                        //             Text(": ${computer.links[0].href}"),
+                        //             Text(": ${computer.name}"),
                         //             Text(": "),
                         //             Text(":"),
                         //             Text(":"),
@@ -142,7 +145,7 @@ class DetailComputer extends StatelessWidget {
                         //         child: Column(
                         //           crossAxisAlignment: CrossAxisAlignment.start,
                         //           children: [
-                        //             Text(computer.links[0].href),
+                        //             Text(computer.name),
                         //             Text(computer.name),
                         //             Text(controllerLocation.dataLocation!.name),
                         //             Text(computer.comment!),
