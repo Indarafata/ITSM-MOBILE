@@ -35,12 +35,14 @@ import 'package:itsm_mobile/modules/racks/bindings/rack_binding.dart';
 import 'package:itsm_mobile/modules/racks/views/rack_detail.dart';
 import 'package:itsm_mobile/modules/racks/views/rack_page.dart';
 import 'package:itsm_mobile/modules/racks/views/racks_update.dart';
+import 'package:itsm_mobile/modules/searcbar/views/searchbar.dart';
 import 'package:itsm_mobile/modules/software/bindings/software_binding.dart';
 import 'package:itsm_mobile/modules/software/views/software_detail.dart';
 import 'package:itsm_mobile/modules/software/views/software_page.dart';
 import 'package:itsm_mobile/modules/software/views/software_update.dart';
 import 'package:itsm_mobile/modules/splash/splash.dart';
 import '../modules/login/views/login.dart';
+import '../modules/searcbar/bindings/searcbar_binding.dart';
 
 part './app_routes.dart';
 

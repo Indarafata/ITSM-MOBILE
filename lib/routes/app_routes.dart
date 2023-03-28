@@ -32,4 +32,5 @@ abstract class RouteName {
   static const racks_update = '/racks-update';
   static const printer_update = '/printer-update';
   static const device_update = '/device-update';
+  static const searchbar = '/searchbar';
 }
