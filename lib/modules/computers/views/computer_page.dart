@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:itsm_mobile/controller/location_controller.dart';
+import 'package:itsm_mobile/controller/searchbar_controller.dart';
 import 'package:itsm_mobile/model/computer_model.dart';
 import 'package:itsm_mobile/controller/computer_controller.dart';
 import 'package:itsm_mobile/modules/searcbar/views/searchbar.dart';
@@ -17,6 +18,8 @@ class Computer extends StatelessWidget {
 
   final controller = Get.find<ComputerController>();
   final controllerLocation = Get.find<LocationController>();
+    final controllerSearch = Get.find<SearchbarController>();
+    
 
   Color colorPrimary = Color(0xFF79DAE8);
   FontWeight medium = FontWeight.w500;
@@ -26,11 +29,23 @@ class Computer extends StatelessWidget {
   double defaultBorderRadius = 15.0;
   // Font
   TextStyle fontNunito = const TextStyle(fontFamily: 'Nunito');
-
+// final String searchValue;
   @override
   Widget build(BuildContext context) {
+    String searchValue;
     return Scaffold(
-      // appBar: AppBar(
+      appBar: PreferredSize(
+    preferredSize: const Size.fromHeight(100),
+    child: SearchMenu(label: "Computer",),
+  ),
+      
+      
+      // EasySearchBar(
+      //     title: Text('Computer'),
+      //     onSearch: (value) => (searchValue = value),
+      //     suggestions: controllerSearch.suggestions,
+      //   ),
+      // AppBar(
       //   iconTheme: IconThemeData(color: Colors.black),
       //   backgroundColor: Color(0xFF79DAE8),
       //   title: Text(
@@ -63,45 +78,45 @@ class Computer extends StatelessWidget {
               )
             :
             // Searchbar()
-            Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Flexible(
-                    child: SearchMenu(),
-                  ),
+            // Column(
+            //     mainAxisAlignment: MainAxisAlignment.start,
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+                  // Flexible(
+                  //   child: SearchMenu(label: "haha",),
+                  // ),
                   // Expanded(
                   //   child: Container(
                   //     color: Colors.white,
                   //     width: 0,
                   //   ),
-                  // )
-                  // ListView.builder(
-                  //   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  //   physics: const BouncingScrollPhysics(),
-                  //   shrinkWrap: true,
-                  //   scrollDirection: Axis.vertical,
-                  //   itemBuilder: (context, index) {
-                  //     var computer = controller.computers[index];
-
-                  //     return GestureDetector(
-                  //       onTap: () {
-                  //         // LocationController.getLocation(
-                  //         //     computer.links[2].href.toString());
-                  //         // LocationController.getLocation(
-                  //         //     computer.locationsId.toString());
-                  //         controllerLocation
-                  //             .getLocation(computer.locationsId.toString());
-                  //         Get.toNamed(RouteName.computer_detail,
-                  //             arguments: computer);
-                  //       },
-                  //       child: ListComputer(computer),
-                  //     );
-                  //   },
-                  //   itemCount: controller.computers.length,
                   // ),
-                ],
-              ),
+                  ListView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      var computer = controller.computers[index];
+
+                      return GestureDetector(
+                        onTap: () {
+                          // LocationController.getLocation(
+                          //     computer.links[2].href.toString());
+                          // LocationController.getLocation(
+                          //     computer.locationsId.toString());
+                          controllerLocation
+                              .getLocation(computer.locationsId.toString());
+                          Get.toNamed(RouteName.computer_detail,
+                              arguments: computer);
+                        },
+                        child: ListComputer(computer),
+                      );
+                    },
+                    itemCount: controller.computers.length,
+                  ),
+              //   ],
+              // ),
         // DropdownButton(
         //     dropdownColor: Colors.amber,
         //     items: controllerLocation.list,
