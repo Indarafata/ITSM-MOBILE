@@ -17,7 +17,10 @@ class ComputerController extends GetxController {
   var comment = TextEditingController();
   String? selectedLocation;
   final isLoading = false.obs;
-  List<DropdownMenuItem<String>>? list;
+  final GetDataisLoading = false.obs;
+  List<String>? suggestions;
+  
+
 
   @override
   void onInit() {
@@ -35,6 +38,7 @@ class ComputerController extends GetxController {
     try {
       final dataComputer = await ComputerService.getAllComputer();
       computers.assignAll(dataComputer);
+      addItemComputer();
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
@@ -75,4 +79,23 @@ class ComputerController extends GetxController {
       );
     }
   }
+
+   Future<void> addItemComputer() async {
+    GetDataisLoading.value = true;
+    suggestions = [];
+    for (int i = 0; i < computers!.length; i++) {
+      suggestions!.add(computers![i].name);
+    }
+    for (int i = 0; i < 5; i++) {
+      print("huhu");
+      print(suggestions![i]);
+    }
+    GetDataisLoading.value = false;
+  }
+
+  // DropdownMenuItem<String> getItemComputer(int i) {
+  //   return DropdownMenuItem<String>(
+  //       value: computers![i].id.toString(),
+  //       child: Text(computers![i].name));
+  // }
 }

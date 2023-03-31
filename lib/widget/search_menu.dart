@@ -1,6 +1,7 @@
 import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:itsm_mobile/controller/computer_controller.dart';
 import 'package:itsm_mobile/controller/searchbar_controller.dart';
 
 class SearchMenu extends StatelessWidget {
@@ -12,6 +13,7 @@ class SearchMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<SearchbarController>();
+    final controllerComputer = Get.find<ComputerController>();
     String searchValue;
     // return EasySearchBar(
     //   backgroundColor: Color(0xFF79DAE8),
@@ -21,11 +23,18 @@ class SearchMenu extends StatelessWidget {
     //   onSearch: (value) => (searchValue = value),
     //   suggestions: controller.suggestions,
     // );
-    return EasySearchBar(
+    return Obx(() =>
+     controllerComputer.GetDataisLoading.value ? EasySearchBar(
           title: Center(
           child: Text(label),),
           onSearch: (value) => (searchValue = value),
-          suggestions: controller.suggestions,
-        );
+          suggestions: controllerComputer.suggestions,
+        ) : 
+        EasySearchBar(
+          title: Center(
+          child: Text(label),),
+          onSearch: (value) => (searchValue = value),
+          suggestions: controllerComputer.suggestions,
+        ));
   }
 }

@@ -32,42 +32,12 @@ class Computer extends StatelessWidget {
 // final String searchValue;
   @override
   Widget build(BuildContext context) {
-    String searchValue;
+    // String searchValue;
     return Scaffold(
       appBar: PreferredSize(
-    preferredSize: const Size.fromHeight(100),
-    child: SearchMenu(label: "Computer",),
-  ),
-      
-      
-      // EasySearchBar(
-      //     title: Text('Computer'),
-      //     onSearch: (value) => (searchValue = value),
-      //     suggestions: controllerSearch.suggestions,
-      //   ),
-      // AppBar(
-      //   iconTheme: IconThemeData(color: Colors.black),
-      //   backgroundColor: Color(0xFF79DAE8),
-      //   title: Text(
-      //     'Computer',
-      //     style: TextStyle(
-      //         fontFamily: "Poppins",
-      //         fontWeight: FontWeight.w500,
-      //         color: Colors.black),
-      //   ),
-      //   elevation: 0.0,
-      //   centerTitle: true,
-      //   actions: [
-      //     Container(
-      //       padding: EdgeInsets.symmetric(horizontal: 16),
-      //       child: IconButton(
-      //         onPressed: () => Get.offAllNamed(RouteName.home),
-      //         icon: Icon(Icons.home),
-      //         color: Colors.black,
-      //       ),
-      //     ),
-      //   ],
-      // ),
+        preferredSize: const Size.fromHeight(100),
+        child: SearchMenu(label: "Computer",),
+        ),
       body: Obx(
         () => controller.isLoading.value
             ? Center(
