@@ -11,6 +11,9 @@ import '../routes/app_pages.dart';
 
 class ComputerController extends GetxController {
   var computers = <ComputerModel>[].obs;
+  var computersDup1 = <ComputerModel>[].obs;
+  var computersDup2 = <ComputerModel>[].obs;
+  var computersDup3 = <ComputerModel>[].obs;
   var locations = <LocationModel>[].obs;
   var name = TextEditingController();
   var locationId = TextEditingController();
@@ -19,8 +22,6 @@ class ComputerController extends GetxController {
   final isLoading = false.obs;
   final GetDataisLoading = false.obs;
   List<String>? suggestions;
-  
-
 
   @override
   void onInit() {
@@ -38,7 +39,8 @@ class ComputerController extends GetxController {
     try {
       final dataComputer = await ComputerService.getAllComputer();
       computers.assignAll(dataComputer);
-      addItemComputer();
+      computersDup3.assignAll(dataComputer);
+      // addItemComputer();
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
@@ -80,17 +82,22 @@ class ComputerController extends GetxController {
     }
   }
 
-   Future<void> addItemComputer() async {
-    GetDataisLoading.value = true;
-    suggestions = [];
-    for (int i = 0; i < computers!.length; i++) {
-      suggestions!.add(computers![i].name);
+  void filterSearchResults(String searchVal) {
+    computersDup1.addAll(computersDup3);
+    if (searchVal.isNotEmpty) {
+      computersDup1.forEach((item) {
+        if (item.name.contains(searchVal)) {
+          print(item.name);
+          print(searchVal);
+          computersDup2.assign(item);
+        }
+      });
+      computers.clear();
+      computers.assignAll(computersDup2);
+    } else {
+      computers.clear();
+      computers.addAll(computersDup3);
     }
-    for (int i = 0; i < 5; i++) {
-      print("huhu");
-      print(suggestions![i]);
-    }
-    GetDataisLoading.value = false;
   }
 
   // DropdownMenuItem<String> getItemComputer(int i) {
