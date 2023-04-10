@@ -86,10 +86,11 @@ class ComputerController extends GetxController {
     computersDup1.addAll(computersDup3);
     if (searchVal.isNotEmpty) {
       computersDup1.forEach((item) {
-        if (item.name.contains(searchVal)) {
+        if (item.name.toLowerCase().contains(searchVal.toLowerCase())) {
           print(item.name);
           print(searchVal);
-          computersDup2.assign(item);
+          // computersDup2.assign(item);
+          computersDup2.add(item);
         }
       });
       computers.clear();
