@@ -28,10 +28,8 @@ class Computer extends StatelessWidget {
   double defaultBorderRadius = 15.0;
   // Font
   TextStyle fontNunito = const TextStyle(fontFamily: 'Nunito');
-// final String searchValue;
   @override
   Widget build(BuildContext context) {
-    // String searchValue;
     return Scaffold(
       // appBar: PreferredSize(
       //   preferredSize: const Size.fromHeight(100),
@@ -66,24 +64,12 @@ class Computer extends StatelessWidget {
                   size: 7.h,
                 ),
               )
-            :
-            // Searchbar()
-            // Column(
-            //     mainAxisAlignment: MainAxisAlignment.start,
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            // Flexible(
-            //   child: SearchMenu(label: "haha",),
-            // ),
-            // Expanded(
-            //   child: Container(
-            //     color: Colors.white,
-            //     width: 0,
-            //   ),
-            // ),
-            Column(
+            : Column(
                 children: [
-                  SearchMenu(),
+                  SearchMenu(
+                    controller: controller,
+                    dataDuplicate3: controller.duplicateData,
+                  ),
                   Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -91,14 +77,10 @@ class Computer extends StatelessWidget {
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {
-                        var computer = controller.computers[index];
+                        var computer = controller.data[index];
 
                         return GestureDetector(
                           onTap: () {
-                            // LocationController.getLocation(
-                            //     computer.links[2].href.toString());
-                            // LocationController.getLocation(
-                            //     computer.locationsId.toString());
                             controllerLocation
                                 .getLocation(computer.locationsId.toString());
                             Get.toNamed(RouteName.computer_detail,
@@ -107,19 +89,11 @@ class Computer extends StatelessWidget {
                           child: ListComputer(computer),
                         );
                       },
-                      itemCount: controller.computers.length,
+                      itemCount: controller.data.length,
                     ),
                   ),
                 ],
               ),
-        //   ],
-        // ),
-        // DropdownButton(
-        //     dropdownColor: Colors.amber,
-        //     items: controllerLocation.list,
-        //     onChanged: (value) {
-        //       print(value);
-        //     })
       ),
     );
   }

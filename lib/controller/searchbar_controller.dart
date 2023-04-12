@@ -1,17 +1,17 @@
 import 'package:get/get.dart';
 
 class SearchbarController extends GetxController {
-  final List<String> suggestions = [
-    'Afganistan',
-    'Albania',
-    'Algeria',
-    'Australia',
-    'Brazil',
-    'German',
-    'Madagascar',
-    'Mozambique',
-    'Portugal',
-    'Zambia'
-  ];
-  // String coba = '';
+  void filterSearchResults(String searchVal, var controller, var temp) {
+    if (searchVal.isNotEmpty) {
+      temp.forEach((item) {
+        if (item.name.toLowerCase().contains(searchVal.toLowerCase())) {
+          controller.addSearchResult(item);
+        }
+      });
+      controller.addAllSearchResult(controller.searchResult);
+    } else {
+      controller.data.clear();
+      controller.data.addAllSearchResult(temp);
+    }
+  }
 }

@@ -10,10 +10,9 @@ import 'package:itsm_mobile/service/location_service.dart';
 import '../routes/app_pages.dart';
 
 class ComputerController extends GetxController {
-  var computers = <ComputerModel>[].obs;
-  var computersDup1 = <ComputerModel>[].obs;
-  var computersDup2 = <ComputerModel>[].obs;
-  var computersDup3 = <ComputerModel>[].obs;
+  var data = <ComputerModel>[].obs;
+  var duplicateData = <ComputerModel>[].obs;
+  var searchResult = <ComputerModel>[].obs;
   var locations = <LocationModel>[].obs;
   var name = TextEditingController();
   var locationId = TextEditingController();
@@ -26,6 +25,7 @@ class ComputerController extends GetxController {
   @override
   void onInit() {
     getAllComputer();
+
     super.onInit();
   }
 
@@ -38,8 +38,8 @@ class ComputerController extends GetxController {
     isLoading.value = true;
     try {
       final dataComputer = await ComputerService.getAllComputer();
-      computers.assignAll(dataComputer);
-      computersDup3.assignAll(dataComputer);
+      data.assignAll(dataComputer);
+      duplicateData.assignAll(dataComputer);
       // addItemComputer();
       isLoading.value = false;
     } catch (e) {
@@ -82,23 +82,13 @@ class ComputerController extends GetxController {
     }
   }
 
-  void filterSearchResults(String searchVal) {
-    computersDup1.addAll(computersDup3);
-    if (searchVal.isNotEmpty) {
-      computersDup1.forEach((item) {
-        if (item.name.toLowerCase().contains(searchVal.toLowerCase())) {
-          print(item.name);
-          print(searchVal);
-          // computersDup2.assign(item);
-          computersDup2.add(item);
-        }
-      });
-      computers.clear();
-      computers.assignAll(computersDup2);
-    } else {
-      computers.clear();
-      computers.addAll(computersDup3);
-    }
+  void addSearchResult(data) {
+    searchResult.assign(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 
   // DropdownMenuItem<String> getItemComputer(int i) {
