@@ -8,7 +8,10 @@ import 'package:itsm_mobile/service/printer_service.dart';
 import '../routes/app_pages.dart';
 
 class PrinterController extends GetxController {
-  var printers = <PrinterModel>[].obs;
+  // var printers = <PrinterModel>[].obs;
+  var data = <PrinterModel>[].obs;
+  var duplicateData = <PrinterModel>[].obs;
+  var searchResult = <PrinterModel>[].obs;
   var printer = PrinterService();
   var name = TextEditingController();
   var comment = TextEditingController();
@@ -37,7 +40,8 @@ class PrinterController extends GetxController {
       print(2);
       if (dataprinter != null) {
         print(3);
-        printers.assignAll(dataprinter);
+        data.assignAll(dataprinter);
+        duplicateData.assignAll(dataprinter);
       }
       isLoading.value = false;
     } catch (e) {
@@ -84,5 +88,15 @@ class PrinterController extends GetxController {
         ),
       );
     }
+  }
+
+  void addSearchResult(data) {
+    // searchResult.assign(data);
+    searchResult.add(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 }

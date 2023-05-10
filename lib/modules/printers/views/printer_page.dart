@@ -16,6 +16,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
+import '../../../widget/search_menu.dart';
+
 class Printer extends StatelessWidget {
   Printer({Key? key}) : super(key: key);
   final controllerLocation = Get.find<LocationController>();
@@ -68,27 +70,37 @@ class Printer extends StatelessWidget {
             :
             // Column(
             //     children: <Widget>[
-            ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var printer = controller.printers[index];
-                  printer.comment =
-                      printer.comment != null ? printer.comment! : "";
+            Column(
+                children: [
+                  SearchMenu(
+                    controller: controller,
+                    dataDuplicate3: controller.duplicateData,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        physics: const BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) {
+                          var printer = controller.data[index];
+                          printer.comment =
+                              printer.comment != null ? printer.comment! : "";
 
-                  return GestureDetector(
-                      onTap: () {
-                        controllerLocation
-                            .getLocation(printer.locationsId.toString());
-                        print(printer.comment);
-                        Get.toNamed(RouteName.printer_detail,
-                            arguments: printer);
-                      },
-                      child: ListPrinter(printer));
-                },
-                itemCount: controller.printers.length),
+                          return GestureDetector(
+                              onTap: () {
+                                controllerLocation.getLocation(
+                                    printer.locationsId.toString());
+                                print(printer.comment);
+                                Get.toNamed(RouteName.printer_detail,
+                                    arguments: printer);
+                              },
+                              child: ListPrinter(printer));
+                        },
+                        itemCount: controller.data.length),
+                  ),
+                ],
+              ),
         //   ],
         // ),
       ),

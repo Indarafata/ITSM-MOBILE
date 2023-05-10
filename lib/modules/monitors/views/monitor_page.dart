@@ -13,6 +13,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
+import '../../../widget/search_menu.dart';
+
 class Monitor extends StatelessWidget {
   Monitor({Key? key}) : super(key: key);
   final controllerLocation = Get.find<LocationController>();
@@ -62,27 +64,34 @@ class Monitor extends StatelessWidget {
                   size: 7.h,
                 ),
               )
-            :
-            // Column(
-            //     children: <Widget>[
-            ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var monitor = controller.monitors[index];
+            : Column(
+                children: [
+                  SearchMenu(
+                    controller: controller,
+                    dataDuplicate3: controller.duplicateData,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        var monitor = controller.data[index];
 
-                  return GestureDetector(
-                      onTap: () {
-                        controllerLocation
-                            .getLocation(monitor.locationsId.toString());
-                        Get.toNamed(RouteName.monitor_detail,
-                            arguments: monitor);
+                        return GestureDetector(
+                            onTap: () {
+                              controllerLocation
+                                  .getLocation(monitor.locationsId.toString());
+                              Get.toNamed(RouteName.monitor_detail,
+                                  arguments: monitor);
+                            },
+                            child: ListMonitor(monitor));
                       },
-                      child: ListMonitor(monitor));
-                },
-                itemCount: controller.monitors!.length,
+                      itemCount: controller.data!.length,
+                    ),
+                  ),
+                ],
               ),
         //   ],
         // ),

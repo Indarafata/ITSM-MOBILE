@@ -8,7 +8,10 @@ import 'package:itsm_mobile/model/location_model.dart';
 import 'package:flutter/material.dart';
 
 class MonitorController extends GetxController {
-  var monitors = <MonitorModel>[].obs;
+  var data = <MonitorModel>[].obs;
+  var duplicateData = <MonitorModel>[].obs;
+  var searchResult = <MonitorModel>[].obs;
+  // var monitors = <MonitorModel>[].obs;
   var locations = <LocationModel>[].obs;
   var name = TextEditingController();
   var comment = TextEditingController();
@@ -36,7 +39,8 @@ class MonitorController extends GetxController {
     try {
       var dataMonitor = await monitor.getAllMonitor();
       if (dataMonitor != null) {
-        monitors.assignAll(dataMonitor);
+        data.assignAll(dataMonitor);
+        duplicateData.assignAll(data);
       }
       isLoading.value = false;
     } catch (e) {
@@ -78,5 +82,15 @@ class MonitorController extends GetxController {
         ),
       );
     }
+  }
+
+  void addSearchResult(data) {
+    // searchResult.assign(data);
+    searchResult.add(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 }

@@ -8,7 +8,10 @@ import 'package:itsm_mobile/service/software_service.dart';
 import '../routes/app_pages.dart';
 
 class SoftwareController extends GetxController {
-  var softwares = <SoftwareModel>[].obs;
+  // var softwares = <SoftwareModel>[].obs;
+  var data = <SoftwareModel>[].obs;
+  var duplicateData = <SoftwareModel>[].obs;
+  var searchResult = <SoftwareModel>[].obs;
   var software = SoftwareService();
   var name = TextEditingController();
   var comment = TextEditingController();
@@ -33,7 +36,8 @@ class SoftwareController extends GetxController {
     try {
       final dataSoftware = await software.getAllSoftware();
       if (dataSoftware != null) {
-        softwares.assignAll(dataSoftware);
+        data.assignAll(dataSoftware);
+        duplicateData.assignAll(dataSoftware);
       }
       isLoading.value = false;
     } catch (e) {
@@ -75,5 +79,15 @@ class SoftwareController extends GetxController {
         ),
       );
     }
+  }
+
+  void addSearchResult(data) {
+    // searchResult.assign(data);
+    searchResult.add(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 }

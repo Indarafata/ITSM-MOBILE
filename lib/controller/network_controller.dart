@@ -8,7 +8,9 @@ import 'package:itsm_mobile/service/network_service.dart';
 import '../routes/app_pages.dart';
 
 class NetworkController extends GetxController {
-  var networks = <NetworkModel>[].obs;
+  var data = <NetworkModel>[].obs;
+  var duplicateData = <NetworkModel>[].obs;
+  var searchResult = <NetworkModel>[].obs;
   var network = NetworkService();
   var locationId = TextEditingController();
   var locations = <LocationModel>[].obs;
@@ -34,7 +36,8 @@ class NetworkController extends GetxController {
     try {
       final dataNetwork = await network.getAllNetwork();
       if (dataNetwork != null) {
-        networks.assignAll(dataNetwork);
+        data.assignAll(dataNetwork);
+        duplicateData.assignAll(dataNetwork);
       }
       isLoading.value = false;
     } catch (e) {
@@ -76,5 +79,15 @@ class NetworkController extends GetxController {
         ),
       );
     }
+  }
+
+  void addSearchResult(data) {
+    // searchResult.assign(data);
+    searchResult.add(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 }

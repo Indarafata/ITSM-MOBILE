@@ -10,6 +10,7 @@ import 'package:itsm_mobile/model/monitor_model.dart';
 import 'package:itsm_mobile/controller/device_controller.dart';
 import 'package:itsm_mobile/controller/monitor_controller.dart';
 import 'package:itsm_mobile/service/monitor_service.dart';
+import 'package:itsm_mobile/widget/search_menu.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
@@ -66,23 +67,33 @@ class Device extends StatelessWidget {
             :
             // Column(
             //     children: <Widget>[
-            ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var device = controller.devices[index];
+            Column(
+                children: [
+                  SearchMenu(
+                      controller: controller,
+                      dataDuplicate3: controller.duplicateData),
+                  Expanded(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        var device = controller.data[index];
 
-                  return GestureDetector(
-                      onTap: () {
-                        controllerLocation
-                            .getLocation(device.locationsId.toString());
-                        Get.toNamed(RouteName.device_detail, arguments: device);
+                        return GestureDetector(
+                            onTap: () {
+                              controllerLocation
+                                  .getLocation(device.locationsId.toString());
+                              Get.toNamed(RouteName.device_detail,
+                                  arguments: device);
+                            },
+                            child: ListDevice(device));
                       },
-                      child: ListDevice(device));
-                },
-                itemCount: controller.devices.length,
+                      itemCount: controller.data.length,
+                    ),
+                  ),
+                ],
               ),
         //   ],
         // ),

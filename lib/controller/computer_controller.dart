@@ -83,7 +83,8 @@ class ComputerController extends GetxController {
   }
 
   void addSearchResult(data) {
-    searchResult.assign(data);
+    // searchResult.assign(data);
+    searchResult.add(data);
   }
 
   void addAllSearchResult(temp) {

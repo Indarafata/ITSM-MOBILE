@@ -7,8 +7,11 @@ import 'package:itsm_mobile/service/device_service.dart';
 import '../routes/app_pages.dart';
 
 class DeviceController extends GetxController {
-  var devices = <DeviceModel>[].obs;
+  // var devices = <DeviceModel>[].obs;
   var device = DeviceService();
+  var data = <DeviceModel>[].obs;
+  var duplicateData = <DeviceModel>[].obs;
+  var searchResult = <DeviceModel>[].obs;
   final isLoading = false.obs;
   var name = TextEditingController();
   var comment = TextEditingController();
@@ -35,7 +38,8 @@ class DeviceController extends GetxController {
     try {
       final dataDevice = await device.getAllDevice();
       if (dataDevice != null) {
-        devices.assignAll(dataDevice);
+        data.assignAll(dataDevice);
+        duplicateData.assignAll(data);
       }
       isLoading.value = false;
     } catch (e) {
@@ -77,5 +81,14 @@ class DeviceController extends GetxController {
         ),
       );
     }
+  }
+
+  void addSearchResult(data) {
+    searchResult.add(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 }

@@ -8,7 +8,10 @@ import 'package:itsm_mobile/service/phone_service.dart';
 import '../routes/app_pages.dart';
 
 class PhoneController extends GetxController {
-  var phones = <PhoneModel>[].obs;
+  // var phones = <PhoneModel>[].obs;
+  var data = <PhoneModel>[].obs;
+  var duplicateData = <PhoneModel>[].obs;
+  var searchResult = <PhoneModel>[].obs;
   var phone = PhoneService();
   var locations = <LocationModel>[].obs;
   var comment = TextEditingController();
@@ -33,7 +36,8 @@ class PhoneController extends GetxController {
     try {
       final dataphone = await phone.getAllPhone();
       if (dataphone != null) {
-        phones.assignAll(dataphone);
+        data.assignAll(dataphone);
+        duplicateData.assignAll(dataphone);
       }
       isLoading.value = false;
     } catch (e) {
@@ -75,5 +79,15 @@ class PhoneController extends GetxController {
         ),
       );
     }
+  }
+
+  void addSearchResult(data) {
+    // searchResult.assign(data);
+    searchResult.add(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 }

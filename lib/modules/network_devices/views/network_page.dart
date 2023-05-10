@@ -10,6 +10,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
+import '../../../widget/search_menu.dart';
+
 class Network extends StatelessWidget {
   Network({Key? key}) : super(key: key);
   final controllerLocation = Get.find<LocationController>();
@@ -59,24 +61,34 @@ class Network extends StatelessWidget {
                   size: 7.h,
                 ),
               )
-            : ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var network = controller.networks[index];
+            : Column(
+                children: [
+                  SearchMenu(
+                    controller: controller,
+                    dataDuplicate3: controller.duplicateData,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        var network = controller.data[index];
 
-                  return GestureDetector(
-                      onTap: () {
-                        // controllerLocation
-                        //     .getLocation(network.);
-                        Get.toNamed(RouteName.network_detail,
-                            arguments: network);
+                        return GestureDetector(
+                            onTap: () {
+                              // controllerLocation
+                              // .getLocation(network.location)
+                              Get.toNamed(RouteName.network_detail,
+                                  arguments: network);
+                            },
+                            child: ListNetwork(network));
                       },
-                      child: ListNetwork(network));
-                },
-                itemCount: controller.networks.length,
+                      itemCount: controller.data.length,
+                    ),
+                  ),
+                ],
               ),
       ),
     );

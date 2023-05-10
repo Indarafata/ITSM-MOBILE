@@ -8,7 +8,9 @@ import 'package:itsm_mobile/service/rack_service.dart';
 import '../routes/app_pages.dart';
 
 class RackController extends GetxController {
-  var racks = <RackModel>[].obs;
+  var data = <RackModel>[].obs;
+  var duplicateData = <RackModel>[].obs;
+  var searchResult = <RackModel>[].obs;
   var rack = RackService();
   var name = TextEditingController();
   var comment = TextEditingController();
@@ -33,7 +35,8 @@ class RackController extends GetxController {
     try {
       final dataRack = await rack.getAllRack();
       if (dataRack != null) {
-        racks.assignAll(dataRack);
+        data.assignAll(dataRack);
+        duplicateData.assignAll(dataRack);
       }
       isLoading.value = false;
     } catch (e) {
@@ -75,5 +78,15 @@ class RackController extends GetxController {
         ),
       );
     }
+  }
+
+  void addSearchResult(data) {
+    // searchResult.assign(data);
+    searchResult.add(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 }

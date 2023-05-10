@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 class SearchbarController extends GetxController {
   void filterSearchResults(String searchVal, var controller, var temp) {
     if (searchVal.isNotEmpty) {
+      controller.searchResult.clear();
       temp.forEach((item) {
         if (item.name.toLowerCase().contains(searchVal.toLowerCase())) {
           controller.addSearchResult(item);
@@ -10,8 +11,9 @@ class SearchbarController extends GetxController {
       });
       controller.addAllSearchResult(controller.searchResult);
     } else {
-      controller.data.clear();
-      controller.data.addAllSearchResult(temp);
+      // controller.data.clear();
+      controller.addAllSearchResult(controller.duplicateData);
+      // controller.data.addAllSearchResult(temp);
     }
   }
 }

@@ -11,6 +11,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
+import '../../../widget/search_menu.dart';
+
 class Phone extends StatelessWidget {
   Phone({Key? key}) : super(key: key);
   final controllerLocation = Get.find<LocationController>();
@@ -61,23 +63,34 @@ class Phone extends StatelessWidget {
                   size: 7.h,
                 ),
               )
-            : ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var phone = controller.phones[index];
+            : Column(
+                children: [
+                  SearchMenu(
+                    controller: controller,
+                    dataDuplicate3: controller.duplicateData,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        var phone = controller.data[index];
 
-                  return GestureDetector(
-                      onTap: () {
-                        controllerLocation
-                            .getLocation(phone.locationsId.toString());
-                        Get.toNamed(RouteName.phone_detail, arguments: phone);
+                        return GestureDetector(
+                            onTap: () {
+                              controllerLocation
+                                  .getLocation(phone.locationsId.toString());
+                              Get.toNamed(RouteName.phone_detail,
+                                  arguments: phone);
+                            },
+                            child: ListPhone(phone));
                       },
-                      child: ListPhone(phone));
-                },
-                itemCount: controller.phones.length,
+                      itemCount: controller.data.length,
+                    ),
+                  ),
+                ],
               ),
       ),
     );

@@ -15,6 +15,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
 import '../../../controller/location_controller.dart';
+import '../../../widget/search_menu.dart';
 
 class Software extends StatelessWidget {
   Software({Key? key}) : super(key: key);
@@ -70,25 +71,35 @@ class Software extends StatelessWidget {
             :
             // Column(
             //     children: <Widget>[
-            ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var software = controller.softwares[index];
+            Column(
+                children: [
+                  SearchMenu(
+                    controller: controller,
+                    dataDuplicate3: controller.duplicateData,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        var software = controller.data[index];
 
-                  return GestureDetector(
-                    onTap: () {
-                      controllerLocation
-                          .getLocation(software.locationsId.toString());
-                      Get.toNamed(RouteName.sofware_detail,
-                          arguments: software);
-                    },
-                    child: ListSoftware(software!),
-                  );
-                },
-                itemCount: controller.softwares.length,
+                        return GestureDetector(
+                          onTap: () {
+                            controllerLocation
+                                .getLocation(software.locationsId.toString());
+                            Get.toNamed(RouteName.sofware_detail,
+                                arguments: software);
+                          },
+                          child: ListSoftware(software!),
+                        );
+                      },
+                      itemCount: controller.data.length,
+                    ),
+                  ),
+                ],
               ),
         //   ],
         // ),

@@ -16,6 +16,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
+import '../../../widget/search_menu.dart';
+
 class Rack extends StatelessWidget {
   Rack({Key? key}) : super(key: key);
   final controllerLocation = Get.find<LocationController>();
@@ -68,23 +70,34 @@ class Rack extends StatelessWidget {
             :
             // Column(
             //     children: <Widget>[
-            ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var rack = controller.racks[index];
+            Column(
+                children: [
+                  SearchMenu(
+                    controller: controller,
+                    dataDuplicate3: controller.duplicateData,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        physics: const BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) {
+                          var rack = controller.data[index];
 
-                  return GestureDetector(
-                      onTap: () {
-                        controllerLocation
-                            .getLocation(rack.locationsId.toString());
-                        Get.toNamed(RouteName.rack_detail, arguments: rack);
-                      },
-                      child: ListRack(rack));
-                },
-                itemCount: controller.racks.length),
+                          return GestureDetector(
+                              onTap: () {
+                                controllerLocation
+                                    .getLocation(rack.locationsId.toString());
+                                Get.toNamed(RouteName.rack_detail,
+                                    arguments: rack);
+                              },
+                              child: ListRack(rack));
+                        },
+                        itemCount: controller.data.length),
+                  )
+                ],
+              ),
         //   ],
         // ),
       ),

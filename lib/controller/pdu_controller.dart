@@ -8,7 +8,9 @@ import 'package:itsm_mobile/service/pdu_service.dart';
 import '../routes/app_pages.dart';
 
 class PduController extends GetxController {
-  var pdus = <PduModel>[].obs;
+  var data = <PduModel>[].obs;
+  var duplicateData = <PduModel>[].obs;
+  var searchResult = <PduModel>[].obs;
   var pdu = PduService();
   var name = TextEditingController();
   var comment = TextEditingController();
@@ -34,7 +36,8 @@ class PduController extends GetxController {
     try {
       final datapdu = await pdu.getAllPdu();
       if (datapdu != null) {
-        pdus.assignAll(datapdu);
+        data.assignAll(datapdu);
+        duplicateData.assignAll(datapdu);
       }
       isLoading.value = false;
     } catch (e) {
@@ -76,5 +79,15 @@ class PduController extends GetxController {
         ),
       );
     }
+  }
+
+  void addSearchResult(data) {
+    // searchResult.assign(data);
+    searchResult.add(data);
+  }
+
+  void addAllSearchResult(temp) {
+    data.clear();
+    data.assignAll(temp);
   }
 }

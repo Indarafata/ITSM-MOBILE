@@ -18,6 +18,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:itsm_mobile/routes/app_pages.dart';
 
+import '../../../widget/search_menu.dart';
+
 class Pdu extends StatelessWidget {
   Pdu({Key? key}) : super(key: key);
   final controllerLocation = Get.find<LocationController>();
@@ -70,23 +72,34 @@ class Pdu extends StatelessWidget {
             :
             // Column(
             //     children: <Widget>[
-            ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) {
-                  var pdu = controller.pdus[index];
+            Column(
+                children: [
+                  SearchMenu(
+                    controller: controller,
+                    dataDuplicate3: controller.duplicateData,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        physics: const BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) {
+                          var pdu = controller.data[index];
 
-                  return GestureDetector(
-                      onTap: () {
-                        controllerLocation
-                            .getLocation(pdu.locationsId.toString());
-                        Get.toNamed(RouteName.pdu_detail, arguments: pdu);
-                      },
-                      child: Listpdu(pdu));
-                },
-                itemCount: controller.pdus.length),
+                          return GestureDetector(
+                              onTap: () {
+                                controllerLocation
+                                    .getLocation(pdu.locationsId.toString());
+                                Get.toNamed(RouteName.pdu_detail,
+                                    arguments: pdu);
+                              },
+                              child: Listpdu(pdu));
+                        },
+                        itemCount: controller.data.length),
+                  ),
+                ],
+              ),
         //   ],
         // ),
       ),
